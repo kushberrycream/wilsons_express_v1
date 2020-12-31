@@ -3,16 +3,21 @@
 <html lang="en">
 
 <head>
+  <!-- Favicon -->
+  <link rel="icon" href="#"/>
   {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta charset="utf-8" />
+    <meta name="description" content="Wilson's Express Sameday Store and Booking Site">
+    <meta name="keywords" content="Sameday, Courier, Wilson's Express, Wilson's, Wilson, Express, Overnight, Booking, Shop, Maidstone, Nationwide, International, Parcels, Freight, Pallets, Boxes, Packaging">
+    <meta name="author" content="Tom Jones">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   {% endblock %}
 
   {% block extra_meta %}
   {% endblock %}
 
-  {%block corecss %}
+  {% block corecss %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -40,10 +45,14 @@
 </head>
 
 <body>
+  <header class="container-fluid fixed-top"></header>
+
+  {% if messages %}
+    <div class="message-container"></div>
+  {% endif %}
 
 
 
-  
   {% block page_header %}
   {% endblock %}
 
