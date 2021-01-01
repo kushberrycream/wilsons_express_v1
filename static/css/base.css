@@ -3,15 +3,17 @@ html {
 }
 
 body {
-  background: url("/media/apcbg.jpg") no-repeat center center fixed;
+  background: url("/media/apcbg2.jpg") no-repeat center center fixed;
   background-size: cover;
   height: calc(100vh - 140px);
   color: #555;
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 140px;
 }
 
 .rgba-black-light,
-.rgba-black-light:after {
+.rgba-black-light:after,
+.rgba-black-light:before {
   position: fixed; /* Sit on top of the page content */
   display: block; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
@@ -20,6 +22,55 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  background-color: #0000009c;
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+    top: 0;
+}
+
+button.navbar-toggler {
+    z-index: 1;
+    margin-top: 60px;
+}
+
+
+
+
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
 }
