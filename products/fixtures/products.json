@@ -1,0 +1,749 @@
+[
+  {
+    "pk":1,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15033",
+      "name":"Single Wall Cardboard Box",
+      "size":"305x229x229",
+      "price":0.75,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":2,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15169",
+      "name":"Single Wall Cardboard Box",
+      "size":"305x229x178",
+      "price":0.65,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":3,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15034",
+      "name":"Single Wall Cardboard Box",
+      "size":"305x305x305",
+      "price":1.25,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":4,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15041",
+      "name":"Single Wall Cardboard Box",
+      "size":"430x300x229",
+      "price":1.25,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":5,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15459",
+      "name":"Single Wall Cardboard Box",
+      "size":"450x260x340",
+      "price":1.50,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":6,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15037",
+      "name":"Single Wall Cardboard Box",
+      "size":"457x305x305",
+      "price":1.25,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":7,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15636",
+      "name":"Single Wall Cardboard Box",
+      "size":"590x290x390",
+      "price":1.75,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":8,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15561",
+      "name":"Single Wall Cardboard Box",
+      "size":"610x280x357",
+      "price":1.85,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":9,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15039",
+      "name":"Single Wall Cardboard Box",
+      "size":"610x457x305",
+      "price":2.00,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":10,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15139",
+      "name":"Single Wall Cardboard Box",
+      "size":"457x457x305",
+      "price":2.20,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":11,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15833",
+      "name":"Single Wall Cardboard Box",
+      "size":"610x457x457",
+      "price":2.25,
+      "category":1,
+      "stock":50
+    }
+  },
+  {
+    "pk":12,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15061",
+      "name":"Double Wall Cardboard Box",
+      "size":"305x229x229",
+      "price":1.50,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":13,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp22693",
+      "name":"Double Wall Cardboard Box",
+      "size":"330x330x203",
+      "price":1.60,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":14,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp23010",
+      "name":"Double Wall Cardboard Box",
+      "size":"355x255x180",
+      "price":1.75,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":15,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15056",
+      "name":"Double Wall Cardboard Box",
+      "size":"381x330x305",
+      "price":2.25,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":16,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15368",
+      "name":"Double Wall Cardboard Box",
+      "size":"365x365x425",
+      "price":3.50,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":17,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15549",
+      "name":"Double Wall Cardboard Box",
+      "size":"385x360x560",
+      "price":6.00,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":18,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp22248",
+      "name":"Double Wall Cardboard Box",
+      "size":"430x330x340",
+      "price":2.50,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":19,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp15124",
+      "name":"Double Wall Cardboard Box",
+      "size":"457x457x457",
+      "price":3.75,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":20,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp22250",
+      "name":"Double Wall Cardboard Box",
+      "size":"570x460x390",
+      "price":3.50,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":21,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp23012",
+      "name":"Double Wall Cardboard Box",
+      "size":"483x406x165",
+      "price":2.25,
+      "category":2,
+      "stock":50
+    }
+  },
+  {
+    "pk":22,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp22812",
+      "name":"Double Wall Long Top Open Cardboard Box",
+      "size":"150x150x500",
+      "price":1.80,
+      "category":3,
+      "stock":50
+    }
+  },
+  {
+    "pk":23,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp22814",
+      "name":"Double Wall Long Top Open Cardboard Box",
+      "size":"150x150x1000",
+      "price":3.25,
+      "category":3,
+      "stock":50
+    }
+  },
+  {
+    "pk":24,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp12060",
+      "name":"Bottle Postal Boxes",
+      "size":"Single Bottle",
+      "price":1.50,
+      "category":4,
+      "stock":50
+    }
+  },
+  {
+    "pk":25,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp12061",
+      "name":"Bottle Postal Boxes",
+      "size":"Double Bottle",
+      "price":2.50,
+      "category":4,
+      "stock":50
+    }
+  },
+  {
+    "pk":26,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp12062",
+      "name":"Bottle Postal Boxes",
+      "size":"6 Bottles",
+      "price":4.00,
+      "category":4,
+      "stock":50
+    }
+  },
+  {
+    "pk":27,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp03050",
+      "name":"Bubble Wrap Rolls",
+      "size":"W:500mm L:7m",
+      "price":7.00,
+      "category":5,
+      "stock":10
+    }
+  },
+  {
+    "pk":28,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp03210",
+      "name":"Bubble Wrap Rolls",
+      "size":"W:300mm L:100m",
+      "price":10.50,
+      "category":5,
+      "stock":10
+    }
+  },
+  {
+    "pk":29,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp03208",
+      "name":"Bubble Wrap Rolls",
+      "size":"W:500mm L:100m",
+      "price":16.00,
+      "category":5,
+      "stock":10
+    }
+  },
+  {
+    "pk":30,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp3204",
+      "name":"Bubble Wrap Rolls",
+      "size":"W:750mm L:100m",
+      "price":20.00,
+      "category":5,
+      "stock":10
+    }
+  },
+  {
+    "pk":31,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp03080",
+      "name":"Bubble Wrap Rolls",
+      "size":"W:1000mm L:100m",
+      "price":27.00,
+      "category":5,
+      "stock":10
+    }
+  },
+  {
+    "pk":32,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp03043",
+      "name":"Bubble Bags",
+      "size":"180x235",
+      "box_qty":300,
+      "price":37.00,
+      "category":6,
+      "stock":10
+    }
+  },
+  {
+    "pk":33,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp3045",
+      "name":"Bubble Bags",
+      "size":"230x285",
+      "box_qty":300,
+      "price":45.00,
+      "category":6,
+      "stock":10
+    }
+  },
+  {
+    "pk":34,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp3013",
+      "name":"Bubble Bags",
+      "size":"280x360",
+      "box_qty":150,
+      "price":40.00,
+      "category":6,
+      "stock":10
+    }
+  },
+  {
+    "pk":35,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp3014",
+      "name":"Bubble Bags",
+      "size":"305x435",
+      "box_qty":150,
+      "price":42.50,
+      "category":6,
+      "stock":10
+    }
+  },
+  {
+    "pk":36,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp3015",
+      "name":"Bubble Bags",
+      "size":"380x435",
+      "box_qty":100,
+      "price":39.00,
+      "category":6,
+      "stock":10
+    }
+  },
+  {
+    "pk":37,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp06040",
+      "name":"Speedman Paper Void Fill",
+      "description":"This Speedman Paper Void Fill Box is a paper cushioning solution for companies and individuals looking for a space-saving and enironmentally friendly alternative to loose fill chips. The Speedman Box is the solution for plastic-free and uncomplicated packaging, and each handy box contains 390mm x 450m x70gsm paper roll, providing the equivalent to 1.5 cubic metres of void fill or 3 bags of loose fill chips. This saves warehouse space, and is ready to use without any additional aids. Simply remove the card disc from the front of the box and pull the required length of paper. The easy tear paper allows for a fast and efficient application for a variety of void fill applications. This Paper Void Fill is made from 100% recycled paper and is also 100% recyclable itself, helping to close the loop for the environment.",
+      "size":"390x450",
+      "price":48.00,
+      "category":7,
+      "stock":15,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/s/p/speed-man-box_1.png",
+      "image1":"speed-man-box_1.png",
+      "image2_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/k/-/k-box_im_einsatz_waagerecht.jpg",
+      "image2":"k-box_im_einsatz_waagerecht.jpg"
+    }
+  },
+  {
+    "pk":38,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp06042",
+      "name":"Biodegradable Loose Fill Bag",
+      "description":"This Eco-Flo Biodegradable Loose Fill is 100% Biodegradable and made from GM-free starch. The chips are also suitable for both domestic and municipal composting, and will dissolve in water. The Loose-Fill chips have been proven to offer better protection than traditional polystyrene loose fill, and provide high-level shock protection to eliminate breakages, with a guaranteed superior performance. The Eco-Flo Loose Fill is ecological, economical, and effective.",
+      "size":"425l",
+      "price":33.00,
+      "category":7,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/b/i/biodegradable-loose-fill-eco-flo.jpg",
+      "image1":"biodegradable-loose-fill-eco-flo.jpg",
+      "image2_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/e/c/ecoflow_void_fill_loose_no_shadow_2.jpg",
+      "image2":"ecoflow_void_fill_loose_no_shadow_2.jpg"
+    }
+  },
+  {
+    "pk":39,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp06042a",
+      "name":"Biodegradable Loose Fill Bag - Half Bag",
+      "description":"This Eco-Flo Biodegradable Loose Fill is 100% Biodegradable and made from GM-free starch. The chips are also suitable for both domestic and municipal composting, and will dissolve in water. The Loose-Fill chips have been proven to offer better protection than traditional polystyrene loose fill, and provide high-level shock protection to eliminate breakages, with a guaranteed superior performance. The Eco-Flo Loose Fill is ecological, economical, and effective.",
+      "size":"213l",
+      "price":20.00,
+      "category":7,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/b/i/biodegradable-loose-fill-eco-flo.jpg",
+      "image1":"biodegradable-loose-fill-eco-flo.jpg",
+      "image2_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/e/c/ecoflow_void_fill_loose_no_shadow_2.jpg",
+      "image2":"ecoflow_void_fill_loose_no_shadow_2.jpg"
+    }
+  },
+  {
+    "pk":40,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp06042b",
+      "name":"Biodegradable Loose Fill Bag - Quarter Bag",
+      "description":"This Eco-Flo Biodegradable Loose Fill is 100% Biodegradable and made from GM-free starch. The chips are also suitable for both domestic and municipal composting, and will dissolve in water. The Loose-Fill chips have been proven to offer better protection than traditional polystyrene loose fill, and provide high-level shock protection to eliminate breakages, with a guaranteed superior performance. The Eco-Flo Loose Fill is ecological, economical, and effective.",
+      "size":"105l",
+      "price":12.50,
+      "category":7,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/b/i/biodegradable-loose-fill-eco-flo.jpg",
+      "image1":"biodegradable-loose-fill-eco-flo.jpg",
+      "image2_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/e/c/ecoflow_void_fill_loose_no_shadow_2.jpg",
+      "image2":"ecoflow_void_fill_loose_no_shadow_2.jpg"
+    }
+  },
+  {
+    "pk":41,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp06042c",
+      "name":"Biodegradable Loose Fill Bag - Eighth Bag",
+      "description":"This Eco-Flo Biodegradable Loose Fill is 100% Biodegradable and made from GM-free starch. The chips are also suitable for both domestic and municipal composting, and will dissolve in water. The Loose-Fill chips have been proven to offer better protection than traditional polystyrene loose fill, and provide high-level shock protection to eliminate breakages, with a guaranteed superior performance. The Eco-Flo Loose Fill is ecological, economical, and effective.",
+      "size":"52l",
+      "price":7.00,
+      "category":7,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/b/i/biodegradable-loose-fill-eco-flo.jpg",
+      "image1":"biodegradable-loose-fill-eco-flo.jpg",
+      "image2_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/e/c/ecoflow_void_fill_loose_no_shadow_2.jpg",
+      "image2":"ecoflow_void_fill_loose_no_shadow_2.jpg"
+    }
+  },
+  {
+    "pk":42,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp01428",
+      "name":"Low Noise Acrylic Adhesive Tape - Clear",
+      "size":"48x66",
+      "price":7.75,
+      "box_qty":6,
+      "category":8,
+      "stock":50,
+      "image1_url":"https://www.packaging2buy.co.uk/images/thumbnails/280/262/detailed/1/clear-low-noise-adhesive-packing-tape2.jpg",
+      "image1":"clear-low-noise-adhesive-packing-tape2.jpg"
+    }
+  },
+  {
+    "pk":43,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp01427",
+      "name":"Low Noise Acrylic Adhesive Tape - Buff",
+      "size":"48x66",
+      "price":7.75,
+      "box_qty":6,
+      "category":8,
+      "stock":50,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/v/i/vibac_825m_acrylic_tape_buff.jpg",
+      "image1":"vibac_825m_acrylic_tape_buff.jpg"
+    }
+  },
+  {
+    "pk":44,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp01011",
+      "name":"Fragile Tape",
+      "description":"Fragile Tape, Printed on low-noise, premium quality, polypropylene tape, these tapes display a highly visible message. These tapes are 50mm x 66mtr per roll, with 6 rolls per case.",
+      "size":"50x66",
+      "price":12.00,
+      "box_qty":6,
+      "category":8,
+      "stock":20,
+      "image1_url":"https://m.media-amazon.com/images/I/51C5Vej39SL._AC_SL1000_.jpg",
+      "image1":"51C5Vej39SL._AC_SL1000_.jpg"
+    }
+  },
+  {
+    "pk":45,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp01081",
+      "name":"Handle With Care Tape",
+      "description":"Handle With Care Tape, Printed on low-noise, premium quality, polypropylene tape, these tapes display a highly visible message. These tapes are 50mm x 66mtr per roll, with 6 rolls per case.",
+      "size":"50x66",
+      "price":12.50,
+      "box_qty":6,
+      "category":8,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/h/a/handle_with_care_2.jpg",
+      "image1":"handle_with_care_2.jpg"
+    }
+  },
+  {
+    "pk":46,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp01802",
+      "name":"Glass Handle With Care Tape",
+      "description":"Handle With Care Tape, Printed on low-noise, premium quality, polypropylene tape, these tapes display a highly visible message. These tapes are 50mm x 66mtr per roll, with 6 rolls per case.",
+      "size":"50x66",
+      "price":12.50,
+      "box_qty":6,
+      "category":8,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/h/a/handle_with_care_2.jpg",
+      "image1":"handle_with_care_2.jpg"
+    }
+  },
+  {
+    "pk":47,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp16022",
+      "name":"Fragile Labels",
+      "description":"Our Fragile warning labels come with 500 labels per roll. A strong adhesive backing means they can be applied to boxes, polythene, pallets and packaging items",
+      "size":"108x79",
+      "per_roll":500,
+      "price":15.00,
+      "category":9,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/2/3/235791284549877_fragile_108x79mm_2.jpg",
+      "image1":"235791284549877_fragile_108x79mm_2.jpg"
+    }
+  },
+  {
+    "pk":48,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp16027",
+      "name":"Glass Labels",
+      "description":"Our Glass warning labels come with 1000 labels per roll. A strong adhesive backing means they can be applied to boxes, polythene, pallets and packaging items",
+      "size":"89x32",
+      "per_roll":1000,
+      "price":12.50,
+      "category":9,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/4/4/448801284556100_glass__89x32mm_2.jpg",
+      "image1":"448801284556100_glass__89x32mm_2.jpg"
+    }
+  },
+  {
+    "pk":49,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp16023",
+      "name":"Handle With Care Labels",
+      "description":"Our Handle With Care warning labels come with 500 labels per roll. A strong adhesive backing means they can be applied to boxes, polythene, pallets and packaging items",
+      "size":"108x79",
+      "per_roll":500,
+      "price":15.00,
+      "category":9,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/9/2/9291284549906_handle_with_care_108x79mm_2.jpg",
+      "image1":"9291284549906_handle_with_care_108x79mm_2.jpg"
+    }
+  },
+  {
+    "pk":50,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp16024",
+      "name":"This Way Up Labels",
+      "description":"Our This Way Up warning labels come with 500 labels per roll. A strong adhesive backing means they can be applied to boxes, polythene, pallets and packaging items",
+      "size":"108x79",
+      "per_roll":500,
+      "price":15.00,
+      "category":9,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/7/3/730841284549926_this_way_up_108x79mm_2.jpg",
+      "image1":"730841284549926_this_way_up_108x79mm_2.jpg"
+    }
+  },
+  {
+    "pk":51,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp16014",
+      "name":"Caution Heavy Package Labels",
+      "description":"Our Caution Heavy warning labels come with 500 labels per roll. A strong adhesive backing means they can be applied to boxes, polythene, pallets and packaging items",
+      "size":"148x50",
+      "per_roll":500,
+      "price":15.00,
+      "category":9,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/4/3/439261299575409_trans_label-heavy_package_2.jpg",
+      "image1":"439261299575409_trans_label-heavy_package_2.jpg"
+    }
+  },
+  {
+    "pk":52,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp10007",
+      "name":"Document Wallets",
+      "size":"A5",
+      "box_qty":1000,
+      "price":45.00,
+      "category":10,
+      "stock":20
+    }
+  },
+  {
+    "pk":53,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp10009",
+      "name":"Document Wallets",
+      "size":"A7",
+      "box_qty":1000,
+      "price":20.00,
+      "category":10,
+      "stock":20
+    }
+  },
+  {
+    "pk":54,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp02001",
+      "name":"Clear Pallet Wrap - Standard Core 400mm",
+      "description":"Blown pallet wrap is a premium stretch film with high puncture resistance that is tacky on both sides providing great cling strength and pallet load stability.  These properties also allow the film to be used in cold conditions as low as -30C.  The superior qualities of blown film compared to cast film make this type of pallet wrap our most popular film choice.",
+      "size":"300m",
+      "price":55.00,
+      "category":11,
+      "stock":20,
+      "image1_url":"https://www.onlinepackagingshop.co.uk/474/blown-pallet-wrap.jpg",
+      "image1":"blown-pallet-wrap.jpg"
+    }
+  },
+  {
+    "pk":55,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp14004",
+      "name":"Hand Pallet Wrap Dispenser - Standard Dispenser",
+      "description":"Our lightweight and robust stretch film dispensers are the effective way to apply stretch film to palletised goods. These steel dispensers are suitable for use with 400mm to 500mm width rolls and for 38mm, 50mm and 75mm cores.",
+      "size":"Max 500mm",
+      "price":24.00,
+      "category":11,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/2/1/215541282647163_main_stretch_film_dispenser_2.jpg",
+      "image1":"215541282647163_main_stretch_film_dispenser_2.jpg"
+    }
+  },
+  {
+    "pk":56,
+    "model":"products.product",
+    "fields":{
+      "sku":"pp14012",
+      "name":"Pallet Wrap Hand Dispenser 'Handsaver'",
+      "description":"The Handsaver is an economical and easy to use dispenser for hand pallet wrap, suitable for all hand pallet rolls with a 38mm core. Insert the dispenser into the core ends of the pallet wrap to protect the hands from friction while dispensing the film from the roll.",
+      "box_qty":1,
+      "price":11.00,
+      "category":11,
+      "stock":20,
+      "image1_url":"https://www.ukpackaging.com/media/catalog/product/cache/1/image/317x250/9df78eab33525d08d6e5fb8d27136e95/p/a/pallet_wrap_hand_savers_1_1.jpg",
+      "image1":"pallet_wrap_hand_savers_1_1.jpg"
+    }
+  }
+]
