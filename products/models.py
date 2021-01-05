@@ -10,7 +10,7 @@ class Category(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, blank=True)
     category_type = models.CharField(max_length=254, blank=True)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     image1_url = models.URLField(max_length=1024, blank=True)
     image1 = models.ImageField(blank=True)
     image2_url = models.URLField(max_length=1024, blank=True)
