@@ -38,14 +38,17 @@
         <a href="#" class="dropdown-item">Send a Parcel</a>
       </div>
     </li>
+    {% if url != categories or url != products %}
+    {% else %}
     <li class="nav-item dropdown">
       <a
         class="logo-font font-weight-bold nav-link text-dark text-nowrap"
-        href="#"
+        href="{% url 'categories' %}"
         id="store-link"
       >
         Store
       </a>
     </li>
+    {% endif %}
   </ul>
 </div>

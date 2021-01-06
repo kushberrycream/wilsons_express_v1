@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+{% include 'includes/store-nav.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ categories }}
+                {{ products }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

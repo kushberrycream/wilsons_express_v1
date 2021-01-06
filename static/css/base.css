@@ -5,10 +5,9 @@ html {
 body {
   background: url("/media/apcbg2.jpg") no-repeat center center fixed;
   background-size: cover;
-  height: calc(100vh - 140px);
+  height: 100vh;
   color: #555;
   font-family: "Montserrat", sans-serif;
-  margin-top: 140px;
 }
 
 .rgba-black-light,
@@ -44,9 +43,13 @@ body {
   top: 0;
 }
 
-button.navbar-toggler {
+button#main-nav-btn.navbar-toggler {
   z-index: 1;
   margin-top: 60px;
+}
+
+.navbar.navbar-expand-lg.navbar-dark {
+  padding: 0 1rem;
 }
 
 #topnav {
@@ -160,13 +163,6 @@ button.navbar-toggler {
 
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
-}
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
 }
 
 /* fixed top navbar only on medium and up */
