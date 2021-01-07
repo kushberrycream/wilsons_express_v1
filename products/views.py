@@ -26,4 +26,4 @@ def all_categories(request):
         'categories': categories,
     }
 
-    return render(request, 'products/categories.html', context)
+    return render(request, 'products/products.html', context)
