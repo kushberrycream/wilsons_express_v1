@@ -38,10 +38,10 @@
             Boxes
           </a>
           <div class="dropdown-menu border-0" aria-labelledby="boxes-link">
-            <a href="#" class="dropdown-item inline-list">Single Wall Boxes</a>
-            <a href="#" class="dropdown-item inline-list">Double Wall Boxes</a>
-            <a href="#" class="dropdown-item inline-list">Double Wall Long Boxes</a>
-            <a href="#" class="dropdown-item inline-list">Bottle Boxes</a>
+            <a href="{% url 'categories' %}?category=single_wall_boxes" class="dropdown-item inline-list">Single Wall Boxes</a>
+            <a href="{% url 'categories' %}?category=double_wall_boxes" class="dropdown-item inline-list">Double Wall Boxes</a>
+            <a href="{% url 'categories' %}?category=double_wall_long_boxes" class="dropdown-item inline-list">Double Wall Long Boxes</a>
+            <a href="{% url 'categories' %}?category=bottle_boxes" class="dropdown-item inline-list">Bottle Boxes</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -50,11 +50,11 @@
             General Packing
           </a>
           <div class="dropdown-menu border-0" aria-labelledby="general-packing-link">
-            <a href="#" class="dropdown-item inline-list">Bubble Bags</a>
-            <a href="#" class="dropdown-item inline-list">Bubble Wrap</a>
-            <a href="#" class="dropdown-item inline-list">Document Wallets</a>
-            <a href="#" class="dropdown-item inline-list">Shrink Wrap</a>
-            <a href="#" class="dropdown-item inline-list">Void Fill</a>
+            <a href="{% url 'categories' %}?category=bubble_bags" class="dropdown-item inline-list">Bubble Bags</a>
+            <a href="{% url 'categories' %}?category=bubble_wrap" class="dropdown-item inline-list">Bubble Wrap</a>
+            <a href="{% url 'categories' %}?category=document_wallets" class="dropdown-item inline-list">Document Wallets</a>
+            <a href="{% url 'categories' %}?category=shrink_wrap" class="dropdown-item inline-list">Shrink Wrap</a>
+            <a href="{% url 'categories' %}?category=void_fill" class="dropdown-item inline-list">Void Fill</a>
           </div>
         </li>
         <li class="nav-item">
@@ -65,7 +65,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="logo-font nav-link text-light mr-5" id="labels-link" href="#">
+          <a class="logo-font nav-link text-light mr-5" id="labels-link" href="{% url 'categories' %}?category=labels">
             Labels
           </a>
         </li>
