@@ -185,7 +185,7 @@ button#main-nav-btn.navbar-toggler {
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {	
 	color: #fff;
-    background-color: #222;
+  background-color: #222;
     border-color: #222;
 }
 
@@ -203,6 +203,20 @@ button#main-nav-btn.navbar-toggler {
       z-index: 1030;
 
   }
+  .search-bar {
+      position: absolute;
+      top: 0;
+  }
+  .navbar-expand-lg .navbar-nav .dropdown-menu.search-bar {
+    left: 50px;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+  }
+  .form-control {
+    height: calc(1.20em + .45rem + 2px);
+    margin-top: 5px;
+    padding: .125rem .65rem;
 }
 
 @media (max-width: 992px) {
