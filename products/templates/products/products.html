@@ -11,12 +11,40 @@
 <div class="container store-header-margin">
   <div class="row">
     <div class="col text-center mt-3">
-      <h2 class="logo=font">Products</h2>
+
+      {% url 'store_home' as the_url %}
+      {% if request.get_full_path == the_url %}
+
+        <h2 class="logo-font">Categories</h2>
+
+      {% endif %}
+
+      {% if request.get_full_path == '/products/all_products/?sort=price&direction=asc' %}
+      
+        <h2 class="logo-font">Products</h2>
+        <h5 class="logo-font">Sorted By Price</h5>
+
+      {% endif %}
+
+      {% if request.get_full_path == '/products/all_products/?sort=category&direction=asc' %}
+      
+        <h2 class="logo-font">Products</h2>
+        <h5 class="logo-font">Sorted By Category</h5>
+
+      {% endif %}
+      
+
+      {% url 'products' as the_url %}
+      {% if request.get_full_path == the_url %}
+      
+        <h2 class="logo-font">Products</h2>
+
+      {% endif %}
+      
       {% for c in current_categories %}
-      <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ c.friendly_name }}</span>
-      </a>
+        <h2 class="logo-font">{{ c.friendly_name }}</h2>
       {% endfor %}
+       
       <hr class="w-50 mb-1">
     </div>
 
