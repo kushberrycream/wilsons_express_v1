@@ -130,6 +130,21 @@ button#main-nav-btn.navbar-toggler {
   color: white;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    border-radius:3px;
+    
+    
+}
+
+.btt-link {
+    cursor: pointer;
+    box-shadow: 7px 7px 14px -3px rgba(0,0,0,0.65);
+}
+
 .nav-link {
   display: block;
   padding: .5rem .5rem;

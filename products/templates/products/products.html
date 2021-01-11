@@ -31,10 +31,10 @@
     <div class="col-12 col-md-6 order-md-first">
       <p class="text-muted mt-3 text-center text-md-left">
         <span class="small">
-        {% if search_term or current_categories or current_sorting != 'None_None' %}
-        <a href="{% url 'store_home' %}">Categories</a> | 
-        {% endif %}
-        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+          {% if search_term or current_categories or current_sorting != 'None_None' %}
+          <a href="{% url 'store_home' %}">Categories</a> |
+          {% endif %}
+          {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
         </span>
 
       </p>
@@ -186,35 +186,45 @@
         {% endfor %}
       </div>
     </div>
+
+  </div>
+  <div class="d-flex justify-content-end">
+  <div class="btt-button shadow-sm btn-dark">
+    <a class="btt-link d-flex text-white h-100 text-decoration-none">
+      <i class="fas fa-arrow-up mx-auto my-auto"></i>
+    </a>
+  </div>
   </div>
 </div>
+
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
-	$('.btt-link').click(function(e) {
-		window.scrollTo(0,0)
-	})
-    $('#sort-selector'). change(function() {
-        let selector = $(this);
-        let currentUrl = new URL(window.location);
+  $('.btt-link').click(function (e) {
+    window.scrollTo(0, 0)
+  })
+  $('#sort-selector').change(function () {
+    let selector = $(this);
+    let currentUrl = new URL(window.location);
 
-        let selectedVal = selector.val();
-        if(selectedVal != "reset"){
-            let sort = selectedVal.split("_")[0];
-            let direction = selectedVal.split("_")[1];
+    let selectedVal = selector.val();
+    if (selectedVal != "reset") {
+      let sort = selectedVal.split("_")[0];
+      let direction = selectedVal.split("_")[1];
 
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
+      currentUrl.searchParams.set("sort", sort);
+      currentUrl.searchParams.set("direction", direction);
 
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
+      window.location.replace(currentUrl);
+    } else {
+      currentUrl.searchParams.delete("sort");
+      currentUrl.searchParams.delete("direction");
 
-            window.location.replace(currentUrl);
-        }
-    })
+      window.location.replace(currentUrl);
+    }
+  })
 </script>
 {% endblock %}
