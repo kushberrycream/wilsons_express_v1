@@ -10,6 +10,24 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+
+.alert-container .col-12 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.site-wide-alert {
+    color: #fff;
+    background-color: #CA0B00;
+    border-color: #CA0B00;
+    padding: 5px 15px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
+
+
+
 .rgba-black-light,
 .rgba-black-light:after,
 .rgba-black-light:before {
@@ -285,4 +303,11 @@ button#main-nav-btn.navbar-toggler {
     font-weight: 300;
     line-height: 1.2;
   }
+}
+@media (min-width: 1200px) {
+    div p span.dot-letter {
+
+    display: table;
+
+    }
 }

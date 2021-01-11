@@ -46,8 +46,12 @@
 </head>
 
 <body>
-  <header class="container-fluid fixed-top">
+  <header class="container-fluid fixed-top alert-container">
+    {% block page_alert %}
+    {% endblock %}
+
     <div id="topnav" class="row bg-white pt-lg-2 d-flex">
+
       <div class="col-sm-8 col-6 pt-1 pt-lg-0 d-flex flex-column justify-content-between">
         <div class="px-1 row">
           <ul class="list-inline list-unstyled text-left my-0 small-links">
@@ -58,7 +62,7 @@
                 </div>
               </a>
             </li>
-            {% if request.user.is_superuser %}
+
             <li class="list-inline-item dropdown">
               <a class="nav-link" href="#" id="faq-options" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -68,18 +72,16 @@
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="faq-options">
                 <a href="#" class="dropdown-item">FAQs</a>
+                <a href="https://apc-overnight.com/sending-a-parcel/terms_and_conditions_of_carriage/" target="_blank"
+                  rel="noreferrer" class="dropdown-item">APC T&C's</a>
+                {% if request.user.is_superuser %}
                 <a href="#" class="dropdown-item">Upload A FAQ</a>
+                {% endif %}
               </div>
             </li>
-            {% else %}
-            <li class="list-inline-item">
-              <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="FAQ" href="#">
-                <div class="text-center text-dark">
-                  <div><i class="fas fa-question-circle fa-lg"></i></div>
-                </div>
-              </a>
-            </li>
-            {% endif %}
+
+
+
             <li class="list-inline-item dropdown" data-toggle="tooltip" data-placement="bottom" title="Accounts">
               <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -104,16 +106,17 @@
               </div>
             </li>
             <li class="list-inline-item dropdown">
-              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_bag' %}">
+              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-dark{% endif %} nav-link"
+                href="{% url 'view_bag' %}">
                 <div class="text-center">
                   <div>
                     <i class="fas fa-shopping-bag fa-lg"></i>
                   </div>
                   <p class="my-0">
                     {% if grand_total %}
-                      £{{ grand_total|floatformat:2 }}
+                    £{{ grand_total|floatformat:2 }}
                     {% else %}
-                    
+
                     {% endif %}
                   </p>
                 </div>

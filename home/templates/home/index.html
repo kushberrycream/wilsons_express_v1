@@ -1,5 +1,20 @@
 {% extends "base.html" %}
+{% block page_alert %}
+<div class="row alert-container d-none d-sm-block">
 
+  <div class="col-12">
+    <div class="site-wide-alert alert alert-danger ">
+      <i class="fas fa-head-side-virus fa-lg"></i> Our team our commited to servicing you during this time but services
+      may
+      be impacted <a class="text-white font-weight-bold" href="{% url 'covid' %}"> Click Here For Current Covid Info</a>
+
+      <button type="button" class="close text-white" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}
 {% block content %}
 <div class="rgba-black-light">
   <div class="container h-100">
@@ -8,7 +23,8 @@
         <h1 class="text-white text-center text-lg-left">
           Wilson's Express Sameday Ltd
         </h1>
-        <h2 class="text-white display-4 mb-5 text-center text-lg-left">Specialists in Sameday, Next Day and International
+        <h2 class="text-white display-4 mb-5 text-center text-lg-left">Specialists in Sameday, Next Day and
+          International
           Deliveries!</h2>
         <hr class="separator w-100">
         <div class="my-5">
