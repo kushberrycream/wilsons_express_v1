@@ -58,6 +58,20 @@
                 </div>
               </a>
             </li>
+            {% if request.user.is_superuser %}
+            <li class="list-inline-item dropdown">
+              <a class="nav-link" href="#" id="faq-options" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <div class="text-center text-dark">
+                  <div><i class="fas fa-question-circle fa-lg"></i></div>
+                </div>
+              </a>
+              <div class="dropdown-menu border-0" aria-labelledby="faq-options">
+                <a href="#" class="dropdown-item">FAQs</a>
+                <a href="#" class="dropdown-item">Upload A FAQ</a>
+              </div>
+            </li>
+            {% else %}
             <li class="list-inline-item">
               <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="FAQ" href="#">
                 <div class="text-center text-dark">
@@ -65,6 +79,7 @@
                 </div>
               </a>
             </li>
+            {% endif %}
             <li class="list-inline-item dropdown" data-toggle="tooltip" data-placement="bottom" title="Accounts">
               <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -75,8 +90,8 @@
               <div class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                <a href="" class="dropdown-item">Product Management</a>
                 <a href="/admin/" class="dropdown-item">Admin</a>
+                <a href="" class="dropdown-item">Product Management</a>
                 {% endif %}
                 <a href="" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -87,6 +102,22 @@
                   Login</a>
                 {% endif %}
               </div>
+            </li>
+            <li class="list-inline-item dropdown">
+              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-dark{% endif %} nav-link" href="{% url 'view_bag' %}">
+                <div class="text-center">
+                  <div>
+                    <i class="fas fa-shopping-bag fa-lg"></i>
+                  </div>
+                  <p class="my-0">
+                    {% if grand_total %}
+                      £{{ grand_total|floatformat:2 }}
+                    {% else %}
+                    
+                    {% endif %}
+                  </p>
+                </div>
+              </a>
             </li>
           </ul>
         </div>
