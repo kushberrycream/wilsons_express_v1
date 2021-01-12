@@ -20,6 +20,7 @@ $('.remove-item').click(function (e) {
 
 // Remove Elements based on viewport width
 jQuery(document).ready(function($) {
+  
   let mobileBag  = document.getElementById('mobile-bag');
   let desktopBag = document.getElementById('desktop-bag');
   let bagParent = document.getElementById("bag-parent");
@@ -35,9 +36,13 @@ jQuery(document).ready(function($) {
     };
   };
   $(window).resize(function(){
+    let itemId = $('.qty_input').data('item_id');  
     alterClass();
+    handleEnableDisable(itemId);
   });
   //Fire it when the page first loads:
   alterClass();
+  let itemId = $('.qty_input').data('item_id'); 
+  handleEnableDisable(itemId); 
 });
 
