@@ -24,7 +24,7 @@
         <div id="bag-parent" class="col">
             
             {% if bag_items %}
-            
+            {% if request.user_agent.is_mobile %}
             <div id="mobile-bag" class="">
                 <div class="row">
                     <div class="col">
