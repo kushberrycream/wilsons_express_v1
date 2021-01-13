@@ -165,6 +165,10 @@ button#main-nav-btn.navbar-toggler {
     
     
 }
+.update-link,
+.remove-item {
+    cursor:pointer;
+}
 
 .btt-link {
     cursor: pointer;

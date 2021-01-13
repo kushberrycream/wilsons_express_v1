@@ -34,7 +34,7 @@
                     </thead>
 
                     {% for item in bag_items %}
-
+                        
                     <tr>
                         <td class="p-3 w-25">
                             {% include "store_bag/product-image.html" %}
@@ -127,5 +127,8 @@
 {{ block.super }}
 <script src="{% static 'js/quantity_input_script.js' %}"></script>
 <script src="{% static 'store_bag/js/update_quantity_script.js' %}"></script>
+<script>
+    window.csrf_token = "{{ csrf_token }}";
+</script>
 
 {% endblock %}
