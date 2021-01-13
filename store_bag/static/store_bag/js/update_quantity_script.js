@@ -17,31 +17,5 @@ $('.remove-item').click(function (e) {
         });
 })
 
-// Remove Elements based on viewport width
-jQuery(document).ready(function($) {
-  
-  let mobileBag  = document.getElementById('mobile-bag');
-  let desktopBag = document.getElementById('desktop-bag');
-  let bagParent = document.getElementById("bag-parent");
-  let alterClass = function() {
-    let ww = document.body.clientWidth;
-    if (ww <= 751) {
-      $(desktopBag).remove();
-      $(bagParent).append(mobileBag);
-    } else if (ww > 750) {
-      
-      $(mobileBag).remove();
-      $(bagParent).append(desktopBag)
-    };
-  };
-  $(window).resize(function(){
-    let itemId = $('.qty_input').data('item_id');  
-    alterClass();
-    handleEnableDisable(itemId);
-  });
-  //Fire it when the page first loads:
-  alterClass();
-  let itemId = $('.qty_input').data('item_id'); 
-  handleEnableDisable(itemId); 
-});
+
 

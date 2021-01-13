@@ -216,10 +216,9 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script src="{% static 'js/btt.js' %}"></script>
 <script type="text/javascript">
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
+   
     $('#sort-selector').change(function () {
         let selector = $(this);
         let currentUrl = new URL(window.location);

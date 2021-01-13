@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'store_bag',
+    'django_user_agents',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'wilsons_express.urls'
@@ -76,7 +78,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'store_bag.contexts.bag_contents',
-
             ],
         },
     },
