@@ -149,7 +149,7 @@
   </header>
 
   {% if messages %}
-  <div class="message-container">
+  <div class="message-container{%if url is 'home'%}-home{%endif%}">
     {% for message in messages %}
     {% with message.level as level %}
     {% if level == 40 %}
