@@ -1,3 +1,4 @@
+import os
 """
 Django settings for wilsons_express project.
 
@@ -9,10 +10,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
-import os
 if os.path.exists("env.py"):
-    import env
+    import env  # noqa: F401
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,13 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_user_agents',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'home',
     'products',
     'store_bag',
-    'django_user_agents',
+    'checkout',
 ]
 
 MIDDLEWARE = [
