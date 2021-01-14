@@ -238,6 +238,25 @@ button#main-nav-btn.navbar-toggler {
 	color: #17a2b8; /* text-info */
 }
 
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    left: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+    background-color: #fff;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
   .fixed-top-desktop-only {
