@@ -9,7 +9,7 @@ from products.models import Product
 
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=10, null=False, editable=False)
+    order_ref = models.CharField(max_length=10, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
@@ -27,11 +27,12 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
 
-    def _generate_order_number(self):
+    def _generate_order_ref(self):
         """
-        Generate a random, unique order number using UUID
+        Generate a random, unique order ref using shortUUID
         """
-        return shortuuid.ShortUUID().random(length=10)
+        return shortuuid.ShortUUID(
+            alphabet="013456789ABCDEFGHJKLMNPQRSTUVWXYZ").random(length=10)
 
     def update_total(self):
         """
@@ -51,15 +52,15 @@ class Order(models.Model):
 
     def save(self, *args, **kwargs):
         """
-        Override the original save method to set the order number
+        Override the original save method to set the order ref
         if it hasn't been set already.
         """
-        if not self.order_number:
-            self.order_number = self._generate_order_number()
+        if not self.order_ref:
+            self.order_ref = self._generate_order_ref()
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.order_number
+        return self.order_ref
 
 
 class OrderLineItem(models.Model):
@@ -68,7 +69,7 @@ class OrderLineItem(models.Model):
         on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
-    product_size = models.CharField(max_length=2,
+    product_size = models.CharField(max_length=20,
                                     blank=True)  # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(
@@ -84,4 +85,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        return f'SKU {self.product.sku} on order {self.order.order_ref}'
