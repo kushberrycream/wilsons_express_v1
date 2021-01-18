@@ -1,12 +1,11 @@
-{% extends "base.html" %}
+{% extends "account/base.html" %}
 
 {% load i18n %}
 {% load account socialaccount %}
-{% block head_title %}{% trans "Signup" %}{% endblock %}
 
-{% block content %}
-<div class="overlay container"></div>
-<div class="container header-container">
+{% block head_title %}{% trans "Sign Up" %}{% endblock %}
+
+{% block inner_content %}
     <h1>{% trans "Sign Up" %}</h1>
 
     <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
@@ -14,30 +13,13 @@
 
     <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+        <a class="btn btn-outline-black rounded-0" href="{% url 'account_login' %}">Back to Login</a>
+        <button type="submit">{% trans "Sign Up" %}</button>
     </form>
-    {% get_providers as socialaccount_providers %}
 
-    {% if socialaccount_providers %}
-    <p>{% blocktrans with site.name as site_name %}Or sign in with Facebook.{% endblocktrans %}</p>
 
-    <div class="socialaccount_ballot">
-
-        <ul class="socialaccount_providers">
-            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-        </ul>
-
-        <div class="login-or">{% trans 'or' %}</div>
-
-    </div>
-
-    {% include "socialaccount/snippets/login_extra.html" %}
-
-    {% endif %}
-    
-</div>
 {% endblock %}
