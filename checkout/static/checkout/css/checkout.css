@@ -31,7 +31,9 @@
 }
 
 #payment-form .form-control,
-#card-element {
+#card-number-element,
+#card-expiry-element,
+#card-cvc-element {
     color: #000;
     border: 1px solid #000;
 }

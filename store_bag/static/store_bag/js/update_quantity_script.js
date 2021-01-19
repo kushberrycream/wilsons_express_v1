@@ -9,7 +9,8 @@ $('.remove-item').click(function (e) {
     let itemId = $(this).attr('id').split('remove_')[1];
     let size = $(this).data('product_size');
     let url = `/bag/remove/${itemId}/`;
-    let data = { 'csrfmiddlewaretoken': window.csrf_token, 'product_size': size };
+    let csrf = document.getElementsByTagName("meta")[7];
+    let data = { 'csrfmiddlewaretoken': csrf, 'product_size': size };
 
     $.post(url, data)
         .done(function () {

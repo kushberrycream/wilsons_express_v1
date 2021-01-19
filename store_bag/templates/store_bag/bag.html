@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 {% load bag_tools %}
+{% block extra_meta %}
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="{{ csrf_token }}" name="csrf-token" />
+{% endblock %}
 
 {% block page_header %}
 {% include 'includes/store-nav.html' %}
@@ -134,8 +138,5 @@
 <script src="{% static 'js/btt.js' %}"></script>
 <script src="{% static 'store_bag/js/update_quantity_script.js' %}"></script>
 <script src="{% static 'js/quantity_input_script.js' %}"></script>
-<script>
-    window.csrf_token = "{{ csrf_token }}";
-</script>
 
 {% endblock %}
