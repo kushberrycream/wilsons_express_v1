@@ -332,7 +332,6 @@ button#main-nav-btn.navbar-toggler {
   }
   .form-control {
     height: calc(1.20em + .45rem + 2px);
-    margin-top: 5px;
     padding: .125rem .65rem;
   }
 }
