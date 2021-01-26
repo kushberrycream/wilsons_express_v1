@@ -33,7 +33,7 @@
           <p class="mb-1 mt-0 small text-muted">Subtotal</p>
         </div>
       </div>
-      
+
       {% for item in bag_items %}
       <div class="row">
         <div class="col-2 mb-1">
@@ -148,6 +148,14 @@
       </form>
     </div>
   </div>
+</div>
+<div id="loading-overlay">
+  <h1 class="text-light logo-font loading-spinner wrapper">
+      <span class="circle circle-1"></span>
+      <span class="circle circle-2"></span>
+      <span class="circle circle-3"></span>
+      <span class="circle circle-4"></span>
+  </h1>
 </div>
 {% endblock %}
 
