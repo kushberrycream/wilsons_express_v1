@@ -68,8 +68,8 @@ select option[value=""] {
 
 .circle {
   display: inline-block;
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
   background-color: #013e7f;
   border-radius: 50%;
   animation: loading 1.5s cubic-bezier(.8, .5, .2, 1.4) infinite;

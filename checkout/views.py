@@ -94,7 +94,6 @@ def checkout_success(request, order_ref):
     """
     Handle successful checkouts
     """
-    save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_ref=order_ref)
     messages.success(request, f'Order successfully processed! \
         Your order reference is {order_ref}. A confirmation \
