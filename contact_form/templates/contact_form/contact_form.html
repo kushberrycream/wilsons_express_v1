@@ -16,11 +16,16 @@
   </div>
 
   <form method="POST" id="contact-form" class="mt-5">
+    {% csrf_token %}
     <div class="row">
-      <div class="col-8 text-center mx-5">
+      <div class="col-6 text-center mx-5">
 
         {{ form.from_email | as_crispy_field }}
+      </div>
+      <div class="col-7 text-center mx-5">
         {{ form.subject | as_crispy_field }}
+      </div>
+      <div class="col-8 text-center mx-5">
         {{ form.message | as_crispy_field }}
 
 
