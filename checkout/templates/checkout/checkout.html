@@ -100,23 +100,18 @@
             {% endif %}
           </div>
         </fieldset>
+        
         <fieldset class="px-3">
           <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
           <!-- A Stripe card element will go here -->
 
           <div class="mb-3 payment" id="card-number-element"></div>
           <div class="row">
-            <div class="col-3">
+            <div class="col-6">
               <div class="mb-3 payment" id="card-expiry-element"></div>
             </div>
-            <div class="col-2">
+            <div class="col-6">
               <div class="mb-3 payment" id="card-cvc-element"></div>
-            </div>
-            <div class="col-7">
-              <div class="mb-3" id="card-postcode-element">
-                <input type="text" name="postalcode" maxlength="20" placeholder="Postcode Registered to Card"
-                  class="stripe-style-input textinput form-control" id="card-postcode-input" required>
-              </div>
             </div>
 
           </div>
