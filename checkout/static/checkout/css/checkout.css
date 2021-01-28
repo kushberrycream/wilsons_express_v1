@@ -3,18 +3,15 @@
   box-sizing: border-box;
   height: 40px;
   padding: 10px 12px;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 0px;
   background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+  box-shadow: 2px 3px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
@@ -36,8 +33,23 @@
 #card-cvc-element,
 #contact-form .form-control {
   color: #000;
-  border: 1px solid #000;
+  border-bottom: 2px solid #000;
 }
+
+#payment-form .form-control:focus,
+#card-number-element:focus,
+#card-expiry-element:focus,
+#card-cvc-element:focus,
+#contact-form .form-control:focus,
+#payment-form .form-control:active,
+#card-number-element:active,
+#card-expiry-element:active,
+#card-cvc-element:active,
+#contact-form .form-control:active {
+  color: #000;
+  border-bottom: 2px solid #339244;
+}
+
 
 select,
 select option {

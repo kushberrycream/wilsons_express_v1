@@ -196,6 +196,19 @@ button#main-nav-btn.navbar-toggler {
 .allauth-form-inner-content input {
     border-color: #000;
     border-radius: 0;
+    box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 0px;
+  background-color: white;
+  border-bottom: 2px solid #000;
+}
+
+.allauth-form-inner-content input:focus,
+.allauth-form-inner-content input:active {
+  box-shadow: 2px 3px 3px 0 #cfd7df;
+  border-color: #339244;
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
@@ -224,6 +237,7 @@ button#main-nav-btn.navbar-toggler {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0;
+    
 
     /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -237,7 +251,7 @@ button#main-nav-btn.navbar-toggler {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #339244; /* text-info */
 }
 
 /* ------------------------------- bootstrap toasts */
