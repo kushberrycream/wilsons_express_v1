@@ -48,6 +48,10 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=246132116941765&autoLogAppEvents=1"
+    nonce="4YJIt5q7"></script>
   <header class="container-fluid fixed-top alert-container">
     {% block page_alert %}
     {% endblock %}
@@ -58,7 +62,8 @@
         <div class="px-1 row">
           <ul class="list-inline list-unstyled text-left my-0 small-links">
             <li class="list-inline-item">
-              <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Contact Us" href="{% url 'contact' %}">
+              <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Contact Us"
+                href="{% url 'contact' %}">
                 <div class="text-center text-dark">
                   <div><i class="fas fa-envelope fa-lg"></i></div>
                 </div>
