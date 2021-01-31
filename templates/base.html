@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
   {% endblock %}
 
   {% block extra_css %}
@@ -48,10 +49,7 @@
 </head>
 
 <body>
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=246132116941765&autoLogAppEvents=1"
-    nonce="4YJIt5q7"></script>
+
   <header class="container-fluid fixed-top alert-container">
     {% block page_alert %}
     {% endblock %}
@@ -118,7 +116,7 @@
                 <a href="/admin/" class="dropdown-item">Admin</a>
                 <a href="" class="dropdown-item">Product Management</a>
                 {% endif %}
-                <a href="" class="dropdown-item">My Profile</a>
+                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
