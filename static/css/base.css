@@ -344,10 +344,7 @@ button#main-nav-btn.navbar-toggler {
     padding: 0;
     width: 300px;
   }
-  .form-control {
-    height: calc(1.20em + .45rem + 2px);
-    padding: .125rem .65rem;
-  }
+  
 }
 
 @media (max-width: 992px) {

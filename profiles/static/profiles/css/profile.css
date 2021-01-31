@@ -1,0 +1,40 @@
+.order-history {
+    max-height: 416px; /* height of profile form + submit button */
+    overflow-y: auto;
+}
+
+#profile-update-form .form-control {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+#profile-update-form .form-control:focus,
+#profile-update-form .form-control:active {
+    box-shadow: 2px 3px 3px 0 #cfd7df;
+  color: #000;
+  border-bottom: 2px solid #339244;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 0px;
+  background-color: white;
+   color: #000;
+  
+}
