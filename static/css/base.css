@@ -193,6 +193,7 @@ button#main-nav-btn.navbar-toggler {
     color: #6c757d; /* text-secondary */
 }
 
+.stripe-style-input,
 .allauth-form-inner-content input {
     border-color: #000;
     border-radius: 0;
@@ -204,7 +205,8 @@ button#main-nav-btn.navbar-toggler {
   background-color: white;
   border-bottom: 2px solid #000;
 }
-
+.stripe-style-input:focus,
+.stripe-style-input:active,
 .allauth-form-inner-content input:focus,
 .allauth-form-inner-content input:active {
   box-shadow: 2px 3px 3px 0 #cfd7df;
@@ -408,4 +410,11 @@ button#main-nav-btn.navbar-toggler {
     display: table;
 
     }
+}
+
+
+@media (min-width: 1200px) {
+.container {
+    max-width: 80%;
+}
 }
