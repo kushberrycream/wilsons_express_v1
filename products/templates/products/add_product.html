@@ -22,7 +22,13 @@
     <div class="col-12 col-md-6">
       <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form | crispy }}
+        {% for field in form %}
+        {% if field.name != 'image1' and field.name != 'image2'  %}
+        {{ field | as_crispy_field }}
+        {% else %}
+        {{ field }}
+        {% endif %}
+        {% endfor %}
         <div class="text-right">
           <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
           <button class="btn btn-black rounded-0" type="submit">Add Product</button>
@@ -34,4 +40,15 @@
 {% endblock %}
 
 {% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+  $('#new-image1').change(function () {
+    var file = $('#new-image1')[0].files[0];
+    $('#filename-image1').text(`Image will be set to: ${file.name}`);
+  });
+  $('#new-image2').change(function () {
+    var file1 = $('#new-image2')[0].files[0];
+    $('#filename-image2').text(`Image will be set to: ${file1.name}`);
+  });
+</script>
 {% endblock %}
