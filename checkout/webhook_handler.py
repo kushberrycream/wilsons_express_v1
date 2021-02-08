@@ -3,6 +3,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 
+from django.db.models import F
 from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
@@ -92,6 +93,9 @@ class StripeWH_Handler:
                     original_bag=bag,
                     stripe_pid=pid,
                 )
+                for item_id, item_data in json.loads(bag).items():
+                    Product.objects.filter(
+                      id=item_id).update(stock=F("stock") - item_data)
                 order_exists = True
                 break
 
@@ -123,6 +127,8 @@ Verified order already in database',
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
+                    Product.objects.filter(
+                      id=item_id).update(stock=F("stock") - item_data)
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
