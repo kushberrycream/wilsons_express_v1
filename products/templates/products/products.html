@@ -62,9 +62,9 @@
       <h2 class="logo-font">Categories</h2>
 
       {% endif %}
-      
+
       {% url 'products' as the_url %}
-      
+
       {% if the_url in request.get_full_path %}
 
       <h2 class="logo-font">Products</h2>
@@ -161,6 +161,13 @@
                         </a>
                       </p>
                     </div>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                    <small class="d-flex align-items-end">
+                      <a href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i></a> |
+                      <a class="text-danger" href="{% url 'delete_product' product.id %}"><i
+                          class="far fa-trash-alt"></i></a>
+                    </small>
                     {% endif %}
                   </div>
                 </div>
