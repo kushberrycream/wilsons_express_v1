@@ -17,8 +17,9 @@
       <hr class="w-50 mb-1">
     </div>
   </div>
-  <div class="row" height="500">
+  <div class="row">
 
+    <!-- Contact Form -->
     <div class="col-lg-6">
       <form method="POST" id="contact-form" class="mt-5">
         {% csrf_token %}
@@ -40,6 +41,8 @@
         </div>
       </form>
     </div>
+
+    <!-- Google Map and contact info -->
     <div class="col-lg-6">
       <div class="map-container mt-5 mb-3">
         <div id="map"></div>
@@ -53,14 +56,27 @@
 
   </div>
 </div>
-
-
-
-
+<div id="loading-overlay">
+  <h1 class="text-light logo-font loading-spinner wrapper">
+    <span class="circle circle-1"></span>
+    <span class="circle circle-2"></span>
+    <span class="circle circle-3"></span>
+    <span class="circle circle-4"></span>
+  </h1>
+</div>
 {% endblock %}
+
 {% block postloadjs %}
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYr9xWqAT8jTOK1mWVtbcgaXsfN-wgHqg&callback=initMap&libraries=&v=weekly"
   async></script>
 <script src="{% static 'contact_form/js/map.js' %}"></script>
+
+<script>
+  $("#contact-form").submit(function (e) {
+    $('#loading-overlay').fadeToggle(100);
+  })
+
+</script>
+
 {% endblock %}
