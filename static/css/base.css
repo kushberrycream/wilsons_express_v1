@@ -1,6 +1,9 @@
-html {
-  height: 100%;
-}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
 body {
   background: url("/media/apcbg2.jpg") no-repeat center center fixed;
@@ -19,6 +22,12 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
+}
+.map-container {
+  height: 300px;
+}
+#map {
+  height: 100%;
 }
 
 .navbar-light .navbar-toggler,
