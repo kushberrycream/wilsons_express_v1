@@ -1,0 +1,102 @@
+[
+  {
+    "pk":1,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"1",
+      "question":"I've received a card telling me I've missed a delivery, what do I do now?",
+      "answer":"Follow the instructions on the ‘sorry we missed you’ card/email notification and use the APC Called Tool or contact us by email or phone to re-arrange delivery or to collect your parcel. Please get in touch as soon as possible; parcels may be returned to the sender in three working days if you do not contact us.",
+      "urls":"https://apccalled.com/"
+    }
+  },
+  {
+    "pk":2,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"2",
+      "question":"Can I collect my parcel myself?",
+      "answer":"If you have received a ‘sorry we missed you’ card and you prefer to collect an item, please contact us to verify that the item has arrived back there before going to collect it. Please also check opening times when you contact us. You will need to bring the card we left and proof of your identity as well as confirmation of your address.",
+      "urls":""
+    }
+  },
+  {
+    "pk":3,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"3",
+      "question":"Can my parcel be delivered to another address or left safe?",
+      "answer":"Items may only be redirected or left in a safe place with permission from the sender. For security and contractual reasons we cannot accept these instructions from a recipient until the sender has authorised us to do this. If you are expecting to receive an item and want it to be delivered to a different address or left in a safe place, please contact the sender who can in turn give us the authority to do this.",
+      "urls":""
+    }
+  },
+  {
+    "pk":4,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"4",
+      "question":"How can I track my parcel?",
+      "answer":"Please use the ‘Track Your Parcel’ form.",
+      "urls":"https://apc-overnight.com/receiving-a-parcel/tracking"
+    }
+  },
+  {
+    "pk":5,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"5",
+      "question":"When will my parcel be delivered?",
+      "answer":"For deliveries to the majority of the UK we deliver on the next working day after the item was sent (this may vary in some locations). When an item is booked with APC Overnight, the sender will specify delivery from our range of services. This is normally for delivery by 9am, 10am, 12 noon or 4pm on the next working day (Monday to Friday). Delivery will be attempted between 8am and the selected delivery time.A Saturday morning service is available to most areas, which is again arranged by the sender of the goods.Rebooked deliveries will be attempted on the same service as originally chosen by the sender and for this reason, we do not offer the option to choose a timed or Saturday service when rebooking a delivery.  Upgrades (to a timed or Saturday service) would need to be arranged by the sender of the parcel.",
+      "urls":""
+    }
+  },
+  {
+    "pk":6,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"6",
+      "question":"Where can I find your terms and conditions?",
+      "answer":"Our terms and conditions of carriage are here.",
+      "urls":"https://apc-overnight.com/sending-a-parcel/terms_and_conditions_of_carriage"
+    }
+  },
+  {
+    "pk":7,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":7,
+      "question":"What are the advantages to setting up an account?",
+      "answer":"Having an account with us makes repeat bookings a lot easier as all of your info is already saved within our system. We appoint an Account Manager to be in regular contact with you to ensure we are meeting expectations and to be proactive in dealing with any issues. It also makes payment a lot easier as we can send you monthly itemised invoices for all activity on your account, rather than having to make payments each time you book. Create an account today! Applications will be reviewed due to freight restrictions.",
+      "urls":""
+    }
+  },
+  {
+    "pk":8,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"8",
+      "question":"Does it cost anything to set up an account?",
+      "answer":"No, setting up an account is free, and it’s easy to do through our website or by calling our customer services team on 01622 685 895. There are no set up charges or hidden fees.",
+      "urls":""
+    }
+  },
+  {
+    "pk":9,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"9",
+      "question":"I’ve lost my log in details and can’t access my online account, what do I do?",
+      "answer":"Don’t panic, just give us a ring on 01622 685895 or contact us via Email and we’ll get it all sorted for you asap.",
+      "urls":""
+    }
+  },
+  {
+    "pk":10,
+    "model":"faqs.faqs",
+    "fields":{
+      "q_id":"10",
+      "question":"What are your opening hours?",
+      "answer":"We’re open to the public between the hours of 9:30am - 6:00pm Weekdays and 9:30am - 12:00pm Saturday.",
+      "urls":""
+    }
+  }
+]
