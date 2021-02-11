@@ -76,11 +76,11 @@
                 </div>
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="faq-options">
-                <a href="#" class="dropdown-item">FAQs</a>
+                <a href="{% url 'faqs' %}" class="dropdown-item">FAQs</a>
                 <a href="https://apc-overnight.com/sending-a-parcel/terms_and_conditions_of_carriage/" target="_blank"
                   rel="noreferrer" class="dropdown-item">APC T&C's</a>
                 {% if request.user.is_superuser %}
-                <a href="#" class="dropdown-item">Upload A FAQ</a>
+                <a href="{% url 'add_faq' %}" class="dropdown-item">Upload A FAQ</a>
                 {% endif %}
               </div>
             </li>

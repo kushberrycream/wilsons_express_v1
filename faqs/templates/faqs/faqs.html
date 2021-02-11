@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<div class="overlay container"></div>
+<div class="container header-container">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <h2 class="logo-font">FAQ's</h2>
+      <hr class="w-50 mb-4">
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      {% for faq in faqs %}
+      <div class="col-12 mt-3">
+        <h4>{{faq.question}}</h4>
+        <p>
+          {{faq.answer}}
+        </p>
+        <a href="{{faq.url}}"></a>
+
+      </div>
+      <hr class="w-100">
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}
