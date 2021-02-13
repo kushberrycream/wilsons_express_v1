@@ -20,6 +20,13 @@
           {{faq.answer}}
         </p>
         <a href="{{faq.url}}"></a>
+        {% if request.user.is_superuser %}
+        <small class="">
+          <a href="{% url 'edit_faq' faq.q_id %}"><i class="far fa-edit"></i></a> |
+          <a class="text-danger" href="{% url 'delete_faq' faq.q_id %}"><i
+                          class="far fa-trash-alt"></i></a>
+        </small>
+        {% endif %}
 
       </div>
       <hr class="w-100">
