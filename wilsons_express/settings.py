@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'contact_form',
     'profiles',
     'faqs',
+    'create_account.apps.CreateAccountConfig',
 
     # Other
     'crispy_forms',
