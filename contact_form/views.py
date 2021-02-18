@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactForm
 
 
-def contact_view(request):
+def contact(request):
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -22,7 +22,7 @@ def contact_view(request):
     return render(request, 'contact_form/contact_form.html', {'form': form})
 
 
-def success_view(request):
+def success(request):
     if request.method == 'GET':
         form = ContactForm()
     else:

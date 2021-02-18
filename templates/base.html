@@ -79,9 +79,6 @@
                 <a href="{% url 'faqs' %}" class="dropdown-item">FAQs</a>
                 <a href="https://apc-overnight.com/sending-a-parcel/terms_and_conditions_of_carriage/" target="_blank"
                   rel="noreferrer" class="dropdown-item">APC T&C's</a>
-                {% if request.user.is_superuser %}
-                <a href="{% url 'add_faq' %}" class="dropdown-item">Upload A FAQ</a>
-                {% endif %}
               </div>
             </li>
             <li class="list-inline-item dropdown">
@@ -115,6 +112,7 @@
                 {% if request.user.is_superuser %}
                 <a href="/admin/" class="dropdown-item">Admin</a>
                 <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                <a href="{% url 'add_faq' %}" class="dropdown-item">Upload A FAQ</a>
                 {% endif %}
                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>

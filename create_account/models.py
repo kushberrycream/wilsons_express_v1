@@ -6,7 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 # Create your models here.
 class Create_account(models.Model):
     class Meta:
-        verbose_name_plural = "Create Account"
+        verbose_name = "account"
+        verbose_name_plural = "Account Submissions"
 
     FREIGHT_TYPE = (
         ('mechanical', 'Mechanical'),
@@ -20,6 +21,8 @@ class Create_account(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     company_name = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
