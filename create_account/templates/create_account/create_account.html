@@ -12,20 +12,31 @@
       <hr class="w-50 mb-1">
     </div>
   </div>
-  <div class="row">
-      <div class="col-12 col-md-6">
-      <form method="POST" action="{% url 'create_account' %}" class="form mb-2" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% for field in form %}
-    
-        {{ field | as_crispy_field }}
-       
-        {% endfor %}
-        <div class="text-right">
-          <a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Cancel</a>
-          <button class="btn btn-black rounded-0" type="submit">Submit Form</button>
-        </div>
-      </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="mb-2 mt-5">Regularly send parcels and need a credit account? Why not fill in the form below and one of
+          our sales team will be in contact within 24hours.</p>
+        <p>We provide services for Overnight, Sameday and International so let us know how we can help you.</p>
+        <p>The Majority of our Freight is put through the APC overnight Network so travel under the APC Term's and Conditions, which can be viewed
+          <a href="https://apc-overnight.com/sending-a-parcel/terms_and_conditions_of_carriage/">HERE</a>.
+        </p>
+        <p>Any further questions just let us know in the comments section below.</p>
+
+      </div>
+      <div class="col-12 col-md-8 col-lg-6 ml-lg-5">
+        <form method="POST" action="{% url 'create_account' %}" class="form mb-2 mt-5" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% for field in form %}
+
+          {{ field | as_crispy_field }}
+
+          {% endfor %}
+          <div class="text-right">
+            <button class="btn btn-black rounded-0" type="submit">Submit Form</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

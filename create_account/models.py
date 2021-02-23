@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 class Create_account(models.Model):
+
     class Meta:
         verbose_name = "account"
         verbose_name_plural = "Account Submissions"

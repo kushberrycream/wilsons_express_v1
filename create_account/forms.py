@@ -26,11 +26,12 @@ class AccountForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
-            'freight': 'Freight',
+            'freight': 'Freight ',
             'other_comments': 'Other Comments',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
+
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:
@@ -38,5 +39,8 @@ class AccountForm(forms.ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields['freight'].choices = [
+                    ("", "Freight Type *"), ] + list(
+                        self.fields['freight'].choices)[1:]
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False

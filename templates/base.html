@@ -56,7 +56,7 @@
 
     <div id="topnav" class="row bg-white pt-lg-2 d-flex">
 
-      <div class="col-sm-8 col-6 pt-1 pt-lg-0 d-flex flex-column justify-content-between">
+      <div class="col-6 pt-1 pt-lg-0 d-flex flex-column justify-content-between">
         <div class="px-1 row">
           <ul class="list-inline list-unstyled text-left my-0 small-links">
             <li class="list-inline-item">
@@ -138,11 +138,13 @@
           </nav>
         </div>
       </div>
-      <div class="col-sm-4 col-6 py-1 py-lg-0 d-flex justify-content-end">
+      <div class="col-6 py-1 py-lg-0 d-flex justify-content-end">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <img width="300" class="logo-font text-dark my-0 d-none d-lg-block" src="/media/wilsons-logo-trans.png"
             alt="Wilson's Express">
-          <img width="200" class="logo-font text-dark my-0 d-lg-none" src="/media/wilsons-logo-trans.png"
+          <img width="200" class="logo-font text-dark my-0 d-none d-sm-block d-lg-none" src="/media/wilsons-logo-trans.png"
+            alt="Wilson's Express">
+            <img width="150" class="logo-font text-dark my-0 d-sm-none d-lg-none" src="/media/wilsons-logo-trans.png"
             alt="Wilson's Express">
         </a>
       </div>
