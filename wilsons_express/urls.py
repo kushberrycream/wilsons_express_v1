@@ -30,4 +30,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('faqs/', include('faqs.urls')),
     path('credit_account/', include('create_account.urls')),
+    path('quote/', include('quote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

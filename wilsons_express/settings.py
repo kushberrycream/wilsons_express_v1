@@ -52,9 +52,11 @@ INSTALLED_APPS = [
     'profiles',
     'faqs',
     'create_account.apps.CreateAccountConfig',
+    'quote.apps.QuoteConfig',
 
     # Other
     'crispy_forms',
+    'localflavor',
 ]
 
 MIDDLEWARE = [
