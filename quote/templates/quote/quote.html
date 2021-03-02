@@ -17,23 +17,78 @@
       <hr class="w-50 mb-1">
     </div>
   </div>
-  <div class="container">
-    <div class="col-12 col-md-6">
-      <form method="POST" action="{% url 'quote' %}" class="form mb-2" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% for field in quote_form %}
-
-        {{ field | as_crispy_field }}
-
-        {% endfor %}
-        <div class="text-right">
-          <button class="home-buttons btn btn-md rounded-0" type="submit">Get Quote!</button>
-        </div>
-      </form>
-      {{total_price}}
+  <div class="row">
+    <div class="col mt-3">
+      <h4>Actual Weight: {{weight|floatformat:2}}kg</h4>
+      <h4>Volume Weight: {{volume|floatformat:2}}kg</h4>
+      <h4>Price: £{{total_price|floatformat:2}}</h4>
     </div>
   </div>
+  <form method="POST" action="{% url 'quote' %}" class="mt-5">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-12 col-lg-6">
+          <fieldset>
+            <legend>Collection</legend>
+            {{ quote_form.c_contact_name | as_crispy_field }}
+            {{ quote_form.c_company | as_crispy_field }}
+            {{ quote_form.c_email | as_crispy_field }}
+            {{ quote_form.c_phone_number | as_crispy_field }}
+            {{ quote_form.c_street_address1 | as_crispy_field }}
+            {{ quote_form.c_street_address2 | as_crispy_field }}
+            {{ quote_form.c_town_or_city | as_crispy_field }}
+            {{ quote_form.c_county | as_crispy_field }}
+            {{ quote_form.c_postcode | as_crispy_field }}
+          </fieldset>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <fieldset>
+            <legend>Delivery</legend>
+            {{ quote_form.d_contact_name | as_crispy_field }}
+            {{ quote_form.d_company | as_crispy_field }}
+            {{ quote_form.d_email | as_crispy_field }}
+            {{ quote_form.d_phone_number | as_crispy_field }}
+            {{ quote_form.d_street_address1 | as_crispy_field }}
+            {{ quote_form.d_street_address2 | as_crispy_field }}
+            {{ quote_form.d_town_or_city | as_crispy_field }}
+            {{ quote_form.d_county | as_crispy_field }}
+            {{ quote_form.d_postcode | as_crispy_field }}
+          </fieldset>
+        </div>
+        <div class="col-12">
+          <fieldset>
+            <legend>Dimensions & Weight</legend>
+            <div class="row">
+              <div class="col-3">
+                {{ quote_form.weight | as_crispy_field }}
+              </div>
+              <div class="col-3">
+                {{ quote_form.height | as_crispy_field }}
+              </div>
+              <div class="col-3">
+                {{ quote_form.length | as_crispy_field }}
+              </div>
+              <div class="col-3">
+                {{ quote_form.width | as_crispy_field }}
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="text-right">
+          <button class="btn-dark btn btn-md rounded-0" type="submit">Get Quote!</button>
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+
 </div>
+
 <div id="loading-overlay">
   <h1 class="text-light logo-font loading-spinner wrapper">
     <span class="circle circle-1"></span>
@@ -50,7 +105,33 @@
   $("#contact-form").submit(function (e) {
     $('#loading-overlay').fadeToggle(100);
   })
+  $("#id_c_county").prepend('<option value="" selected="selected">County</option>');
+  $("#id_d_county").prepend('<option value="" selected="selected">County</option>');
 
+  let cCountySelected = $('#id_c_county').val();
+  if (!cCountySelected) {
+    $('#id_c_county').css('color', '#aab7c4');
+  };
+  $('#id_c_county').change(function () {
+    cCountySelected = $(this).val();
+    if (!cCountySelected) {
+      $(this).css('color', '#aab7c4');
+    } else {
+      $(this).css('color', '#000');
+    }
+  });
+  let dCountySelected = $('#id_d_county').val();
+  if (!dCountySelected) {
+    $('#id_d_county').css('color', '#aab7c4');
+  };
+  $('#id_d_county').change(function () {
+    dCountySelected = $(this).val();
+    if (!dCountySelected) {
+      $(this).css('color', '#aab7c4');
+    } else {
+      $(this).css('color', '#000');
+    }
+  }); 
 </script>
 
 {% endblock %}
