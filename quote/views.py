@@ -96,10 +96,22 @@ def quote(request):
                 over_10_cost = over_10 * 0.4
                 total_price += over_10_cost
 
-        if request.POST['service'] == '12am':
-            total_price += 9.00
-        elif request.POST['service'] == '10am':
-            total_price += 13.50
+        if 'service' in request.POST:
+            if request.POST['service'] == '12am':
+                total_price += 9.00
+            elif request.POST['service'] == '10am':
+                total_price += 13.50
+            elif request.POST['service'] == "null":
+                total_price += 0
+
+        if 'spec_service' in request.POST:
+            if request.POST['spec_service'] == 'Fragile' or request.POST[
+              'spec_service'] == 'Liquid':
+                total_price += 0.75
+            elif request.POST['spec_service'] == 'Security':
+                total_price += 1.50
+            elif request.POST['spec_service'] == 'Live Fish':
+                total_price += 16.50
 
     context = {
         'form_data': form_data,

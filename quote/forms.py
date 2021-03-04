@@ -31,7 +31,6 @@ class QuoteForm(forms.ModelForm):
     c_date = forms.DateField(widget=forms.SelectDateWidget(years=YEARS))
     d_date = forms.DateField(widget=forms.SelectDateWidget(years=YEARS))
     service = forms.ChoiceField(
-            required=True,
             widget=forms.CheckboxSelectMultiple(),
             choices=SERVICE,
             )
