@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     # Other
     'crispy_forms',
     'localflavor',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

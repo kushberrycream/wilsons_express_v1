@@ -2,6 +2,9 @@ from django import forms
 from .models import Quote
 from django.utils.translation import ugettext_lazy as _
 from localflavor.gb.forms import GBPostcodeField, GBCountySelect
+from crispy_forms.bootstrap import InlineCheckboxes
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout
 
 
 class QuoteForm(forms.ModelForm):
@@ -9,11 +12,34 @@ class QuoteForm(forms.ModelForm):
     class Meta:
         model = Quote
         fields = '__all__'
-
+    YEARS = ('2021', )
+    SERVICE = (
+      ('10am', '10am'),
+      ('12am', '12am'),
+      ('NextDay', 'NextDay'),
+    )
+    SPEC_SERVICE = (
+      ('Fragile', 'Fragile'),
+      ('Security', 'Security'),
+      ('Liquid', 'Liquid'),
+      ('Live Fish', 'Live Fish'),
+      )
     d_postcode = GBPostcodeField(max_length=8)
     c_postcode = GBPostcodeField(max_length=8)
     c_county = forms.CharField(label=_("County"), widget=GBCountySelect())
     d_county = forms.CharField(label=_("County"), widget=GBCountySelect())
+    c_date = forms.DateField(widget=forms.SelectDateWidget(years=YEARS))
+    d_date = forms.DateField(widget=forms.SelectDateWidget(years=YEARS))
+    service = forms.ChoiceField(
+            required=True,
+            widget=forms.CheckboxSelectMultiple(),
+            choices=SERVICE,
+            )
+    spec_service = forms.ChoiceField(
+            required=False,
+            widget=forms.CheckboxSelectMultiple(),
+            choices=SPEC_SERVICE,
+            )
 
     def __init__(self, *args, **kwargs):
         """
@@ -28,6 +54,12 @@ class QuoteForm(forms.ModelForm):
             'length': 'Length',
             'width': 'Width',
             'weight': 'Weight',
+            'fragile': 'fragile',
+            'security': ' security',
+            'service': 'Service',
+            'spec_service': 'Special',
+            'c_date': 'Collection Date',
+            'd_date': 'Delivery Date',
             'd_contact_name': 'Contact Name',
             'd_company': 'Delivery Company Name',
             'd_email': 'Delivery Email',
@@ -50,5 +82,14 @@ class QuoteForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+
+        self.fields['fragile'].label = 'Fragile'
+        self.fields['security'].label = 'Security'
+        self.helper = FormHelper(self)
+        self.helper.layout = Layout(
+          InlineCheckboxes('service', ))
+        self.helper.layout = Layout(
+          InlineCheckboxes('spec_service', ))

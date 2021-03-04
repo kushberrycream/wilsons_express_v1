@@ -359,12 +359,12 @@ button#main-nav-btn.navbar-toggler {
 
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #dc3545;
+    border-color: #28a745;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #28a745;
+    border-color: #28a745;
     border-radius: 0;
 }
 

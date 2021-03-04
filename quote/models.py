@@ -34,7 +34,13 @@ class Quote(models.Model):
     length = models.PositiveIntegerField(help_text="CMs")
     weight = models.DecimalField(
       help_text="KGs", max_digits=5, decimal_places=2)
+    fragile = models.BooleanField(default=False, blank=True)
+    security = models.BooleanField(default=False, blank=True)
+    service = models.CharField(max_length=20, null=False, blank=False)
+    spec_service = models.CharField(max_length=20, blank=False)
     date = models.DateTimeField(auto_now_add=True)
+    c_date = models.DateField(default="2012-09-04", null=True)
+    d_date = models.DateField(default="2012-09-04", null=True)
 
     def __str__(self):
         return self.d_postcode

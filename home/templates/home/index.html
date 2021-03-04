@@ -32,34 +32,66 @@
     <div class="row">
       <div class="col-12">
 
-        <form method="POST" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+        <form action="{% url 'quote' %}" method="POST" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
           {% csrf_token %}
           <h2 class="p-3">Request a Quote</h2>
           <div class="container">
-            <div class="row ">
-              <div class="col-12 col-md-6">
+          <div class="row ">
+            <div class="col-12 col-md-6">
+              <fieldset>
+                
                 {{ quote_form.c_postcode | as_crispy_field }}
-              </div>
-              <div class="col-12 col-md-6">
-                {{ quote_form.d_postcode | as_crispy_field }}
-              </div>
-            </div>
-            <div class="row ">
-              <div class="col-3">
-                {{ quote_form.weight | as_crispy_field }}
-              </div>
-              <div class="col-3">
-                {{ quote_form.height | as_crispy_field }}
-              </div>
-              <div class="col-3">
-                {{ quote_form.length | as_crispy_field }}
-              </div>
-              <div class="col-3">
-                {{ quote_form.width | as_crispy_field }}
-              </div>
 
+              </fieldset>
             </div>
+
+            <div class="col-12 col-md-6">
+              <fieldset>
+          
+                {{ quote_form.d_postcode | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
           </div>
+          <div class="row">
+            <div class="col-md-6 col-12 p-3">
+              <fieldset>
+                <legend class="lead">Time</legend>
+                {{ quote_form.service | as_crispy_field }}
+              </fieldset>
+            </div>
+            <div class="col-md-6 col-12 p-3">
+              <fieldset>
+                <legend class="lead">Speciality</legend>
+                {{ quote_form.spec_service | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
+          </div>
+          <div class="row">
+            <fieldset>
+            
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-3">
+                    {{ quote_form.weight | as_crispy_field }}
+                  </div>
+                  <div class="col-3">
+                    {{ quote_form.height | as_crispy_field }}
+                  </div>
+                  <div class="col-3">
+                    {{ quote_form.length | as_crispy_field }}
+                  </div>
+                  <div class="col-3">
+                    {{ quote_form.width | as_crispy_field }}
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
           <div class="text-right">
             <button class="btn-dark btn btn-md rounded-0" type="submit">Get Quote!</button>
           </div>
@@ -89,5 +121,25 @@
     </div>
   </div>
 </div>
+
+{% endblock %}
+
+{%block postloadjs%}
+<script>
+  $(document).ready(function () {
+    $("#div_id_service").children('div').addClass("d-flex flex-row service");
+    $(".d-flex.flex-row.service").children().children('input').addClass("time m-3");
+    $(".d-flex.flex-row.service").children('div').addClass("m-3");
+    $('input.time').on('change', function () {
+      $('input.time').not(this).prop('checked', false);
+    });
+    $("#div_id_spec_service").children('div').addClass("d-flex flex-row special");
+    $(".d-flex.flex-row.special").children().children('input').addClass("special m-3");
+    $(".d-flex.flex-row.special").children('div').addClass("m-3");
+    $('input.special').on('change', function () {
+      $('input.special').not(this).prop('checked', false);
+    });
+  });
+</script>
 
 {% endblock %}

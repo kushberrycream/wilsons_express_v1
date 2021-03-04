@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 {% load crispy_forms_tags %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -22,71 +23,80 @@
       <h4>Actual Weight: {{weight|floatformat:2}}kg</h4>
       <h4>Volume Weight: {{volume|floatformat:2}}kg</h4>
       <h4>Price: £{{total_price|floatformat:2}}</h4>
+
+      {{form_data}}
     </div>
   </div>
-  <form method="POST" action="{% url 'quote' %}" class="mt-5">
-    {% csrf_token %}
-    <div class="container">
-      <div class="row">
+  <div class="row">
+    <div class="col-12">
 
+      <form method="POST" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+          <div class="row ">
+            <div class="col-12 col-md-6">
+              <fieldset>
+                <legend>Collection</legend>
+                {{ quote_form.c_postcode | as_crispy_field }}
 
-        <div class="col-12 col-lg-6">
-          <fieldset>
-            <legend>Collection</legend>
-            {{ quote_form.c_contact_name | as_crispy_field }}
-            {{ quote_form.c_company | as_crispy_field }}
-            {{ quote_form.c_email | as_crispy_field }}
-            {{ quote_form.c_phone_number | as_crispy_field }}
-            {{ quote_form.c_street_address1 | as_crispy_field }}
-            {{ quote_form.c_street_address2 | as_crispy_field }}
-            {{ quote_form.c_town_or_city | as_crispy_field }}
-            {{ quote_form.c_county | as_crispy_field }}
-            {{ quote_form.c_postcode | as_crispy_field }}
-          </fieldset>
-        </div>
-
-        <div class="col-12 col-lg-6">
-          <fieldset>
-            <legend>Delivery</legend>
-            {{ quote_form.d_contact_name | as_crispy_field }}
-            {{ quote_form.d_company | as_crispy_field }}
-            {{ quote_form.d_email | as_crispy_field }}
-            {{ quote_form.d_phone_number | as_crispy_field }}
-            {{ quote_form.d_street_address1 | as_crispy_field }}
-            {{ quote_form.d_street_address2 | as_crispy_field }}
-            {{ quote_form.d_town_or_city | as_crispy_field }}
-            {{ quote_form.d_county | as_crispy_field }}
-            {{ quote_form.d_postcode | as_crispy_field }}
-          </fieldset>
-        </div>
-        <div class="col-12">
-          <fieldset>
-            <legend>Dimensions & Weight</legend>
-            <div class="row">
-              <div class="col-3">
-                {{ quote_form.weight | as_crispy_field }}
-              </div>
-              <div class="col-3">
-                {{ quote_form.height | as_crispy_field }}
-              </div>
-              <div class="col-3">
-                {{ quote_form.length | as_crispy_field }}
-              </div>
-              <div class="col-3">
-                {{ quote_form.width | as_crispy_field }}
-              </div>
+              </fieldset>
             </div>
-          </fieldset>
+
+            <div class="col-12 col-md-6">
+              <fieldset>
+                <legend>Delivery</legend>
+                {{ quote_form.d_postcode | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
+          </div>
+          <div class="row">
+            <h4 class="w-100 px-3">Service</h4>
+            <div class="col-md-6 col-12 p-3">
+              <fieldset>
+                <legend class="lead">Time</legend>
+                {{ quote_form.service | as_crispy_field }}
+              </fieldset>
+            </div>
+            <div class="col-md-6 col-12 p-3">
+              <fieldset>
+                <legend class="lead">Speciality</legend>
+                {{ quote_form.spec_service | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
+          </div>
+          <div class="row">
+            <fieldset>
+              <legend class="w-100">Dimensions & Weight</legend>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-3">
+                    {{ quote_form.weight | as_crispy_field }}
+                  </div>
+                  <div class="col-3">
+                    {{ quote_form.height | as_crispy_field }}
+                  </div>
+                  <div class="col-3">
+                    {{ quote_form.length | as_crispy_field }}
+                  </div>
+                  <div class="col-3">
+                    {{ quote_form.width | as_crispy_field }}
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
         </div>
         <div class="text-right">
-          <button class="btn-dark btn btn-md rounded-0" type="submit">Get Quote!</button>
+          <button action="" class="btn-dark btn btn-md rounded-0" type="submit">Enter Details</button>
+          <button class="btn-dark btn btn-md rounded-0" type="submit">Update Quote!</button>
         </div>
-
-
-      </div>
+      </form>
     </div>
-  </form>
-
+  </div>
 </div>
 
 <div id="loading-overlay">
@@ -132,6 +142,23 @@
       $(this).css('color', '#000');
     }
   }); 
+</script>
+
+<script>
+  $(document).ready(function () {
+    $("#div_id_service").children('div').addClass("d-flex flex-row service");
+    $(".d-flex.flex-row.service").children().children('input').addClass("time m-3");
+    $(".d-flex.flex-row.service").children('div').addClass("m-3");
+    $('input.time').on('change', function () {
+      $('input.time').not(this).prop('checked', false);
+    });
+    $("#div_id_spec_service").children('div').addClass("d-flex flex-row special");
+    $(".d-flex.flex-row.special").children().children('input').addClass("special m-3");
+    $(".d-flex.flex-row.special").children('div').addClass("m-3");
+    $('input.special').on('change', function () {
+      $('input.special').not(this).prop('checked', false);
+    });
+  });
 </script>
 
 {% endblock %}
