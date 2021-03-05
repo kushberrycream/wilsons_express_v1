@@ -1,8 +1,8 @@
 from django.shortcuts import (
-    render, get_object_or_404
+    render, redirect
 )
 from .forms import QuoteForm
-from .models import Quote
+from decimal import Decimal
 
 
 # Create your views here.
@@ -15,9 +15,9 @@ def quote(request):
         'G4', 'G5', 'G7', 'G8', 'G9',
     )
     LOCAL = (
-      'ME15', 'ME17', 'TN1', 'TN2', 'TN3', 'TN4', 'TN5', 'TN9',
+        'ME15', 'ME17', 'TN1', 'TN2', 'TN3', 'TN4', 'TN5', 'TN9',
     )
-    total_price = 0
+    total_price = Decimal(0)
     v_weight = 0
     a_weight = 0
 
@@ -59,59 +59,121 @@ def quote(request):
         quote_form = QuoteForm(form_data)
 
         v_weight = float(form_data['height']) * float(form_data[
-            'width']) * float(form_data['length']) / 4000
+            'width']) * float(form_data['length']) / 6000
         a_weight = float(form_data['weight'])
-        total_price = 8
+        height = Decimal(request.POST['height'])
+        length = Decimal(request.POST['length'])
+        width = Decimal(request.POST['width'])
+        total_price = Decimal(8)
         for local in LOCAL:
             if form_data['c_postcode'].startswith((local, )):
-                total_price = 0
+                total_price = Decimal(0)
 
         for scotland in SCOT_SURCHARGE:
             if form_data['d_postcode'].startswith((scotland, )):
-                total_price += 9.00
+                total_price += Decimal(9.00)
 
         if v_weight > a_weight:
             if v_weight <= 1:
-                total_price += 4.50
+                total_price += Decimal(4.50)
             elif v_weight > 1 and v_weight <= 7:
-                total_price += 6.50
+                total_price += Decimal(6.50)
             elif v_weight > 7 and v_weight <= 15:
-                total_price += 8.50
+                total_price += Decimal(8.50)
             elif v_weight > 15:
-                total_price += 8.50
+                total_price += Decimal(8.50)
                 over_10 = v_weight - 10
-                over_10_cost = over_10 * 0.4
-                total_price += over_10_cost
+                over_10_cost = Decimal(over_10) * Decimal(0.4)
+                total_price += Decimal(over_10_cost)
 
         if a_weight > v_weight:
             if a_weight <= 1:
-                total_price += 4.50
+                total_price += Decimal(4.50)
             elif a_weight > 1 and a_weight <= 7:
-                total_price += 6.50
+                total_price += Decimal(6.50)
             elif a_weight > 7 and a_weight <= 15:
-                total_price += 8.50
+                total_price += Decimal(8.50)
             elif a_weight > 15:
-                total_price += 8.50
+                total_price += Decimal(8.50)
                 over_10 = a_weight - 10
-                over_10_cost = over_10 * 0.4
-                total_price += over_10_cost
+                over_10_cost = Decimal(over_10) * Decimal(0.4)
+                total_price += Decimal(over_10_cost)
 
         if 'service' in request.POST:
             if request.POST['service'] == '12am':
-                total_price += 9.00
+                total_price += Decimal(9.00)
             elif request.POST['service'] == '10am':
-                total_price += 13.50
+                total_price += Decimal(13.50)
             elif request.POST['service'] == "null":
-                total_price += 0
+                total_price += Decimal(0)
 
         if 'spec_service' in request.POST:
             if request.POST['spec_service'] == 'Fragile' or request.POST[
-              'spec_service'] == 'Liquid':
-                total_price += 0.75
+                    'spec_service'] == 'Liquid':
+                total_price += Decimal(0.75)
             elif request.POST['spec_service'] == 'Security':
-                total_price += 1.50
+                total_price += Decimal(1.50)
             elif request.POST['spec_service'] == 'Live Fish':
-                total_price += 16.50
+                total_price += Decimal(16.50)
+
+        if (
+                height > Decimal(60) and
+                length > Decimal(60) and
+                width > Decimal(60)):
+            total_price += Decimal(4.00)
+
+        if (
+                height >= Decimal(120) and
+                length >= Decimal(55) and
+                width >= Decimal(50)):
+            total_price += Decimal(4.00)
+        if (
+                height >= Decimal(120) and
+                length >= Decimal(50) and
+                width >= Decimal(55)):
+            total_price += Decimal(4.00)
+        if (
+                height >= Decimal(55) and
+                length >= Decimal(120) and
+                width >= Decimal(50)):
+            total_price += Decimal(4.00)
+        if (
+                height >= Decimal(55) and
+                length >= Decimal(50) and
+                width >= Decimal(120)):
+            total_price += Decimal(4.00)
+        if (
+                height >= Decimal(50) and
+                length >= Decimal(120) and
+                width >= Decimal(55)):
+            total_price += Decimal(4.00)
+        if (
+                height >= Decimal(50) and
+                length >= Decimal(55) and
+                width >= Decimal(120)):
+            total_price += Decimal(4.00)
+
+        if (
+                height >= Decimal(160) and
+                length + width >= Decimal(120)):
+            total_price += Decimal(8.00)
+        if (
+                length >= Decimal(160) and
+                height + width >= Decimal(120)):
+            total_price += Decimal(8.00)
+        if (
+                width >= Decimal(160) and
+                height + length >= Decimal(120)):
+            total_price += Decimal(8.00)
+    if 'details' in request.POST:
+        context = {
+            'form_data': form_data,
+            'quote_form': quote_form,
+            'total_price': total_price,
+            'volume': v_weight,
+            'weight': a_weight,
+        }
+        return redirect('details')
 
     context = {
         'form_data': form_data,
@@ -124,16 +186,8 @@ def quote(request):
     return render(request, 'quote/quote.html', context)
 
 
-def partial_quote(request, quote_id):
-    """ A view to return a users delivery quote and the
-    rest of the form to book deliverys """
+def delivery_details(request):
+    """ A view to return a users delivery price and the
+    rest of the form to book deliveries """
 
-    quote = get_object_or_404(Quote, pk=quote_id)
-    if request.method == 'POST':
-        quote_form = QuoteForm(request.POST, instance=quote)
-    context = {
-        'quote_form': quote_form,
-
-    }
-
-    return render(request, 'quote/quote.html', context)
+    return render(request, 'quote/details.html')

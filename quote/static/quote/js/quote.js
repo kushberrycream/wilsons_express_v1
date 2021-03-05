@@ -1,25 +1,40 @@
 // Style and handle Checkboxes so they act as radio buttons on document ready.
 $(document).ready(function () {
+
   $("#div_id_service").children('div').addClass("d-flex flex-row flex-wrap service");
   $(".d-flex.flex-row.service").children().children('input').addClass("time m-3");
   $(".d-flex.flex-row.service").children('div').addClass("m-3");
   $('input.time').on('change', function () {
     $('input.time').not(this).prop('checked', false);
   });
+
+
   $("#div_id_spec_service").children('div').addClass("d-flex flex-row flex-wrap special");
   $(".d-flex.flex-row.special").children().children('input').addClass("special m-3");
   $(".d-flex.flex-row.special").children('div').addClass("m-3");
   $('input.special').on('change', function () {
     $('input.special').not(this).prop('checked', false);
   });
-  
+
+
   if ($('#id_spec_service_4').prop("checked") == true) {
     $("#id_service_3").attr("disabled", true);
     if ($('#id_service_3').prop("checked", false)) {
       $('#id_service_3').removeAttr('checked');
     }
   }
-  
+
+  $("#more_items").click(function () {
+    $('.w-100.d-none:first').addClass('d-flex').removeClass('d-none');
+  });
+  $("#less_items").click(function () {
+    $('.justify-content-around.d-flex:last').addClass('d-none').removeClass('d-flex');
+  });
+
+  if ($('#hidden_inputs').children('div').val()) {
+    $('#hidden_inputs').children('div').val().addClass('d-flex')
+  }
+  $('.input-group-append').children('span').addClass('stripe-style-input small').removeClass('input-group-text');
   // on() method to attatch the on click and on change event handlers.
   $('#services').on("click change", function (e) {
     if (e.type === "click") {
@@ -41,4 +56,6 @@ $(document).ready(function () {
       $("#id_service_3").removeAttr("disabled");
     }
   });
+
 });
+

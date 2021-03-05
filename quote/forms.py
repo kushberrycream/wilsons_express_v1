@@ -24,7 +24,9 @@ class QuoteForm(forms.ModelForm):
       ('Liquid', 'Liquid'),
       ('Live Fish', 'Live Fish'),
       )
-    d_postcode = GBPostcodeField(max_length=8)
+    d_postcode = forms.CharField(
+                                 error_messages={
+                                   'required': 'Enter A Valid Postcode'})
     c_postcode = GBPostcodeField(max_length=8)
     c_county = forms.CharField(label=_("County"), widget=GBCountySelect())
     d_county = forms.CharField(label=_("County"), widget=GBCountySelect())
@@ -53,6 +55,14 @@ class QuoteForm(forms.ModelForm):
             'length': 'Length',
             'width': 'Width',
             'weight': 'Weight',
+            'height1': 'Height',
+            'length1': 'Length',
+            'width1': 'Width',
+            'weight1': 'Weight',
+            'height2': 'Height',
+            'length2': 'Length',
+            'width2': 'Width',
+            'weight2': 'Weight',
             'fragile': 'fragile',
             'security': ' security',
             'service': 'Service',
@@ -89,6 +99,5 @@ class QuoteForm(forms.ModelForm):
         self.fields['security'].label = 'Security'
         self.helper = FormHelper(self)
         self.helper.layout = Layout(
-          InlineCheckboxes('service', ))
-        self.helper.layout = Layout(
+          InlineCheckboxes('service', ),
           InlineCheckboxes('spec_service', ))

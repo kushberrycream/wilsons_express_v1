@@ -29,6 +29,6 @@ urlpatterns = [
     path('contact/', include('contact_form.urls')),
     path('profile/', include('profiles.urls')),
     path('faqs/', include('faqs.urls')),
-    path('credit_account/', include('create_account.urls')),
-    path('quote/', include('quote.urls')),
+    path('credit-account/', include('create_account.urls')),
+    path('delivery/', include('quote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

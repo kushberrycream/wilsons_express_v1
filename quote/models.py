@@ -17,7 +17,8 @@ class Quote(models.Model):
     d_town_or_city = models.CharField(max_length=40, blank=True)
     d_county = models.CharField(max_length=80, blank=True)
     d_postcode = models.CharField(
-        max_length=8, verbose_name='Delivery Postcode')
+        max_length=8, verbose_name='Delivery Postcode', null=False,
+        blank=False)
     c_contact_name = models.CharField(max_length=50, null=False, blank=False)
     c_company = models.CharField(max_length=100, blank=True)
     c_email = models.EmailField(max_length=254, null=False, blank=False)
@@ -28,12 +29,25 @@ class Quote(models.Model):
     c_town_or_city = models.CharField(max_length=40, blank=True)
     c_county = models.CharField(max_length=80, blank=True)
     c_postcode = models.CharField(
-        max_length=8, verbose_name='Collection Postcode')
-    height = models.PositiveIntegerField(help_text="CMs")
-    width = models.PositiveIntegerField(help_text="CMs")
-    length = models.PositiveIntegerField(help_text="CMs")
+      max_length=8, verbose_name='Collection Postcode',
+      blank=True,)
+    height = models.PositiveIntegerField()
+    width = models.PositiveIntegerField()
+    length = models.PositiveIntegerField()
     weight = models.DecimalField(
-      help_text="KGs", max_digits=5, decimal_places=2)
+      help_text="Max 30kg's", max_digits=5, decimal_places=2)
+    height1 = models.PositiveIntegerField(blank=True, null=False)
+    width1 = models.PositiveIntegerField(blank=True, null=False)
+    length1 = models.PositiveIntegerField(blank=True, null=False)
+    weight1 = models.DecimalField(
+      help_text="Max 30kg's", max_digits=5,
+      decimal_places=2, blank=True, null=False)
+    height2 = models.PositiveIntegerField(blank=True, null=False)
+    width2 = models.PositiveIntegerField(blank=True, null=False)
+    length2 = models.PositiveIntegerField(blank=True, null=False)
+    weight2 = models.DecimalField(
+      help_text="Max 30kg's", max_digits=5,
+      decimal_places=2, blank=True, null=False)
     fragile = models.BooleanField(default=False, blank=True)
     security = models.BooleanField(default=False, blank=True)
     service = models.CharField(max_length=20, null=False, blank=False)
