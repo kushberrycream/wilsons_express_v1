@@ -4,31 +4,14 @@ from .models import Quote
 
 class QuoteAdmin(admin.ModelAdmin):
 
-    readonly_fields = ('date',)
-    fields = ('date',
-              'c_contact_name',
-              'c_company',
-              'c_email',
-              'c_phone_number',
-              'c_street_address1',
-              'c_street_address2',
-              'c_town_or_city',
-              'c_county',
-              'c_postcode',
-              'd_contact_name',
-              'd_company',
-              'd_email',
-              'd_phone_number',
-              'd_street_address1',
-              'd_street_address2',
-              'd_town_or_city',
-              'd_county',
-              'd_postcode',
-              'height',
-              'length',
-              'width',
-              'weight', )
-    list_display = ('d_postcode', 'c_postcode', 'date')
+    readonly_fields = (
+      'quote_ref', 'date', 'c_postcode', 'd_postcode', 'height',
+      'length', 'width', 'weight', 'volume_weight', 'quote'
+      )
+    fields = ('quote_ref', 'date', 'c_postcode', 'd_postcode',
+              'height', 'length', 'width', 'weight', 'volume_weight', 'quote')
+
+    list_display = ('quote_ref', 'c_postcode', 'd_postcode', 'date', 'quote')
 
 
 admin.site.register(Quote, QuoteAdmin)

@@ -1,5 +1,8 @@
 // Style and handle Checkboxes so they act as radio buttons on document ready.
 $(document).ready(function () {
+  $("#quote-form").submit(function (e) {
+    $('#loading-overlay').fadeToggle(100);
+  })
 
   $("#div_id_service").children('div').addClass("d-flex flex-row flex-wrap service");
   $(".d-flex.flex-row.service").children().children('input').addClass("time m-3");

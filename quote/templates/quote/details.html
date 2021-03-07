@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+{% block extra_js %}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+{% endblock %}
+
+{% block content %}
+<div class="overlay container"></div>
+<div class="container header-container">
+  <div class="row">
+    <div class="col text-center mt-3">
+      <h2 class="logo-font">Book Delivery</h2>
+      <hr class="w-50 mb-1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mt-3">
+     
+      <h4>Actual Weight: {{quote.weight|floatformat:2}}kg</h4>
+ 
+      <h4>Volume Weight: {{quote.volume_weight|floatformat:2}}kg</h4>
+      
+      <h4>Price: £{{quote.quote|floatformat:2}}</h4>
+    
+
+      {{form_data}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+
+      <form method="POST" id="quote-form" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+          <div class="row ">
+            <div class="col-12 col-md-6">
+              <fieldset>
+                <legend>Collection</legend>
+                {{ quote_form.c_postcode | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <fieldset>
+                <legend>Delivery</legend>
+                {{ quote_form.d_postcode | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
+          </div>
+          <div class="row" id="services">
+            <h4 class="w-100 px-3">Service</h4>
+            <div class="col-md-6 col-12 p-3 small">
+              <fieldset>
+                <legend class="lead">Time</legend>
+                {{ quote_form.service | as_crispy_field }}
+              </fieldset>
+            </div>
+            <div class="col-md-6 col-12 p-3 small">
+              <fieldset>
+                <legend class="lead">Speciality</legend>
+                {{ quote_form.spec_service | as_crispy_field }}
+
+              </fieldset>
+            </div>
+
+          </div>
+          <div class="row">
+            <div id="items" class="col-12">
+              <fieldset>
+                <legend class="w-100">Dimensions & Weight</legend>
+                <div class="w-100 d-flex justify-content-around">
+                  <div class="mx-3 ">
+                    {% crispy_addon quote_form.weight append='kg' %}
+
+                  </div>
+                  <div class="mx-3">
+                    {% crispy_addon quote_form.height append='cm' %}
+                  </div>
+                  <div class="mx-3">
+                    {% crispy_addon quote_form.length append='cm' %}
+                  </div>
+                  <div class="mx-3">
+                    {% crispy_addon quote_form.width append='cm' %}
+                  </div>
+                  <div class="ml-3 d-flex justify-content-end">
+                    <button type="button" class="btn pl-3" id="less_items">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn pl-3" id="more_items">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+
+
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <button action="{% url 'details' quote.quote_ref %}" name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
+            Details</button>
+          <button name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update
+            Quote!</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="loading-overlay">
+  <h1 class="text-light logo-font loading-spinner wrapper">
+    <span class="circle circle-1"></span>
+    <span class="circle circle-2"></span>
+    <span class="circle circle-3"></span>
+    <span class="circle circle-4"></span>
+  </h1>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'quote/js/quote.js' %}"></script>
+{% endblock %}

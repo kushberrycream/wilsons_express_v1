@@ -20,9 +20,21 @@
   </div>
   <div class="row">
     <div class="col mt-3">
+      {% if quote.weight %}
+      <h4>Actual Weight: {{quote.weight|floatformat:2}}kg</h4>
+      {% else %}
       <h4>Actual Weight: {{weight|floatformat:2}}kg</h4>
+      {% endif %}
+      {% if quote.volume_weight %}
+      <h4>Volume Weight: {{quote.volume_weight|floatformat:2}}kg</h4>
+      {% else %}
       <h4>Volume Weight: {{volume|floatformat:2}}kg</h4>
+      {% endif %}
+      {% if quote.quote %}
+      <h4>Price: £{{quote.quote|floatformat:2}}</h4>
+      {% else %}
       <h4>Price: £{{total_price|floatformat:2}}</h4>
+      {% endif %}
 
       {{form_data}}
     </div>
@@ -30,7 +42,7 @@
   <div class="row">
     <div class="col-12">
 
-      <form method="POST" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+      <form method="POST" id="quote-form" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">
           <div class="row ">
@@ -96,14 +108,16 @@
                   </div>
                 </div>
 
-              
+
               </fieldset>
             </div>
           </div>
         </div>
         <div class="text-right">
-          <button action="{% url 'details' %}" name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter Details</button>
-          <button action="{% url 'quote' %}" name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update Quote!</button>
+          <button name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
+            Details</button>
+          <button name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update
+            Quote!</button>
         </div>
       </form>
     </div>
@@ -123,9 +137,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
-  $("#contact-form").submit(function (e) {
-    $('#loading-overlay').fadeToggle(100);
-  })
+
   $("#id_c_county").prepend('<option value="" selected="selected">County</option>');
   $("#id_d_county").prepend('<option value="" selected="selected">County</option>');
 
