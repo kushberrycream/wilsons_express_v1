@@ -14,7 +14,7 @@ class QuoteForm(forms.ModelForm):
         fields = {
           'c_postcode', 'd_postcode', 'height', 'weight',
           'length', 'width', 'service', 'spec_service'
-        } 
+        }
 
     YEARS = ('2021', )
     SERVICE = (
@@ -47,7 +47,6 @@ class QuoteForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-          
             'c_postcode': 'Collection Postcode',
             'd_postcode': 'Delivery Postcode',
             'height': 'Height',
@@ -59,11 +58,11 @@ class QuoteForm(forms.ModelForm):
         }
 
         self.fields['c_postcode'].widget.attrs['autofocus'] = True
+        self.helper = FormHelper(self)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
 
-        self.helper = FormHelper(self)
+        

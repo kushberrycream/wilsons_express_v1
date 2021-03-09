@@ -10,23 +10,26 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Recieving a Parcel?
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <ul class="dropdown-menu border-0" aria-labelledby="recieving-link">
                 <a href="https://apc-overnight.com/receiving-a-parcel/tracking" target="_blank" rel="noreferrer"
                     class="dropdown-item inline-list">Track With APC Pinpoint</a>
                 <a href="https://apc-overnight.com/receiving-a-parcel/re-schedule-delivery/" target="_blank" rel="noreferrer"
                     class="dropdown-item inline-list">Reschedule with APC Called</a>
-            </div>
+            </ul>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#" id="sending-link"
+            <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sending a Parcel?
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <ul class="dropdown-menu border-0" aria-labelledby="sending-link" id="sending-links">
+              <noscript>
+                <a href="{% url 'contact' %}" class="dropdown-item">Send a Parcel</a>
+              </noscript>
                 <a href="{% url 'create_account' %}" class="dropdown-item">Open a Credit Account</a>
-                <a href="{% url 'quote' %}" class="dropdown-item">Send a Parcel</a>
-            </div>
+                
+            </ul>
         </li>
         {% if url != categories or url != products %}
         {% else %}

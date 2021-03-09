@@ -24,6 +24,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <noscript>
+    <link rel="stylesheet" href="{% static 'css/noscript.css' %}">
+  </noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
   {% endblock %}
 
@@ -57,13 +60,18 @@
     <div id="topnav" class="row bg-white pt-lg-2 d-flex">
 
       <div class="col-6 pt-1 pt-lg-0 d-flex flex-column justify-content-between">
-        <div class="px-1 row">
+        <div class="px-1 row" id="top-links">
           <ul class="list-inline list-unstyled text-left my-0 small-links">
             <li class="list-inline-item">
               <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Contact Us"
                 href="{% url 'contact' %}">
                 <div class="text-center text-dark">
-                  <div><i class="fas fa-envelope fa-lg"></i></div>
+                  <div>
+
+                    <noscript>
+                      Contact Us!
+                    </noscript>
+                    <i class="fas fa-envelope fa-lg"></i></div>
                 </div>
               </a>
             </li>
@@ -72,20 +80,28 @@
               <a class="nav-link" href="#" id="faq-options" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <div class="text-center text-dark">
-                  <div><i class="fas fa-question-circle fa-lg"></i></div>
+                  <div>
+                    <noscript>
+                      FAQS
+                    </noscript>
+                    <i class="fas fa-question-circle fa-lg"></i></div>
+
                 </div>
               </a>
-              <div class="dropdown-menu border-0" aria-labelledby="faq-options">
+              <ul class="dropdown-menu border-0" aria-labelledby="faq-options">
                 <a href="{% url 'faqs' %}" class="dropdown-item">FAQs</a>
                 <a href="https://apc-overnight.com/sending-a-parcel/terms_and_conditions_of_carriage/" target="_blank"
                   rel="noreferrer" class="dropdown-item">APC T&C's</a>
-              </div>
+              </ul>
             </li>
             <li class="list-inline-item dropdown">
               <a class="{% if grand_total %}text-success font-weight-bold{% else %}text-dark{% endif %} nav-link"
                 href="{% url 'view_bag' %}">
                 <div class="text-center">
                   <div>
+                    <noscript>
+                      Bag
+                    </noscript>
                     <i class="fas fa-shopping-bag fa-lg"></i>
                   </div>
                   <div class="d-flex justify-content-center">
@@ -104,10 +120,14 @@
               <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <div class="text-center text-dark">
-                  <div><i class="fas fa-user fa-lg"></i></div>
+                  <div>
+                    <noscript>
+                      User
+                    </noscript>
+                    <i class="fas fa-user fa-lg"></i></div>
                 </div>
               </a>
-              <div class="dropdown-menu border-0" aria-labelledby="user-options">
+              <ul class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                 <a href="/admin/" class="dropdown-item">Admin</a>
@@ -122,9 +142,8 @@
                 <a href="https://apc.hypaship.com/" target="_blank" rel="noopener" class="dropdown-item">Apc Hypaship
                   Login</a>
                 {% endif %}
-              </div>
+                </ul>
             </li>
-
           </ul>
         </div>
         <div class="row mx-lg-auto nav-line-height">
@@ -142,9 +161,9 @@
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <img width="300" class="logo-font text-dark my-0 d-none d-lg-block" src="/media/wilsons-logo-trans.png"
             alt="Wilson's Express">
-          <img width="200" class="logo-font text-dark my-0 d-none d-sm-block d-lg-none" src="/media/wilsons-logo-trans.png"
-            alt="Wilson's Express">
-            <img width="150" class="logo-font text-dark my-0 d-sm-none d-lg-none" src="/media/wilsons-logo-trans.png"
+          <img width="200" class="logo-font text-dark my-0 d-none d-sm-block d-lg-none"
+            src="/media/wilsons-logo-trans.png" alt="Wilson's Express">
+          <img width="150" class="logo-font text-dark my-0 d-sm-none d-lg-none" src="/media/wilsons-logo-trans.png"
             alt="Wilson's Express">
         </a>
       </div>
@@ -176,21 +195,10 @@
   {% endblock %}
 
   {% block postloadjs %}
-  <script>
-
-    $('.toast').toast('show');
-
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-    $(function () {
-      $(document).on('shown.bs.tooltip', function (e) {
-        setTimeout(function () {
-          $(e.target).tooltip('hide');
-        }, 750);
-      });
-    });
-  </script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <style>
+    
+  </style>
   {% endblock %}
 </body>
 

@@ -33,22 +33,23 @@ class Quote(models.Model):
     c_postcode = models.CharField(
       max_length=8, verbose_name='Collection Postcode',
       blank=False)
-    height = models.PositiveIntegerField()
-    width = models.PositiveIntegerField()
-    length = models.PositiveIntegerField()
     weight = models.DecimalField(
-      help_text="Max 30kg's", max_digits=5, decimal_places=2, blank=False)
-    volume_weight = models.DecimalField(max_digits=5, decimal_places=2)
+      help_text="Max 30kg's", max_digits=5, decimal_places=2,
+      null=False, blank=False)
+    height = models.DecimalField(max_digits=7, decimal_places=2,
+                                 null=False, blank=False)
+    width = models.DecimalField(max_digits=7, decimal_places=2,
+                                null=False, blank=False)
+    length = models.DecimalField(max_digits=7, decimal_places=2,
+                                 null=False, blank=False)
+    volume_weight = models.DecimalField(max_digits=7, decimal_places=2,
+                                        null=False, blank=False)
     service = models.CharField(
       max_length=20, null=False, blank=False)
     spec_service = models.CharField(max_length=20, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     c_date = models.DateField(default="2012-09-04", null=True)
     d_date = models.DateField(default="2012-09-04", null=True)
-    actual_weight = models.DecimalField(max_digits=7, decimal_places=2,
-                                        null=False, default=0)
-    volume_weight = models.DecimalField(max_digits=7, decimal_places=2,
-                                        null=False, default=0)
     quote = models.DecimalField(max_digits=7, decimal_places=2,
                                 null=False, default=0)
 
