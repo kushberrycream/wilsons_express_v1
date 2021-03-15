@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block branding %}
+{% block extrastyle %}
+<link rel='stylesheet' href='{% static 'css/admin.css' %}'>
+{% endblock %}
+<h1 = 'head'>
+  <img width="150" class="logo-font text-dark my-0 d-sm-none d-lg-none" src="/media/wilsons-logo-trans.png"
+    alt="Wilson's Express">
+  Wilson's Express Admin
+</h1>
+{% endblock %}

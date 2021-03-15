@@ -1,44 +1,44 @@
 <div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav w-auto mx-auto ">
-        <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link mr-5 text-dark" href="{% url 'home' %}" id="home-link">
-                Home
-            </a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#" id="recieving-link"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Recieving a Parcel?
-            </a>
-            <ul class="dropdown-menu border-0" aria-labelledby="recieving-link">
-                <a href="https://apc-overnight.com/receiving-a-parcel/tracking" target="_blank" rel="noreferrer"
-                    class="dropdown-item inline-list">Track With APC Pinpoint</a>
-                <a href="https://apc-overnight.com/receiving-a-parcel/re-schedule-delivery/" target="_blank" rel="noreferrer"
-                    class="dropdown-item inline-list">Reschedule with APC Called</a>
-            </ul>
-        </li>
+  <ul class="navbar-nav w-auto mx-auto ">
+    <li class="nav-item">
+      <a class="logo-font font-weight-bold nav-link mr-5 text-dark" href="{% url 'home' %}" id="home-link">
+        Home
+      </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#" id="recieving-link"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Recieving a Parcel?
+      </a>
+      <ul class="dropdown-menu border-0" aria-labelledby="recieving-link">
+        <a href="https://apc-overnight.com/receiving-a-parcel/tracking" target="_blank" rel="noreferrer"
+          class="dropdown-item inline-list">Track With APC Pinpoint</a>
+        <a href="https://apc-overnight.com/receiving-a-parcel/re-schedule-delivery/" target="_blank" rel="noreferrer"
+          class="dropdown-item inline-list">Reschedule with APC Called</a>
+      </ul>
+    </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Sending a Parcel?
-            </a>
-            <ul class="dropdown-menu border-0" aria-labelledby="sending-link" id="sending-links">
-              <noscript>
-                <a href="{% url 'contact' %}" class="dropdown-item">Send a Parcel</a>
-              </noscript>
-                <a href="{% url 'create_account' %}" class="dropdown-item">Open a Credit Account</a>
-                
-            </ul>
-        </li>
-        {% if url != categories or url != products %}
-        {% else %}
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-dark text-nowrap" href="{% url 'store_home' %}"
-                id="store-link">
-                Store
-            </a>
-        </li>
-        {% endif %}
-    </ul>
+    <li class="nav-item dropdown">
+      <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Sending a Parcel?
+      </a>
+      <ul class="dropdown-menu border-0" aria-labelledby="sending-link" id="sending-links">
+        <noscript>
+          <a href="{% url 'contact' %}" class="dropdown-item">Send a Parcel</a>
+        </noscript>
+        <a href="{% url 'create_account' %}" class="dropdown-item account">Open a Credit Account</a>
+
+      </ul>
+    </li>
+    {% if url != categories or url != products %}
+    {% else %}
+    <li class="nav-item dropdown">
+      <a class="logo-font font-weight-bold nav-link text-dark text-nowrap" href="{% url 'store_home' %}"
+        id="store-link">
+        Store
+      </a>
+    </li>
+    {% endif %}
+  </ul>
 </div>

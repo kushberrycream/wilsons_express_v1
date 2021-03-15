@@ -5,6 +5,7 @@ li {
   transition-duration: 0.5s;
     }
 
+
 li:hover {
   cursor: pointer;
     }
@@ -18,6 +19,7 @@ ul li ul {
   left: 0;
   display: none;    
 }
+
 
 ul li:hover>ul,
 ul li ul:hover {

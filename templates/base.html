@@ -142,7 +142,7 @@
                 <a href="https://apc.hypaship.com/" target="_blank" rel="noopener" class="dropdown-item">Apc Hypaship
                   Login</a>
                 {% endif %}
-                </ul>
+              </ul>
             </li>
           </ul>
         </div>
@@ -195,10 +195,13 @@
   {% endblock %}
 
   {% block postloadjs %}
-  <script src="{% static 'js/main.js' %}"></script>
-  <style>
+  <script>
+    // display toasts
+    $('.toast').toast('show');
     
-  </style>
+  </script>
+  <script src="{% static 'js/main.js' %}"></script>
+  
   {% endblock %}
 </body>
 

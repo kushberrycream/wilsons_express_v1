@@ -28,28 +28,32 @@ $(document).ready(function () {
   }
 
 
-  if ($( "#item_2" ).hasClass("d-none")) {
-        $("#less_items").prop('disabled', true);
+  if ($("#item_2").hasClass("d-none")) {
+    $("#less_items").prop('disabled', true);
   }
 
   $("#more_items").click(function () {
     $('.d-none.justify-content-around.row:first').addClass('d-flex').removeClass('d-none');
-    if ($( "#item_5" ).hasClass("d-flex")) {
-        $("#more_items").prop('disabled', true);
+    if ($("#item_5").hasClass("d-flex")) {
+      $("#more_items").prop('disabled', true);
     }
-    if ($( "#item_2" ).hasClass("d-flex")) {
-        $("#less_items").prop('disabled', false);
+    if ($("#item_2").hasClass("d-flex")) {
+      $("#less_items").prop('disabled', false);
     }
   });
   $("#less_items").click(function () {
     $('.justify-content-around.d-flex:last').addClass('d-none').removeClass('d-flex');
-    if ($( "#item_5" ).hasClass("d-none")) {
-        $("#more_items").prop('disabled', false);
+    if ($("#item_5").hasClass("d-none")) {
+      $("#more_items").prop('disabled', false);
     }
-    if ($( "#item_2" ).hasClass("d-none")) {
-        $("#less_items").prop('disabled', true);
+    if ($("#item_2").hasClass("d-none")) {
+      $("#less_items").prop('disabled', true);
     }
   });
+
+  if ($('#div_id_weight1').val()) {
+    $('#item2').addClass('d-flex').removeClass('d-none');
+  }
 
   $('.input-group-append').children('span').addClass('stripe-style-input small').removeClass('input-group-text');
   // on() method to attatch the on click and on change event handlers.
@@ -72,6 +76,8 @@ $(document).ready(function () {
     } else {
       $("#id_service_3").removeAttr("disabled");
     }
+  }, {
+    passive: true
   });
 
 });

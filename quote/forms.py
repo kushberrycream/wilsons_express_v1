@@ -13,9 +13,11 @@ class QuoteForm(forms.ModelForm):
         model = Quote
         fields = {
           'c_postcode', 'd_postcode', 'height', 'weight',
-          'length', 'width', 'service', 'spec_service'
+          'length', 'width', 'service', 'spec_service', 'height1',
+          'weight1', 'length1', 'width1', 'width2', 'height2', 'weight2',
+          'length2', 'width3', 'height3', 'weight3', 'length3', 'width4',
+          'height4', 'weight4', 'length4',
         }
-
     YEARS = ('2021', )
     SERVICE = (
       ('10am', '10am'),
@@ -28,6 +30,7 @@ class QuoteForm(forms.ModelForm):
       ('Liquid', 'Liquid'),
       ('Live Fish', 'Live Fish'),
       )
+
     d_postcode = GBPostcodeField(max_length=8)
     c_postcode = GBPostcodeField(max_length=8)
     service = forms.ChoiceField(
@@ -55,6 +58,22 @@ class QuoteForm(forms.ModelForm):
             'weight': 'Weight',
             'service': 'Service',
             'spec_service': 'Special',
+            'height1': 'Height',
+            'length1': 'Length',
+            'width1': 'Width',
+            'weight1': 'Weight',
+            'height2': 'Height',
+            'length2': 'Length',
+            'width2': 'Width',
+            'weight2': 'Weight',
+            'height3': 'Height',
+            'length3': 'Length',
+            'width3': 'Width',
+            'weight3': 'Weight',
+            'height4': 'Height',
+            'length4': 'Length',
+            'width4': 'Width',
+            'weight4': 'Weight',
         }
 
         self.fields['c_postcode'].widget.attrs['autofocus'] = True
@@ -64,5 +83,3 @@ class QuoteForm(forms.ModelForm):
             self.fields[field].label = False
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-
-        

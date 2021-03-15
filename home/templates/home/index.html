@@ -18,7 +18,7 @@
 {% endblock %}
 {% block content %}
 
-<div class="rgba-black-light">
+<div id="dark-overlay" class="rgba-black-light h-100">
   <div class="container header-container">
     <div class="row">
       <div class="col-12 col-lg-8 mt-5">
@@ -31,9 +31,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
-
-        <form method="POST" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+      <div class="col-12 bg-white mb-5">
+        <noscript>
+          <h4 class="text-danger m-5 text-center">You have disabled Javascript, Whilst most of the site is accessible we advise to enable Javascript to obtain quotes instantly.</h4>
+        </noscript>
+        <form id="home_quote" method="POST" class="form mb-2 p-3 bg-white d-none" enctype="multipart/form-data">
           {% csrf_token %}
           <h2 class="p-3">Request a Quote</h2>
           <div class="container">
@@ -78,7 +80,7 @@
                   <div id="item_1" class="d-flex justify-content-around row">
                     <div class="col-12">
                       <fieldset>
-                        <legend class="small">Item 1</legend>
+                        <legend class="small font-weight-bold">Item 1</legend>
                         <div class="row">
                           <div class="col-sm-3">
                             {% crispy_addon quote_form.weight append='kg' %}
@@ -101,20 +103,20 @@
                   <div id="item_2" class="d-none justify-content-around row">
                     <div class="col-12">
                       <fieldset>
-                        <legend class="small">Item 2</legend>
+                        <legend class="small font-weight-bold">Item 2</legend>
                         <div class="row">
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.weight append='kg' %}
+                            {% crispy_addon quote_form.weight1 append='kg' %}
 
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.height append='cm' %}
+                            {% crispy_addon quote_form.height1 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.length append='cm' %}
+                            {% crispy_addon quote_form.length1 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.width append='cm' %}
+                            {% crispy_addon quote_form.width1 append='cm' %}
                           </div>
                         </div>
                       </fieldset>
@@ -123,20 +125,20 @@
                   <div id="item_3" class="d-none justify-content-around row">
                     <div class="col-12">
                       <fieldset>
-                        <legend class="small">Item 3</legend>
+                        <legend class="small font-weight-bold">Item 3</legend>
                         <div class="row">
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.weight append='kg' %}
+                            {% crispy_addon quote_form.weight2 append='kg' %}
 
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.height append='cm' %}
+                            {% crispy_addon quote_form.height2 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.length append='cm' %}
+                            {% crispy_addon quote_form.length2 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.width append='cm' %}
+                            {% crispy_addon quote_form.width2 append='cm' %}
                           </div>
                         </div>
                       </fieldset>
@@ -146,20 +148,20 @@
                   <div id="item_4" class="d-none justify-content-around row">
                     <div class="col-12">
                       <fieldset>
-                        <legend class="small">Item 4</legend>
+                        <legend class="small font-weight-bold">Item 4</legend>
                         <div class="row">
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.weight append='kg' %}
+                            {% crispy_addon quote_form.weight3 append='kg' %}
 
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.height append='cm' %}
+                            {% crispy_addon quote_form.height3 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.length append='cm' %}
+                            {% crispy_addon quote_form.length3 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.width append='cm' %}
+                            {% crispy_addon quote_form.width3 append='cm' %}
                           </div>
                         </div>
                       </fieldset>
@@ -168,20 +170,20 @@
                   <div id="item_5" class="d-none justify-content-around row">
                     <div class="col-12">
                       <fieldset>
-                        <legend class="small">Item 5</legend>
+                        <legend class="small font-weight-bold">Item 5</legend>
                         <div class="row">
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.weight append='kg' %}
+                            {% crispy_addon quote_form.weight4 append='kg' %}
 
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.height append='cm' %}
+                            {% crispy_addon quote_form.height4 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.length append='cm' %}
+                            {% crispy_addon quote_form.length4 append='cm' %}
                           </div>
                           <div class="col-sm-3">
-                            {% crispy_addon quote_form.width append='cm' %}
+                            {% crispy_addon quote_form.width4 append='cm' %}
                           </div>
                         </div>
                       </fieldset>
@@ -205,6 +207,7 @@
             <button class="btn-dark btn btn-md rounded-0" type="submit">Get Quote!</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>

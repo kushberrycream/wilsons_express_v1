@@ -19,24 +19,21 @@
     </div>
   </div>
   <div class="row">
-    <div class="col mt-3">
-      {% if quote.weight %}
-      <h4>Actual Weight: {{quote.weight|floatformat:2}}kg</h4>
-      {% else %}
-      <h4>Actual Weight: {{weight|floatformat:2}}kg</h4>
-      {% endif %}
-      {% if quote.volume_weight %}
-      <h4>Volume Weight: {{quote.volume_weight|floatformat:2}}kg</h4>
-      {% else %}
-      <h4>Volume Weight: {{volume|floatformat:2}}kg</h4>
-      {% endif %}
-      {% if quote.quote %}
-      <h4>Price: £{{quote.quote|floatformat:2}}</h4>
-      {% else %}
-      <h4>Price: £{{total_price|floatformat:2}}</h4>
-      {% endif %}
+    <div class="col-12 mt-5">
 
-      {{form_data}}
+      <h4>Actual Weight: {{quote.overall_weight|floatformat:2}}kg</h4>
+      <h4>Volume Weight: {{quote.overall_volume|floatformat:2}}kg</h4>
+      <h4>Price: £{{quote.quote|floatformat:2}}</h4>
+      <p class="">
+        Reference Number: {{quote.quote_ref}}
+        <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
+          your quote</span>
+      </p>
+    </div>
+    <div class="col-9 mt-2 small font-weight-light font-italics">
+      <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm) and
+        dividing that figure by 5000. You may often find that the price of your shipment is dictated by the volumetric
+        weight of your parcel(s) rather than the actual weight.</p>
     </div>
   </div>
   <div class="row">
@@ -113,17 +110,17 @@
                       <legend class="small">Item 2</legend>
                       <div class="row">
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.weight append='kg' %}
+                          {% crispy_addon quote_form.weight1 append='kg' %}
 
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.height append='cm' %}
+                          {% crispy_addon quote_form.height1 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.length append='cm' %}
+                          {% crispy_addon quote_form.length1 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.width append='cm' %}
+                          {% crispy_addon quote_form.width1 append='cm' %}
                         </div>
                       </div>
                     </fieldset>
@@ -135,17 +132,17 @@
                       <legend class="small">Item 3</legend>
                       <div class="row">
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.weight append='kg' %}
+                          {% crispy_addon quote_form.weight2 append='kg' %}
 
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.height append='cm' %}
+                          {% crispy_addon quote_form.height2 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.length append='cm' %}
+                          {% crispy_addon quote_form.length2 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.width append='cm' %}
+                          {% crispy_addon quote_form.width2 append='cm' %}
                         </div>
                       </div>
                     </fieldset>
@@ -158,17 +155,17 @@
                       <legend class="small">Item 4</legend>
                       <div class="row">
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.weight append='kg' %}
+                          {% crispy_addon quote_form.weight3 append='kg' %}
 
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.height append='cm' %}
+                          {% crispy_addon quote_form.height3 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.length append='cm' %}
+                          {% crispy_addon quote_form.length3 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.width append='cm' %}
+                          {% crispy_addon quote_form.width3 append='cm' %}
                         </div>
                       </div>
                     </fieldset>
@@ -180,17 +177,17 @@
                       <legend class="small">Item 5</legend>
                       <div class="row">
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.weight append='kg' %}
+                          {% crispy_addon quote_form.weight4 append='kg' %}
 
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.height append='cm' %}
+                          {% crispy_addon quote_form.height4 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.length append='cm' %}
+                          {% crispy_addon quote_form.length4 append='cm' %}
                         </div>
                         <div class="col-sm-3">
-                          {% crispy_addon quote_form.width append='cm' %}
+                          {% crispy_addon quote_form.width4 append='cm' %}
                         </div>
                       </div>
                     </fieldset>
@@ -210,16 +207,16 @@
             </div>
           </div>
         </div>
+        <div class="text-right">
+          <button name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
+            Details</button>
+          <button name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update
+            Quote!</button>
+        </div>
+
+      </form>
     </div>
-    <div class="text-right">
-      <button name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
-        Details</button>
-      <button name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update
-        Quote!</button>
-    </div>
-    </form>
   </div>
-</div>
 </div>
 
 <div id="loading-overlay">
