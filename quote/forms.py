@@ -16,7 +16,7 @@ class QuoteForm(forms.ModelForm):
           'length', 'width', 'service', 'spec_service', 'height1',
           'weight1', 'length1', 'width1', 'width2', 'height2', 'weight2',
           'length2', 'width3', 'height3', 'weight3', 'length3', 'width4',
-          'height4', 'weight4', 'length4',
+          'height4', 'weight4', 'length4', 'email', 'phone_number',
         }
     YEARS = ('2021', )
     SERVICE = (
@@ -30,7 +30,6 @@ class QuoteForm(forms.ModelForm):
       ('Liquid', 'Liquid'),
       ('Live Fish', 'Live Fish'),
       )
-
     d_postcode = GBPostcodeField(max_length=8)
     c_postcode = GBPostcodeField(max_length=8)
     service = forms.ChoiceField(
@@ -52,28 +51,18 @@ class QuoteForm(forms.ModelForm):
         placeholders = {
             'c_postcode': 'Collection Postcode',
             'd_postcode': 'Delivery Postcode',
-            'height': 'Height',
-            'length': 'Length',
-            'width': 'Width',
-            'weight': 'Weight',
-            'service': 'Service',
-            'spec_service': 'Special',
-            'height1': 'Height',
-            'length1': 'Length',
-            'width1': 'Width',
-            'weight1': 'Weight',
-            'height2': 'Height',
-            'length2': 'Length',
-            'width2': 'Width',
-            'weight2': 'Weight',
-            'height3': 'Height',
-            'length3': 'Length',
-            'width3': 'Width',
-            'weight3': 'Weight',
-            'height4': 'Height',
-            'length4': 'Length',
-            'width4': 'Width',
-            'weight4': 'Weight',
+            'height': 'Height', 'length': 'Length',
+            'width': 'Width', 'weight': 'Weight',
+            'service': 'Service', 'spec_service': 'Special',
+            'height1': 'Height', 'length1': 'Length',
+            'width1': 'Width', 'weight1': 'Weight',
+            'height2': 'Height', 'length2': 'Length',
+            'width2': 'Width', 'weight2': 'Weight',
+            'height3': 'Height', 'length3': 'Length',
+            'width3': 'Width', 'weight3': 'Weight',
+            'height4': 'Height', 'length4': 'Length',
+            'width4': 'Width', 'weight4': 'Weight',
+            'email': 'Email Address', 'phone_number': 'Phone Number',
         }
 
         self.fields['c_postcode'].widget.attrs['autofocus'] = True

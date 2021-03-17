@@ -1,6 +1,7 @@
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404
 )
+from measurement.measures import Weight
 from .forms import QuoteForm
 from .models import Quote
 from decimal import Decimal
@@ -49,6 +50,8 @@ def quote(request):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
             }
         elif 'spec_service' not in request.POST:
             form_data = {
@@ -75,6 +78,8 @@ def quote(request):
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
                 'service': request.POST['service'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
             }
         else:
             form_data = {
@@ -102,8 +107,9 @@ def quote(request):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
             }
-
         quote = Quote()
         quote_form = QuoteForm(form_data, instance=quote)
         if quote_form.is_valid():
@@ -120,35 +126,35 @@ def quote(request):
             v_weight = float(form_data['height']) * float(form_data[
                 'width']) * float(form_data['length']) / 5000
             a_weight = float(form_data['weight'])
-            quote.volume_weight = v_weight
+            quote.volume_weight = Weight(kg=v_weight)
 
             # Item 2
             if 'weight1' in request.POST:
                 v_weight1 = float(form_data['height1']) * float(form_data[
                     'width1']) * float(form_data['length1']) / 5000
                 a_weight1 = float(form_data['weight1'])
-                quote.volume_weight1 = v_weight1
+                quote.volume_weight1 = Weight(kg=v_weight1)
 
             # Item 3
             if 'weight2' in request.POST:
                 v_weight2 = float(form_data['height2']) * float(form_data[
                     'width2']) * float(form_data['length2']) / 5000
                 a_weight2 = float(form_data['weight2'])
-                quote.volume_weight2 = v_weight2
+                quote.volume_weight2 = Weight(kg=v_weight2)
 
             # Item 4
             if 'weight3' in request.POST:
                 v_weight3 = float(form_data['height3']) * float(form_data[
                     'width3']) * float(form_data['length3']) / 5000
                 a_weight3 = float(form_data['weight3'])
-                quote.volume_weight3 = v_weight3
+                quote.volume_weight3 = Weight(kg=v_weight3)
 
             # Item 5
             if 'weight4' in request.POST:
                 v_weight4 = float(form_data['height4']) * float(form_data[
                     'width4']) * float(form_data['length4']) / 5000
                 a_weight4 = float(form_data['weight4'])
-                quote.volume_weight4 = v_weight4
+                quote.volume_weight4 = Weight(kg=v_weight4)
 
             overall_weight = (
               a_weight + a_weight1 + a_weight2 + a_weight3 + a_weight4
@@ -158,8 +164,8 @@ def quote(request):
               v_weight + v_weight1 + v_weight2 + v_weight3 + v_weight4
             )
 
-            quote.overall_volume = overall_volume
-            quote.overall_weight = overall_weight
+            quote.overall_volume = Weight(kg=overall_volume)
+            quote.overall_weight = Weight(kg=overall_weight)
 
             total_price = Decimal(8)
             # Checks if postcode is a local one
@@ -486,6 +492,8 @@ def partial_quote(request, quote_ref):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
             }
         elif 'spec_service' not in request.POST:
             form_data = {
@@ -512,6 +520,8 @@ def partial_quote(request, quote_ref):
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
                 'service': request.POST['service'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
             }
         else:
             form_data = {
@@ -539,6 +549,8 @@ def partial_quote(request, quote_ref):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
             }
         quote = get_object_or_404(Quote, quote_ref=quote_ref)
         quote_form = QuoteForm(form_data, instance=quote)
@@ -557,35 +569,35 @@ def partial_quote(request, quote_ref):
             v_weight = float(form_data['height']) * float(form_data[
                 'width']) * float(form_data['length']) / 5000
             a_weight = float(form_data['weight'])
-            quote.volume_weight = v_weight
+            quote.volume_weight = Weight(kg=v_weight)
 
             # Item 2
             if 'weight1' in request.POST:
                 v_weight1 = float(form_data['height1']) * float(form_data[
                     'width1']) * float(form_data['length1']) / 5000
                 a_weight1 = float(form_data['weight1'])
-                quote.volume_weight1 = v_weight1
+                quote.volume_weight1 = Weight(kg=v_weight1)
 
             # Item 3
             if 'weight2' in request.POST:
                 v_weight2 = float(form_data['height2']) * float(form_data[
                     'width2']) * float(form_data['length2']) / 5000
                 a_weight2 = float(form_data['weight2'])
-                quote.volume_weight2 = v_weight2
+                quote.volume_weight2 = Weight(kg=v_weight2)
 
             # Item 4
             if 'weight3' in request.POST:
                 v_weight3 = float(form_data['height3']) * float(form_data[
                     'width3']) * float(form_data['length3']) / 5000
                 a_weight3 = float(form_data['weight3'])
-                quote.volume_weight3 = v_weight3
+                quote.volume_weight3 = Weight(kg=v_weight3)
 
             # Item 5
             if 'weight4' in request.POST:
                 v_weight4 = float(form_data['height4']) * float(form_data[
                     'width4']) * float(form_data['length4']) / 5000
                 a_weight4 = float(form_data['weight4'])
-                quote.volume_weight4 = v_weight4
+                quote.volume_weight4 = Weight(kg=v_weight4)
 
             overall_weight = (
               a_weight + a_weight1 + a_weight2 + a_weight3 + a_weight4
@@ -595,8 +607,8 @@ def partial_quote(request, quote_ref):
               v_weight + v_weight1 + v_weight2 + v_weight3 + v_weight4
             )
 
-            quote.overall_volume = overall_volume
-            quote.overall_weight = overall_weight
+            quote.overall_volume = Weight(kg=overall_volume)
+            quote.overall_weight = Weight(kg=overall_weight)
 
             total_price = Decimal(8)
             for local in LOCAL:

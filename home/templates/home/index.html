@@ -33,7 +33,8 @@
     <div class="row">
       <div class="col-12 bg-white mb-5">
         <noscript>
-          <h4 class="text-danger m-5 text-center">You have disabled Javascript, Whilst most of the site is accessible we advise to enable Javascript to obtain quotes instantly.</h4>
+          <h4 class="text-danger m-5 text-center">You have disabled Javascript, Whilst most of the site is accessible we
+            advise to enable Javascript to obtain quotes instantly.</h4>
         </noscript>
         <form id="home_quote" method="POST" class="form mb-2 p-3 bg-white d-none" enctype="multipart/form-data">
           {% csrf_token %}
@@ -202,6 +203,18 @@
                 </fieldset>
               </div>
             </div>
+
+            <fieldset>
+              <div class="row" id="contact_details">
+                <div class="col-12 col-md-6">
+                  {{ quote_form.phone_number | as_crispy_field }}
+                </div>
+                <div class="col-12 col-md-6">
+                  {{ quote_form.email | as_crispy_field }}
+                </div>
+              </div>
+            </fieldset>
+
           </div>
           <div class="text-right">
             <button class="btn-dark btn btn-md rounded-0" type="submit">Get Quote!</button>

@@ -1,5 +1,5 @@
+// 
 $(document).ready(function () {
-  $('<a href="/delivery/quote/" class="dropdown-item">Send a Parcel</a>').insertAfter(".dropdown-item.account");
   $( '#home_quote' ).removeClass( 'd-none' )
   $( '#dark-overlay' ).removeClass( 'h-100' )
 });

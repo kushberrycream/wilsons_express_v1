@@ -56,8 +56,6 @@ input[type=number] {
     border-radius: 0;
 }
 
-
-
 .rgba-black-light,
 .rgba-black-light:after,
 .rgba-black-light:before {
@@ -388,8 +386,13 @@ button#main-nav-btn.navbar-toggler {
     margin: 0;
     padding: 0;
     width: 300px;
+    z-index: 1;
   }
   
+}
+
+#navbar-toggle-cbox {
+  display:none
 }
 
 @media (max-width: 992px) {

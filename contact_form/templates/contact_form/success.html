@@ -20,47 +20,38 @@
       </div>
     </div>
   </div>
-  <div class="row">
-
-    <!-- Contact Form -->
-    <div class="col-lg-6">
-      <form method="POST" id="contact-form" class="mt-5">
-        {% csrf_token %}
-
-        <div class="text-center mx-5">
-
+  <div class="container">
+    <div class="row">
+      <!-- Contact Form -->
+      <div class="col-lg-6 m-0">
+        <form method="POST" id="contact-form" class="mt-5 text-center">
+          {% csrf_token %}
           {{ form.from_email | as_crispy_field }}
-        </div>
-        <div class="text-center mx-5">
           {{ form.subject | as_crispy_field }}
-        </div>
-        <div class="text-center mx-5">
           {{ form.message | as_crispy_field }}
-
-
-        </div>
-        <div class="form-actions mx-5">
-          <button type="submit" class="btn btn-dark rounded-0">Send</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- Google Map and contact info -->
-    <div class="col-lg-6">
-      <div class="map-container mt-5 mb-3">
-        <div id="map"><noscript>
-            <p>If you have been redirected here and you are trying to obtain a quote or send a parcel that means
-              Javascript is disabled.
-              Either enable Javascipt or send us a message and see if we can help.</p>
-          </noscript></div>
+          <div class="form-actions mx-5">
+            <button type="submit" class="btn btn-dark rounded-0">Send</button>
+          </div>
+        </form>
       </div>
-      <h2 class="">Contact Information</h2>
-      <p class="mb-0">Unit 1 Spectrum Business Estate, Bircholt Road</p>
-      <p class="mb-0">Park Wood, Maidstone, Kent, ME15 7DB</p>
-      <p class="mb-0">01622 685 895</p>
-      <p class="mb-5">operations@wilson-express.co.uk</p>
+      <!-- Google Map and contact info -->
+      <div class="col-lg-6 m-0">
+        <div class="map-container mt-5 mb-3">
+          <div id="map"><noscript>
+              <p class="text-danger font-weight-bold">If you have been redirected here and you are trying to obtain a
+                quote or send a parcel that means
+                Javascript is disabled.
+                Either enable Javascipt or send us a message and see if we can help.</p>
+            </noscript>
+          </div>
+        </div>
+        <h2 class="">Contact Information</h2>
+        <p class="mb-0">Unit 1 Spectrum Business Estate, Bircholt Road</p>
+        <p class="mb-0">Park Wood, Maidstone, Kent, ME15 7DB</p>
+        <p class="mb-0">01622 685 895</p>
+        <p class="mb-5">operations@wilson-express.co.uk</p>
+      </div>
     </div>
-
   </div>
 </div>
 <div id="loading-overlay">

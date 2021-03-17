@@ -33,10 +33,10 @@ class Quote(models.Model):
     c_postcode = models.CharField(
       max_length=8, verbose_name='Collection Postcode',
       blank=False)
-    overall_weight = models.DecimalField(max_digits=7, decimal_places=2,
-                                         null=False, blank=False)
-    overall_volume = models.DecimalField(max_digits=7, decimal_places=2,
-                                         null=False, blank=False)
+    overall_weight = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+    overall_volume = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
 
     weight = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -47,8 +47,8 @@ class Quote(models.Model):
                                 null=False, blank=False)
     length = models.DecimalField(max_digits=7, decimal_places=2,
                                  null=False, blank=False)
-    volume_weight = models.DecimalField(max_digits=7, decimal_places=2,
-                                        null=False, blank=False)
+    volume_weight = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
 
     weight1 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -62,9 +62,8 @@ class Quote(models.Model):
     length1 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
-    volume_weight1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
-      default=0, verbose_name="Volume Weight")
+    volume_weight1 = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
 
     weight2 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -78,9 +77,8 @@ class Quote(models.Model):
     length2 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
-    volume_weight2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
-      default=0, verbose_name="Volume Weight")
+    volume_weight2 = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
 
     weight3 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -94,9 +92,8 @@ class Quote(models.Model):
     length3 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
-    volume_weight3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
-      default=0, verbose_name="Volume Weight")
+    volume_weight3 = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
 
     weight4 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -110,21 +107,23 @@ class Quote(models.Model):
     length4 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
-    volume_weight4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
-      default=0, verbose_name="Volume Weight")
+    volume_weight4 = models.CharField(
+      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
 
     service = models.CharField(
       max_length=20, null=False, blank=False)
-    spec_service = models.CharField(max_length=20, blank=False)
+    spec_service = models.CharField(
+      max_length=20, blank=False, verbose_name="Premium Service")
     date = models.DateTimeField(auto_now_add=True)
     c_date = models.DateField(default="2012-09-04", null=True)
     d_date = models.DateField(default="2012-09-04", null=True)
     quote = models.DecimalField(max_digits=7, decimal_places=2,
                                 null=False, default=0)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
 
     @property
-    def pound_amount(self):
+    def quoted_price(self):
         return "£%s" % self.quote if self.quote else ""
 
     def _generate_quote_ref(self):

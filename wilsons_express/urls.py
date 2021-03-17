@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
     path('accounts/', include("allauth.urls")),
     path('', include('home.urls')),
     path('products/', include('products.urls')),
@@ -31,4 +31,5 @@ urlpatterns = [
     path('faqs/', include('faqs.urls')),
     path('credit-account/', include('create_account.urls')),
     path('delivery/', include('quote.urls')),
+    path('wilsons_admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

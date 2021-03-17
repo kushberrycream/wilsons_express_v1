@@ -18,36 +18,31 @@
       <hr class="w-50 mb-1">
     </div>
   </div>
+
   <div class="container">
     <div class="row">
-
       <!-- Contact Form -->
-      <div class="col-lg-6">
+      <div class="col-lg-6 m-0">
         <form method="POST" id="contact-form" class="mt-5 text-center">
           {% csrf_token %}
-
-
-
           {{ form.from_email | as_crispy_field }}
-
           {{ form.subject | as_crispy_field }}
-
           {{ form.message | as_crispy_field }}
-
-
-
           <div class="form-actions mx-5">
             <button type="submit" class="btn btn-dark rounded-0">Send</button>
           </div>
         </form>
       </div>
-
       <!-- Google Map and contact info -->
-      <div class="col-lg-6">
+      <div class="col-lg-6 m-0">
         <div class="map-container mt-5 mb-3">
-          <div id="map"><noscript><p>If you have been redirected here and you are trying to obtain a quote or send a parcel that means Javascript is disabled.
-            Either enable Javascipt or send us a message and see if we can help.</p>
-          </noscript></div>
+          <div id="map"><noscript>
+              <p class="text-danger font-weight-bold">If you have been redirected here and you are trying to obtain a
+                quote or send a parcel that means
+                Javascript is disabled.
+                Either enable Javascipt or send us a message and see if we can help.</p>
+            </noscript>
+          </div>
         </div>
         <h2 class="">Contact Information</h2>
         <p class="mb-0">Unit 1 Spectrum Business Estate, Bircholt Road</p>
@@ -58,6 +53,7 @@
     </div>
   </div>
 </div>
+
 <div id="loading-overlay">
   <h1 class="text-light logo-font loading-spinner wrapper">
     <span class="circle circle-1"></span>

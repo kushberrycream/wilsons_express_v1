@@ -1,9 +1,8 @@
-.thinner-labels label {
+label .inline {
   width: 60px
 }
 
 #header{
-  height: 50px;
   background: #fff;
   color: #000;
   border-bottom: solid #28a745;
@@ -11,6 +10,7 @@
 }
 #header a:link, #header a:visited {
     color: #28a745;
+    padding: 0 8px;
 
 }
 #branding h1{
@@ -48,4 +48,110 @@ div.breadcrumbs a {
 }
 div.breadcrumbs a:hover {
   color: #fff;
+}
+
+.aligned label + div.readonly {
+    padding: 6px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 130px;
+    width: 100%;
+}
+
+.aligned label {
+    display: block;
+    padding: 4px 10px 0 0;
+    float: left;
+    width: unset;
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+form .aligned div.help {
+    clear: left;
+    margin-top: 0;
+    margin-left: 120px;
+    padding-left: 10px;
+}
+
+.login #container {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 30em;
+    min-width: 300px;
+    margin: 100px auto;
+    height: auto;
+}
+
+input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #28a745;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+caption {
+    caption-side: top;
+}
+.form-row {
+    display: revert;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.submit-row a.deletelink {
+    display: block;
+    background: #ba2121;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: unset;
+    line-height: 15px;
+    color: #fff;
+}
+
+.inline-group .tabular td.original p {
+    position: absolute;
+    left: 0;
+    height: unset;
+    padding: 2px 9px;
+    overflow: hidden;
+    font-size: 9px;
+    font-weight: bold;
+    color: #666;
+    width: 700px;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background: #1a4b25;
+}
+
+#header {
+    flex-direction: column;
+    
+}
+
+#company-name {
+  width: 80vw;
+}
+
+#user-tools {
+  width:80vw;
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+#user-tools a:hover {
+    text-decoration: none;
+    border-bottom-color: #28a745;
 }

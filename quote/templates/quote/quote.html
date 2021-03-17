@@ -2,6 +2,11 @@
 {% load static %}
 {% load widget_tweaks %}
 {% load crispy_forms_tags %}
+{% block extra_meta %}
+<noscript>
+  <meta http-equiv="refresh" content="0.0;url={% url 'contact' %}">
+</noscript>
+{% endblock %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
@@ -10,6 +15,13 @@
 {% endblock %}
 
 {% block content %}
+<noscript>
+  <style>
+    html {
+      display: none;
+    }
+  </style>
+</noscript>
 <div class="overlay container"></div>
 <div class="container header-container">
   <div class="row">
@@ -19,21 +31,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 mt-5">
+    <div class="container">
+      <div class="col-12 mt-5">
 
-      <h4>Actual Weight: {{quote.overall_weight|floatformat:2}}kg</h4>
-      <h4>Volume Weight: {{quote.overall_volume|floatformat:2}}kg</h4>
-      <h4>Price: £{{quote.quote|floatformat:2}}</h4>
-      <p class="">
-        Reference Number: {{quote.quote_ref}}
-        <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
-          your quote</span>
-      </p>
-    </div>
-    <div class="col-9 mt-2 small font-weight-light font-italics">
-      <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm) and
-        dividing that figure by 5000. You may often find that the price of your shipment is dictated by the volumetric
-        weight of your parcel(s) rather than the actual weight.</p>
+        <h4>Actual Weight: {{quote.overall_weight}}</h4>
+        <h4>Volume Weight: {{quote.overall_volume}}</h4>
+        <h4>Price: <span class="font-weight-bold display-4">£{{quote.quote|floatformat:2}}</span> </h4>
+        <p>
+          Reference Number: <span class="font-weight-bold">{{quote.quote_ref}}</span>
+          <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
+            your quote</span>
+        </p>
+      </div>
+
+      <div class="col-9 mt-2 small font-weight-light font-italics">
+        <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm) and
+          dividing that figure by 5000. You may often find that the price of your shipment is dictated by the volumetric
+          weight of your parcel(s) rather than the actual weight.</p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -70,7 +85,7 @@
             </div>
             <div class="col-md-6 col-12 p-3 small">
               <fieldset>
-                <legend class="lead">Speciality</legend>
+                <legend class="lead">Premium Service</legend>
                 {{ quote_form.spec_service | as_crispy_field }}
 
               </fieldset>
@@ -147,7 +162,6 @@
                       </div>
                     </fieldset>
                   </div>
-
                 </div>
                 <div id="item_4" class="d-none justify-content-around row">
                   <div class="col-12">
@@ -201,11 +215,29 @@
                     <i class="fas fa-plus"></i>
                   </button>
                 </div>
-
-
               </fieldset>
             </div>
           </div>
+
+          <fieldset>
+            <div class="row">
+              <legend class="lead">Your Contact Details</legend>
+              <div class="col-12 col-md-6">
+
+
+                {{ quote_form.phone_number | as_crispy_field }}
+
+
+              </div>
+
+              <div class="col-12 col-md-6">
+
+                {{ quote_form.email | as_crispy_field }}
+
+              </div>
+
+            </div>
+          </fieldset>
         </div>
         <div class="text-right">
           <button name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
@@ -231,7 +263,9 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script src="{% static 'quote/js/quote.js' %}"></script>
 <script>
+
 
   $("#id_c_county").prepend('<option value="" selected="selected">County</option>');
   $("#id_d_county").prepend('<option value="" selected="selected">County</option>');
@@ -261,5 +295,5 @@
     }
   }); 
 </script>
-<script src="{% static 'quote/js/quote.js' %}"></script>
+
 {% endblock %}

@@ -130,7 +130,7 @@
               <ul class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
-                <a href="/admin/" class="dropdown-item">Admin</a>
+                <a href="/wilsons_admin/" class="dropdown-item">Admin</a>
                 <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                 <a href="{% url 'add_faq' %}" class="dropdown-item">Upload A FAQ</a>
                 {% endif %}
@@ -148,11 +148,12 @@
         </div>
         <div class="row mx-lg-auto nav-line-height">
           <nav class="navbar navbar-light navbar-expand-lg navbar-light ">
-            <button id="main-nav-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            <input type="checkbox" id="navbar-toggle-cbox">
+            <label for="navbar-toggle-cbox" class="navbar-toggler" type="button" data-toggle="collapse"
               data-target="#main-nav,#store-nav" aria-controls="main-nav" aria-expanded="false"
               aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-            </button>
+          </label>
             {% include 'includes/main-nav.html' %}
           </nav>
         </div>
