@@ -1,17 +1,15 @@
 asgiref==3.3.1
-<<<<<<< HEAD
-cryptography==3.3.1
-Django==3.1.6
-=======
 cryptography==3.3.2
-Django==3.1.4
->>>>>>> e1a200779555b456a37f46eb1815aaa7b5a60f28
+Django==3.1.6
 django-allauth==0.44.0
 django-appconf==1.0.4
 django-countries==7.0
 django-crispy-forms==1.10.0
 django-localflavor==3.0.1
 django-user-agents==0.4.0
+django-widget-tweaks==1.4.8
+measurement==3.2.0
+mpmath==1.2.1
 oauthlib==3.1.0
 Pillow==8.1.1
 PyJWT==2.0.0
@@ -22,5 +20,6 @@ requests-oauthlib==1.3.0
 shortuuid==1.0.1
 sqlparse==0.4.1
 stripe==2.55.1
+sympy==1.7.1
 ua-parser==0.10.0
 user-agents==2.2.0

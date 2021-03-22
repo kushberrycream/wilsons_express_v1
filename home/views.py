@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.shortcuts import (
-    render, redirect, reverse, get_object_or_404
+    render, redirect, reverse
 )
 from measurement.measures import Weight
 from quote.forms import QuoteForm
