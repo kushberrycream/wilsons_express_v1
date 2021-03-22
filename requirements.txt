@@ -1,6 +1,11 @@
 asgiref==3.3.1
+<<<<<<< HEAD
 cryptography==3.3.1
 Django==3.1.6
+=======
+cryptography==3.3.2
+Django==3.1.4
+>>>>>>> e1a200779555b456a37f46eb1815aaa7b5a60f28
 django-allauth==0.44.0
 django-appconf==1.0.4
 django-countries==7.0
