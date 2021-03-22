@@ -50,10 +50,11 @@ input[type=number] {
     color: #fff;
     background-color: #CA0B00;
     border-color: #CA0B00;
-    padding: 5px 15px;
+    padding: 5px 25px;
     margin-bottom: 0;
     border: 1px solid transparent;
     border-radius: 0;
+    width: 100vw;
 }
 
 .rgba-black-light,
@@ -97,6 +98,10 @@ button#main-nav-btn.navbar-toggler {
   box-shadow: -1px 4px 10px -1px rgba(0,0,0,0.7);
   position:relative;
   z-index:999;
+  width: 100vw;
+}
+.jsenabled {
+  display:none
 }
 
 .header-container {

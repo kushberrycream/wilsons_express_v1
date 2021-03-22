@@ -2,6 +2,7 @@
 $(document).ready(function () {
   $( '#home_quote' ).removeClass( 'd-none' )
   $( '#dark-overlay' ).removeClass( 'h-100' )
+  $('.jsenabled').show()
 });
 
 // script to send user back to top of page

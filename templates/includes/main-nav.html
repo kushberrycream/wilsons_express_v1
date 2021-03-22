@@ -1,12 +1,12 @@
 <div class="collapse navbar-collapse" id="main-nav">
-  <li class="navbar-nav w-auto mx-auto ">
-    <ul class="nav-item">
-      <a class="logo-font font-weight-bold nav-link mr-5 text-dark" href="{% url 'home' %}" id="home-link">
+  <ul class="navbar-nav w-auto mx-auto">
+    <li class="nav-item">
+      <a class="logo-font font-weight-bold nav-link text-dark mr-5" href="{% url 'home' %}" id="home-link">
         Home
       </a>
-    </ul>
-    <ul class="nav-item dropdown">
-      <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#" id="recieving-link"
+    </li>
+    <li class="nav-item dropdown">
+      <a class="logo-font font-weight-bold nav-link text-dark text-nowrap mr-5" href="#" id="recieving-link"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Recieving a Parcel?
       </a>
@@ -16,10 +16,10 @@
         <a href="https://apc-overnight.com/receiving-a-parcel/re-schedule-delivery/" target="_blank" rel="noreferrer"
           class="dropdown-item inline-list">Reschedule with APC Called</a>
       </ul>
-    </ul>
+    </li>
 
-    <ul class="nav-item dropdown">
-      <a class="logo-font font-weight-bold nav-link mr-5 text-dark text-nowrap" href="#" data-toggle="dropdown"
+    <li class="nav-item dropdown">
+      <a class="logo-font font-weight-bold nav-link text-dark text-nowrap mr-5" href="#" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Sending a Parcel?
       </a>
@@ -30,79 +30,15 @@
         <a href="{% url 'create_account' %}" class="dropdown-item account">Open a Credit Account</a>
 
       </ul>
-    </ul>
+    </li>
     {% if url != categories or url != products %}
     {% else %}
-    <ul class="nav-item dropdown">
-      <a class="logo-font font-weight-bold nav-link text-dark text-nowrap " href="{% url 'store_home' %}"
+    <li class="nav-item dropdown jsenabled">
+      <a class="logo-font font-weight-bold nav-link text-dark text-nowrap" href="{% url 'store_home' %}"
         id="store-link">
         Store
       </a>
-    </ul>
+    </li>
     {% endif %}
-    <noscript>
-
-
-      <ul class="nav-item dropdown">
-        <a class="logo-font nav-link mr-5 text-dark text-nowrap font-weight-bold" href="#" id="all-products-link" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          All Products
-        </a>
-        <ul class="dropdown-menu border-0" aria-labelledby="all-products-link">
-          <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item inline-list">By
-            Price</a>
-          <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item inline-list">By
-            Category</a>
-          <a href="{% url 'products' %}" class="dropdown-item inline-list">All Products</a>
-        </ul>
-      </ul>
-      <ul class="nav-item dropdown">
-        <a class="logo-font nav-link mr-5 text-dark text-nowrap font-weight-bold" href="#" id="boxes-link" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Boxes
-        </a>
-        <ul class="dropdown-menu border-0" aria-labelledby="boxes-link">
-          <a href="{% url 'categories' %}?category=single_wall_boxes" class="dropdown-item inline-list">Single Wall
-            Boxes</a>
-          <a href="{% url 'categories' %}?category=double_wall_boxes" class="dropdown-item inline-list">Double Wall
-            Boxes</a>
-          <a href="{% url 'categories' %}?category=double_wall_long_boxes" class="dropdown-item inline-list">Double
-            Wall Long Boxes</a>
-          <a href="{% url 'categories' %}?category=bottle_boxes" class="dropdown-item inline-list">Bottle
-            Boxes</a>
-        </ul>
-      </ul>
-      <ul class="nav-item dropdown">
-        <a class="logo-font nav-link mr-5 text-dark text-nowrap font-weight-bold" href="#" id="general-packing-link"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          General Packing
-        </a>
-        <ul class="dropdown-menu border-0" aria-labelledby="general-packing-link">
-          <a href="{% url 'categories' %}?category=bubble_bags" class="dropdown-item inline-list">Bubble
-            Bags</a>
-          <a href="{% url 'categories' %}?category=bubble_wrap" class="dropdown-item inline-list">Bubble
-            Wrap</a>
-          <a href="{% url 'categories' %}?category=document_wallets" class="dropdown-item inline-list">Document
-            Wallets</a>
-          <a href="{% url 'categories' %}?category=pallet_wrap" class="dropdown-item inline-list">Pallet
-            Wrap</a>
-          <a href="{% url 'categories' %}?category=void_fill" class="dropdown-item inline-list">Void
-            Fill</a>
-        </ul>
-      </ul>
-      <ul class="nav-item">
-        <a class="logo-font nav-link mr-5 text-dark text-nowrap font-weight-bold" id="tape-link"
-          href="{% url 'categories' %}?category=tape">
-          Tape
-        </a>
-      </ul>
-
-      <ul class="nav-item">
-        <a class="logo-font nav-link text-dark mr-5 font-weight-bold" id="labels-link" href="{% url 'categories' %}?category=labels">
-          Labels
-        </a>
-      </ul>
-
-    </noscript>
-  </li>
+  </ul>
 </div>

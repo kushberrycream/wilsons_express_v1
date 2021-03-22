@@ -53,13 +53,12 @@
 
 <body>
 
-  <header class="container-fluid fixed-top alert-container">
-    {% block page_alert %}
-    {% endblock %}
+  <header class="container-fluid fixed-top">
+
 
     <div id="topnav" class="row bg-white pt-lg-2 d-flex">
 
-      <div class="col-6 pt-1 pt-lg-0 d-flex flex-column justify-content-between">
+      <div class="col-8 pt-1 pt-lg-0 d-flex flex-column justify-content-between">
         <div class="px-1 row" id="top-links">
           <ul class="list-inline list-unstyled text-left my-0 small-links">
             <li class="list-inline-item">
@@ -153,12 +152,12 @@
               data-target="#main-nav,#store-nav" aria-controls="main-nav" aria-expanded="false"
               aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-          </label>
+            </label>
             {% include 'includes/main-nav.html' %}
           </nav>
         </div>
       </div>
-      <div class="col-6 py-1 py-lg-0 d-flex justify-content-end">
+      <div class="col-4 py-1 py-lg-0 d-flex justify-content-end">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <img width="300" class="logo-font text-dark my-0 d-none d-lg-block" src="/media/wilsons-logo-trans.png"
             alt="Wilson's Express">
@@ -170,6 +169,8 @@
       </div>
     </div>
     {% block page_header %}
+    {% endblock %}
+    {% block page_alert %}
     {% endblock %}
   </header>
 
@@ -199,10 +200,10 @@
   <script>
     // display toasts
     $('.toast').toast('show');
-    
+
   </script>
   <script src="{% static 'js/main.js' %}"></script>
-  
+
   {% endblock %}
 </body>
 

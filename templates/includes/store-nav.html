@@ -1,12 +1,12 @@
-<div id="store" class="row bg-dark nav justify-content-lg-center justify-content-start nav-line-height">
+<div id="store" class="row bg-dark nav">
   <nav class="navbar navbar-expand-lg navbar-dark w-100">
     <div class="collapse navbar-collapse" id="store-nav">
-      <li class="navbar-nav">
-        <ul class="nav-item search-bar">
+      <ul class="navbar-nav">
+        <li class="nav-item search-bar">
           <a class="text-light nav-link" href="#" id="drop-search" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             <div>
-            <i class="fas fa-search fa-lg"></i></div>
+              <i class="fas fa-search fa-lg"></i></div>
 
           </a>
           <div class="dropdown-menu bg-dark border-0 rounded-0 search-bar" aria-labelledby="drop-search">
@@ -24,11 +24,11 @@
               </div>
             </form>
           </div>
-        </ul>
-      </li>
-      <li class="navbar-nav w-auto mx-auto">
+        </li>
+      </ul>
+      <ul class="navbar-nav w-auto mx-auto">
 
-        <ul class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="logo-font nav-link mr-5 text-light text-nowrap" href="#" id="all-products-link"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             All Products
@@ -40,8 +40,8 @@
               Category</a>
             <a href="{% url 'products' %}" class="dropdown-item inline-list">All Products</a>
           </ul>
-        </ul>
-        <ul class="nav-item dropdown">
+        </li>
+        <li class="nav-item dropdown">
           <a class="logo-font nav-link mr-5 text-light text-nowrap" href="#" id="boxes-link" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Boxes
@@ -56,8 +56,8 @@
             <a href="{% url 'categories' %}?category=bottle_boxes" class="dropdown-item inline-list">Bottle
               Boxes</a>
           </ul>
-        </ul>
-        <ul class="nav-item dropdown">
+        </li>
+        <li class="nav-item dropdown">
           <a class="logo-font nav-link mr-5 text-light text-nowrap" href="#" id="general-packing-link"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             General Packing
@@ -74,20 +74,20 @@
             <a href="{% url 'categories' %}?category=void_fill" class="dropdown-item inline-list">Void
               Fill</a>
           </ul>
-        </ul>
-        <ul class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="logo-font nav-link mr-5 text-light text-nowrap" id="tape-link"
             href="{% url 'categories' %}?category=tape">
             Tape
           </a>
-        </ul>
+        </li>
 
-        <ul class="nav-item">
+        <li class="nav-item">
           <a class="logo-font nav-link text-light mr-5" id="labels-link" href="{% url 'categories' %}?category=labels">
             Labels
           </a>
-        </ul>
-      </li>
-   
-  </div>
-</nav>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -1,5 +1,11 @@
+<!DOCTYPE html>
 {% extends "base.html" %}
 {% load static %}
+{% block extra_meta %}
+<noscript>
+  <meta http-equiv="refresh" content="0.0;url={% url 'contact' %}">
+</noscript>
+{% endblock %}
 
 {% block page_header %}
 {% include 'includes/store-nav.html' %}

@@ -1,23 +1,23 @@
 /* allows users without javascript to use navigation */
 
-li {
+ul {
   display: block;
   transition-duration: 0.8s;
     }
 
-li:hover {
+ul:hover {
   cursor: pointer;
     }
 
-li ul:hover>ul,
-li ul ul:hover {
+ul li:hover>ul,
+ul li ul:hover {
   visibility: visible;
   opacity: 1;
   display: block;
   margin-top: -10px;
 }
 
-li ul a {
+ul li a {
       clear: both;
       width: 100%;
 }

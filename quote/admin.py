@@ -13,13 +13,14 @@ class QuoteAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = (
-        'quote_ref', 'phone_number', 'email', 'date', 'c_postcode', 'd_postcode',
-        'overall_weight', 'overall_volume', 'height', 'length', 'width',
-        'weight', 'volume_weight', 'quoted_price', 'height1', 'width1',
-        'length1', 'weight1', 'volume_weight1', 'height2', 'width2', 'length2',
-        'weight2', 'volume_weight2', 'height3', 'width3', 'length3', 'weight3',
-        'volume_weight3', 'height4', 'width4', 'length4', 'weight4',
-        'volume_weight4', 'service', 'spec_service',
+        'quote_ref', 'phone_number', 'email', 'date', 'c_postcode',
+        'd_postcode', 'overall_weight', 'overall_volume', 'height', 'length',
+        'width', 'weight', 'volume_weight', 'quoted_price', 'height1',
+        'width1', 'length1', 'weight1', 'volume_weight1', 'height2',
+        'width2', 'length2', 'weight2', 'volume_weight2', 'height3',
+        'width3', 'length3', 'weight3', 'volume_weight3', 'height4',
+        'width4', 'length4', 'weight4', 'volume_weight4', 'service',
+        'spec_service',
     )
 
     list_display = (
