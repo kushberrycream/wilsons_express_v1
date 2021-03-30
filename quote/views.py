@@ -874,7 +874,7 @@ def delivery_details(request, quote_ref):
     """ A view to return a users delivery price and the
     rest of the form to book deliveries """
     quote = get_object_or_404(Quote, quote_ref=quote_ref)
-    booking_form = BookingForm()
+    booking_form = BookingForm(instance=quote)
     context = {
         'quote': quote,
         'booking_form': booking_form

@@ -71,3 +71,102 @@ The store follows the same design as the rest of the site but displays a list of
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 
 </p>
+
+## Technologies Used
+
+Here is a list of all the technologies used throughout the project!
+
+- [Balsamiq Mockups 3](https://balsamiq.com/)
+    - I have used Balsamiq to create my wireframes.
+- [Python3](https://www.python.org/download/releases/3.0/)
+    - I have used Python3 and multiple dependancies to create my website. All dependancies can be viewed within my requirements.txt file.
+- [Django](https://www.djangoproject.com/)
+    - I have used the Django Framework to create a secure and maintainable website.
+- [HTML5](https://www.w3.org/html/)
+    - I use HTML to create the templates used within my web apps.
+- [CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
+    - CSS gives my site its look and style.
+- [JQuery](https://www.jquery.com/)
+    - JQuery is used to initialize a few components and generally improve user experience.
+- [Bootstrap 4.5.3](https://www.getbootstrap.com/)
+    - I have used the bootstrap framework to help create a uniform responsive web app.
+- [Heroku](https://www.heroku.com/)
+    - Heroku is used to host my finished website.
+- [SQlite3](https://docs.python.org/3/library/sqlite3.html)
+    - Throughout production my database has been SQLite3 but once moved onto production PostgreSQL is used.
+- [Heroku PostgresSQL](https://www.heroku.com/postgres)
+   - Once my Project is live it is using the built in add on provided by Heroku, This is a fully managed service and also can provide support with any issues.
+- [Amazon S3](https://aws.amazon.com/s3/)
+    - Amazon S3 is used for online storage of all my images and static files.
+- [Font Awesome](https://fontawesome.com/)
+    - Font Awesome was used for all of my icons.
+
+<p align="right">
+  <a href="#contents">Back to Contents :arrow_heading_up:</a> 
+</p>
+
+## Features
+
+### Existing Features
+
+### Features Left to Implement
+
+<p align="right">
+  <a href="#contents">Back to Contents :arrow_heading_up:</a> 
+</p>
+
+## Testing
+
+<p align="right">
+  <a href="#contents">Back to Contents :arrow_heading_up:</a> 
+</p>
+
+## Deployment
+
+### Commiting to Github
+1. Using my terminal window I firstly use `git pull ` to pull the most upto date version of my repository.
+2. Once upto date I edit everything I need to and use `git add .` to stage all the edited files for commiting.
+
+3. Using `git status` I usually view to see I have staged all the files I want to and I have no unwanted files being commited.
+4. Next using `git commit` I commit to the local Repository and then `git push` to finally push the changes to the master branch.
+
+### Deploying to Heroku
+1. Firstly I needed to go to my Account dashboard, here I can select New and Create New App.
+2. I chose a unique app name, the region of Europe and then pressed create app.
+3. Once Created I was brought to the deploy section of my app, here I decided to chose to deploy with Github.
+4. Heroku then asked for the repo name of my app I wished to deploy.
+5. I selected connect once my repo was found and I was then able to commit to the master branch on Github. 
+It will then Deploy Automatically as I have automatic deploys turned on.
+6. I then selected resources, searched for Heroku PostgresSQL and selected the free / Hobby Tier.
+7. The site is almost deployed but I then needed to go to the settings section and let Heroku know of any enviroment variables such as the ip, Port, Secret key, database URI, etc.
+
+### Using Amazon S3 Data storage
+1.
+
+### Cloning the repository
+To run this repository locally:
+1. Click "Code" at the top of this repository.
+2. Select Download Zip or Copy the URL to your clipboard. 
+3. Open up Terminal and select the location in which you wish to clone this directory.
+4. Then type `git clone` and copy `https.` 
+5. Press enter and you will have succesfully cloned this Repository. 
+### Installing dependencies
+Installing Dependencies is very simple and I have supplied a requirements.txt to help with this process. Once the repository has been cloned before it can be ran the user will need to open the terminal on their IDE and type `pip3 install -r requirements.txt`. All the dependencies should now download and you are ready to go.
+
+<p align="right">
+  <a href="#contents">Back to Contents :arrow_heading_up:</a> 
+</p>
+
+## Credits
+### Content
+- 
+### Media
+- [APC Overnight Background](https://www.apc-overnight.com) This is the picture used throughout the site as the background as an employee I have access to these images.
+- [Favicon](https://www.apc-overnight.com) The APC logo was obtained through my currect employment.
+
+### Acknowledgments
+- [Django Documentation](https://docs.djangoproject.com/en/3.1/) This helped me with the syntax and any queries I had with the Django Framework as alot of the Examples, and other questions online dealt with different versions of Django.
+
+<p align="right">
+  <a href="#contents">Back to Contents :arrow_heading_up:</a> 
+</p>

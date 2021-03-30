@@ -27,7 +27,6 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['localhost', '.gitpod.io']
 
-
 # Application definition
 
 INSTALLED_APPS = [
