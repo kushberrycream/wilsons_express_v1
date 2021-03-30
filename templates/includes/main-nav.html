@@ -1,11 +1,11 @@
 <div class="collapse navbar-collapse" id="main-nav">
   <ul class="navbar-nav w-auto mx-auto">
-    <li class="nav-item">
+    <li class="nav-item nav-width">
       <a class="logo-font font-weight-bold nav-link text-dark mr-5" href="{% url 'home' %}" id="home-link">
         Home
       </a>
     </li>
-    <li class="nav-item dropdown">
+    <li class="nav-item nav-width dropdown">
       <a class="logo-font font-weight-bold nav-link text-dark text-nowrap mr-5" href="#" id="recieving-link"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Recieving a Parcel?
@@ -18,7 +18,7 @@
       </ul>
     </li>
 
-    <li class="nav-item dropdown">
+    <li class="nav-item nav-width dropdown">
       <a class="logo-font font-weight-bold nav-link text-dark text-nowrap mr-5" href="#" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Sending a Parcel?
@@ -33,7 +33,7 @@
     </li>
     {% if url != categories or url != products %}
     {% else %}
-    <li class="nav-item dropdown jsenabled">
+    <li class="nav-item nav-width dropdown jsenabled">
       <a class="logo-font font-weight-bold nav-link text-dark text-nowrap" href="{% url 'store_home' %}"
         id="store-link">
         Store

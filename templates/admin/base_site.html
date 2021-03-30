@@ -1,6 +1,9 @@
 <!-- Customizes the header of the admin and also imports custom css classes -->
 {% extends 'admin/base.html' %}
 {% load static %}
+{% block responsive %}
+<link rel="stylesheet" href="{% static 'css/responsadmin.css' %}">
+{% endblock %}
 {% block extrahead %}
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -12,22 +15,27 @@
 <link rel="stylesheet" href="{% static 'css/admin.css' %}">
 {% endblock %}
 {% block branding %}
-<div class="row">
-  <div class="col-12">
-    <div>
 
-      <div id="company-name" class="d-flex align-items-center justify-content-between">
-        
+  <div class="row">
+    <div class="col-md-12 col-lg-6">
+
+
+      <div id="company-name" class="d-flex align-items-center">
+
         <h1 id="site-name">
           Wilson's Express Admin
         </h1>
-
-        <a href="{% url 'admin:index' %}">
-          <img width="170" class="logo-font text-dark my-0" src="/media/wilsons-logo-trans.png" alt="Wilson's Express">
-        </a>
       </div>
+    </div>
+    
+    <div class="col-md-12 col-lg-6">
 
+      <a class="float-right" href="{% url 'admin:index' %}">
+        <img width="170" class="logo-font text-dark my-0" src="/media/wilsons-logo-trans.png" alt="Wilson's Express">
+      </a>
     </div>
   </div>
-</div>
+
+
+
 {% endblock %}

@@ -19,16 +19,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col mt-3">
-     
-      <h4>Actual Weight: {{quote.weight|floatformat:2}}kg</h4>
- 
-      <h4>Volume Weight: {{quote.volume_weight|floatformat:2}}kg</h4>
-      
-      <h4>Price: £{{quote.quote|floatformat:2}}</h4>
-    
+    <div class="container">
+      <div class="col-12 mt-5">
 
-      {{form_data}}
+        <h4>Actual Weight: {{quote.overall_weight}}</h4>
+        <h4>Volume Weight: {{quote.overall_volume}}</h4>
+        <h4>Price: <span class="font-weight-bold display-4">£{{quote.quote|floatformat:2}}</span> </h4>
+        <p>
+          Reference Number: <span class="font-weight-bold">{{quote.quote_ref}}</span>
+          <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
+            your quote</span>
+        </p>
+      </div>
+
+      <div class="col-9 mt-2 small font-weight-light font-italics">
+        <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm) and
+          dividing that figure by 5000. You may often find that the price of your shipment is dictated by the volumetric
+          weight of your parcel(s) rather than the actual weight.</p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -41,7 +49,7 @@
             <div class="col-12 col-md-6">
               <fieldset>
                 <legend>Collection</legend>
-                {{ quote_form.c_postcode | as_crispy_field }}
+                {{ booking_form.c_postcode | as_crispy_field }}
 
               </fieldset>
             </div>
@@ -49,7 +57,7 @@
             <div class="col-12 col-md-6">
               <fieldset>
                 <legend>Delivery</legend>
-                {{ quote_form.d_postcode | as_crispy_field }}
+                {{ booking_form.d_postcode | as_crispy_field }}
 
               </fieldset>
             </div>
@@ -60,13 +68,13 @@
             <div class="col-md-6 col-12 p-3 small">
               <fieldset>
                 <legend class="lead">Time</legend>
-                {{ quote_form.service | as_crispy_field }}
+                {{ booking_form.service | as_crispy_field }}
               </fieldset>
             </div>
             <div class="col-md-6 col-12 p-3 small">
               <fieldset>
                 <legend class="lead">Speciality</legend>
-                {{ quote_form.spec_service | as_crispy_field }}
+                {{ booking_form.spec_service | as_crispy_field }}
 
               </fieldset>
             </div>
@@ -78,17 +86,17 @@
                 <legend class="w-100">Dimensions & Weight</legend>
                 <div class="w-100 d-flex justify-content-around">
                   <div class="mx-3 ">
-                    {% crispy_addon quote_form.weight append='kg' %}
+                    {% crispy_addon booking_form.weight append='kg' %}
 
                   </div>
                   <div class="mx-3">
-                    {% crispy_addon quote_form.height append='cm' %}
+                    {% crispy_addon booking_form.height append='cm' %}
                   </div>
                   <div class="mx-3">
-                    {% crispy_addon quote_form.length append='cm' %}
+                    {% crispy_addon booking_form.length append='cm' %}
                   </div>
                   <div class="mx-3">
-                    {% crispy_addon quote_form.width append='cm' %}
+                    {% crispy_addon booking_form.width append='cm' %}
                   </div>
                   <div class="ml-3 d-flex justify-content-end">
                     <button type="button" class="btn pl-3" id="less_items">

@@ -13,13 +13,6 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
@@ -278,7 +271,7 @@ button#main-nav-btn.navbar-toggler {
 
 .message-container {
     position: fixed;
-    top: 180px;
+    top: 70px;
     left: 15px;
     z-index: 99999999999;
 }
@@ -403,22 +396,25 @@ button#main-nav-btn.navbar-toggler {
 @media (max-width: 992px) {
   .header-container {
     margin-top: 130px;
-}
-.nav-line-height {
+  }
+  .nav-line-height {
     line-height: 0.6rem;
-}
+  }
+  .nav-width {
+    width: 287.08px;
+  }
 }
 
 @media (max-width: 999px) {
   .store-header-margin {
     margin-top: 180px;
-}
+  } 
 }
 
 @media (max-width: 575px) {
   .store-header-margin {
     margin-top: 130px;
-}
+  }
 }
 
 
@@ -428,8 +424,8 @@ button#main-nav-btn.navbar-toggler {
   }  
   .btn.btn-outline-glass.rounded-0,
   .btn.btn-glass.rounded-0 {
-        padding: .375rem .375rem;
-    }
+    padding: .375rem .375rem;
+  }
 
     .btn.btn-outline-glass.rounded-0.btn-md,
     .btn.btn-glass.rounded-0.btn-md {

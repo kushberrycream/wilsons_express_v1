@@ -2,7 +2,7 @@ from django.shortcuts import (
     render, redirect, reverse, get_object_or_404
 )
 from measurement.measures import Weight
-from .forms import QuoteForm
+from .forms import QuoteForm, BookingForm
 from .models import Quote
 from decimal import Decimal
 
@@ -50,8 +50,8 @@ def quote(request):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         elif 'spec_service' not in request.POST:
             form_data = {
@@ -78,8 +78,8 @@ def quote(request):
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
                 'service': request.POST['service'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         else:
             form_data = {
@@ -107,8 +107,8 @@ def quote(request):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         quote = Quote()
         quote_form = QuoteForm(form_data, instance=quote)
@@ -407,20 +407,26 @@ def quote(request):
                     (width >= Decimal(160) and
                      height4 + length4 >= Decimal(120))):
                 total_price += Decimal(8.00)
+
+            if total_price < 5:
+                total_price = Decimal(5)
+
             quote = Quote()
             quote = quote_form.save()
             quote.quote = total_price
             quote.volume_weight = v_weight
             quote.save()
+            request.session['test'] = 'test'
             if 'details' in request.POST:
+                
+                booking_form = BookingForm(form_data)
+              
                 context = {
                     'form_data': form_data,
+                    'booking_form': booking_form,
                     'quote_form': quote_form,
                     'total_price': total_price,
-                    'volume': v_weight,
-                    'weight': a_weight,
-                    'volume1': v_weight1,
-                    'weight1': a_weight1,
+                    
                 }
                 if quote_form.is_valid():
                     quote_form.save()
@@ -428,19 +434,6 @@ def quote(request):
             else:
                 return redirect(
                   reverse('partial_quote', args=[quote.quote_ref]))
-
-    if 'details' in request.POST:
-        context = {
-            'form_data': form_data,
-            'quote_form': quote_form,
-            'total_price': total_price,
-            'volume': v_weight,
-            'weight': a_weight,
-        }
-        if quote_form.is_valid():
-            quote_form.save()
-            return redirect(reverse(
-              'details', args=[quote.quote_ref]))
 
     context = {
         'form_data': form_data,
@@ -492,8 +485,8 @@ def partial_quote(request, quote_ref):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         elif 'spec_service' not in request.POST:
             form_data = {
@@ -520,8 +513,8 @@ def partial_quote(request, quote_ref):
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
                 'service': request.POST['service'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         else:
             form_data = {
@@ -549,8 +542,8 @@ def partial_quote(request, quote_ref):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         quote = get_object_or_404(Quote, quote_ref=quote_ref)
         quote_form = QuoteForm(form_data, instance=quote)
@@ -850,6 +843,9 @@ def partial_quote(request, quote_ref):
                      height4 + length4 >= Decimal(120))):
                 total_price += Decimal(8.00)
 
+            if total_price < 5:
+                total_price = Decimal(5)
+
             quote.quote = total_price
             quote = quote_form.save()
             if 'details' in request.POST:
@@ -877,12 +873,11 @@ def partial_quote(request, quote_ref):
 def delivery_details(request, quote_ref):
     """ A view to return a users delivery price and the
     rest of the form to book deliveries """
-    
     quote = get_object_or_404(Quote, quote_ref=quote_ref)
-    quote_form = QuoteForm()
+    booking_form = BookingForm()
     context = {
         'quote': quote,
-        'quote_form': quote_form
+        'booking_form': booking_form
     }
 
     return render(request, 'quote/details.html', context)

@@ -15,6 +15,7 @@ label .inline {
 }
 #branding h1{
   color: #28a745;
+  font-size: 2.5rem;
 }
 
 h1{
@@ -139,9 +140,12 @@ caption {
     
 }
 
-#company-name {
-  width: 80vw;
+#branding {
+    float: clear;
+    width: 100%;
 }
+
+
 
 #user-tools {
   width:80vw;
@@ -155,3 +159,11 @@ caption {
     text-decoration: none;
     border-bottom-color: #28a745;
 }
+
+@media (max-width: 1024px) {
+#site-name {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+} 

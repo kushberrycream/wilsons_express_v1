@@ -45,8 +45,8 @@ def index(request):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         elif 'spec_service' not in request.POST:
             form_data = {
@@ -73,8 +73,8 @@ def index(request):
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
                 'service': request.POST['service'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
         else:
             form_data = {
@@ -102,8 +102,8 @@ def index(request):
                 'length4': request.POST['length4'],
                 'width4': request.POST['width4'],
                 'weight4': request.POST['weight4'],
-                'email': request.POST['email'],
-                'phone_number': request.POST['phone_number'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
             }
 
         quote = Quote()
@@ -404,6 +404,9 @@ def index(request):
                     (width >= Decimal(160) and
                      height4 + length4 >= Decimal(120))):
                 total_price += Decimal(8.00)
+
+            if total_price < 5:
+                total_price = Decimal(5)
 
             quote = quote_form.save()
             quote.quote = total_price
