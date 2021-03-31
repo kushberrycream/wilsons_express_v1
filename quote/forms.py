@@ -1,6 +1,5 @@
 from django import forms
 from .models import Quote, Booking
-from django.utils.translation import ugettext_lazy as _
 from localflavor.gb.forms import GBPostcodeField, GBCountySelect
 from crispy_forms.bootstrap import InlineCheckboxes
 from crispy_forms.helper import FormHelper
@@ -65,6 +64,22 @@ class QuoteForm(forms.ModelForm):
             'width4': 'Width', 'weight4': 'Weight',
             'bookers_email': 'Email Address',
             'bookers_phone_number': 'Phone Number (Use Country Code eg. +44)',
+            'c_contact_name': 'Contact Name',
+            'c_company': 'Company Name',
+            'c_email': 'Email',
+            'c_phone_number': 'Phone No.',
+            'c_street_address1': 'Address Line 1',
+            'c_street_address2': 'Address Line 2',
+            'c_town_or_city': 'Town Or City',
+            'c_county': 'County',
+            'd_contact_name': 'Contact Name',
+            'd_company': 'Company Name',
+            'd_email': 'Email',
+            'd_phone_number': 'Phone No.',
+            'd_street_address1': 'Address Line 1',
+            'd_street_address2': 'Address Line 2',
+            'd_town_or_city': 'Town or City',
+            'd_county': 'County',
         }
 
         self.fields['c_postcode'].widget.attrs['autofocus'] = True
@@ -85,8 +100,13 @@ class BookingForm(QuoteForm):
           'length', 'width', 'service', 'spec_service', 'height1',
           'weight1', 'length1', 'width1', 'width2', 'height2', 'weight2',
           'length2', 'width3', 'height3', 'weight3', 'length3', 'width4',
-          'height4', 'weight4', 'length4', 'bookers_email',
-          'bookers_phone_number',
+          'height4', 'weight4', 'length4', 'bookers_email', 'c_company',
+          'bookers_phone_number', 'c_contact_name', 'c_email', 'c_county',
+          'c_phone_number', 'c_street_address1', 'c_street_address2',
+          'c_town_or_city', 'd_company', 'd_contact_name', 'd_email',
+          'd_county', 'd_phone_number', 'd_street_address1',
+          'd_street_address2', 'd_town_or_city',
+
         }
     YEARS = ('2021', )
     SERVICE = (
@@ -99,9 +119,12 @@ class BookingForm(QuoteForm):
       ('Security', 'Security'),
       ('Liquid', 'Liquid'),
       ('Live Fish', 'Live Fish'),
-      )
+    )
+    
     d_postcode = GBPostcodeField(max_length=8)
     c_postcode = GBPostcodeField(max_length=8)
+    c_county = forms.CharField(widget=GBCountySelect())
+    d_county = forms.CharField(widget=GBCountySelect())
     service = forms.ChoiceField(
             widget=forms.CheckboxSelectMultiple(),
             choices=SERVICE,
@@ -134,12 +157,31 @@ class BookingForm(QuoteForm):
             'width4': 'Width', 'weight4': 'Weight',
             'bookers_email': 'Email Address',
             'bookers_phone_number': 'Phone Number (Use Country Code eg. +44)',
+            'c_contact_name': 'Contact Name',
+            'c_company': 'Company Name',
+            'c_email': 'Email',
+            'c_phone_number': 'Phone No.',
+            'c_street_address1': 'Address Line 1',
+            'c_street_address2': 'Address Line 2',
+            'c_town_or_city': 'Town Or City',
+            'c_county': 'County',
+            'd_contact_name': 'Contact Name',
+            'd_company': 'Company Name',
+            'd_email': 'Email',
+            'd_phone_number': 'Phone No.',
+            'd_street_address1': 'Address Line 1',
+            'd_street_address2': 'Address Line 2',
+            'd_town_or_city': 'Town or City',
+            'd_county': 'County',
         }
 
-        self.fields['c_postcode'].widget.attrs['autofocus'] = True
+        self.fields['c_contact_name'].widget.attrs['autofocus'] = True
         self.helper = FormHelper(self)
         for field in self.fields:
+            if self.fields[field].required:
+                placeholder = f'{placeholders[field]} *'
+            else:
+                placeholder = placeholders[field]
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-            placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder

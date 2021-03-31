@@ -2,6 +2,7 @@
 {% load static %}
 {% load widget_tweaks %}
 {% load crispy_forms_tags %}
+
 {% block extra_meta %}
 <noscript>
   <meta http-equiv="refresh" content="0.0;url={% url 'contact' %}">
@@ -42,12 +43,6 @@
           <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
             your quote</span>
         </p>
-      </div>
-
-      <div class="col-9 mt-2 small font-weight-light font-italics">
-        <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm) and
-          dividing that figure by 5000. You may often find that the price of your shipment is dictated by the volumetric
-          weight of your parcel(s) rather than the actual weight.</p>
       </div>
     </div>
   </div>
@@ -96,6 +91,13 @@
             <div id="items" class="col-12">
               <fieldset>
                 <legend class="">Dimensions & Weight</legend>
+                <div class="col-12 col-lg-9 mt-2 small font-weight-light font-italics">
+                  <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm)
+                    and
+                    dividing that figure by 5000. You may often find that the price of your shipment is dictated by the
+                    volumetric
+                    weight of your parcel(s) rather than the actual weight.</p>
+                </div>
                 <div id="item_1" class="d-flex justify-content-around row">
                   <div class="col-12">
                     <fieldset>

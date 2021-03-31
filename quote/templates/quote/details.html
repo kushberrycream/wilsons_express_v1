@@ -31,12 +31,6 @@
             your quote</span>
         </p>
       </div>
-
-      <div class="col-9 mt-2 small font-weight-light font-italics">
-        <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm) and
-          dividing that figure by 5000. You may often find that the price of your shipment is dictated by the volumetric
-          weight of your parcel(s) rather than the actual weight.</p>
-      </div>
     </div>
   </div>
   <div class="row">
@@ -49,20 +43,45 @@
             <div class="col-12 col-md-6">
               <fieldset>
                 <legend>Collection</legend>
+                {{ booking_form.c_contact_name | as_crispy_field }}
+                {{ booking_form.c_company | as_crispy_field }}
+                {{ booking_form.c_email | as_crispy_field }}
+                {{ booking_form.c_phone_number | as_crispy_field }}
+                {{ booking_form.c_street_address1 | as_crispy_field }}
+                {{ booking_form.c_street_address2 | as_crispy_field }}
+                {{ booking_form.c_town_or_city | as_crispy_field }}
+                {{ booking_form.c_county | as_crispy_field }}
                 {{ booking_form.c_postcode | as_crispy_field }}
 
               </fieldset>
             </div>
-
             <div class="col-12 col-md-6">
               <fieldset>
                 <legend>Delivery</legend>
+                {{ booking_form.d_contact_name | as_crispy_field }}
+                {{ booking_form.d_company | as_crispy_field }}
+                {{ booking_form.d_email | as_crispy_field }}
+                {{ booking_form.d_phone_number | as_crispy_field }}
+                {{ booking_form.d_street_address1 | as_crispy_field }}
+                {{ booking_form.d_street_address2 | as_crispy_field }}
+                {{ booking_form.d_town_or_city | as_crispy_field }}
+                {{ booking_form.d_county | as_crispy_field }}
                 {{ booking_form.d_postcode | as_crispy_field }}
 
               </fieldset>
             </div>
-
           </div>
+          <fieldset>
+            <div class="row">
+              <legend class="lead">Your Contact Details</legend>
+              <div class="col-12 col-md-6">
+                {{ booking_form.bookers_phone_number | as_crispy_field }}
+              </div>
+              <div class="col-12 col-md-6">
+                {{ booking_form.bookers_email | as_crispy_field }}
+              </div>
+            </div>
+          </fieldset>
           <div class="row" id="services">
             <h4 class="w-100 px-3">Service</h4>
             <div class="col-md-6 col-12 p-3 small">
@@ -80,10 +99,19 @@
             </div>
 
           </div>
+
           <div class="row">
             <div id="items" class="col-12">
+
               <fieldset>
                 <legend class="">Dimensions & Weight</legend>
+                <div class="col-12 col-lg-9 mt-2 small font-weight-light font-italics">
+                  <p>Volumetric weight can be calculated by multiplying the length, width and height of a parcel (in cm)
+                    and
+                    dividing that figure by 5000. You may often find that the price of your shipment is dictated by the
+                    volumetric
+                    weight of your parcel(s) rather than the actual weight.</p>
+                </div>
                 <div id="item_1" class="d-flex justify-content-around row">
                   <div class="col-12">
                     <fieldset>
@@ -206,45 +234,40 @@
               </fieldset>
             </div>
           </div>
-          <div class="row">
-            <div id="items" class="col-12">
-              <fieldset>
-                <legend class="w-100">Dimensions & Weight</legend>
-                <div class="w-100 d-flex justify-content-around">
-                  <div class="mx-3 ">
-                    {% crispy_addon booking_form.weight append='kg' %}
-
-                  </div>
-                  <div class="mx-3">
-                    {% crispy_addon booking_form.height append='cm' %}
-                  </div>
-                  <div class="mx-3">
-                    {% crispy_addon booking_form.length append='cm' %}
-                  </div>
-                  <div class="mx-3">
-                    {% crispy_addon booking_form.width append='cm' %}
-                  </div>
-                  <div class="ml-3 d-flex justify-content-end">
-                    <button type="button" class="btn pl-3" id="less_items">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn pl-3" id="more_items">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </div>
-                </div>
-
-
-              </fieldset>
-            </div>
-          </div>
         </div>
+        <fieldset class="px-3">
+          <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+          <!-- A Stripe card element will go here -->
+
+          <div class="mb-3 payment" id="card-number-element"></div>
+          <div class="row">
+            <div class="col-6">
+              <div class="mb-3 payment" id="card-expiry-element"></div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3 payment" id="card-cvc-element"></div>
+            </div>
+
+          </div>
+
+          <!-- Used to display form errors -->
+          <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+          <input type="hidden" value="" name="client_secret">
+
+        </fieldset>
         <div class="text-right">
-          <button action="{% url 'details' quote.quote_ref %}" name="details" class="btn-dark btn btn-md rounded-0"
-            type="submit">Enter
-            Details</button>
-          <button name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update
-            Quote!</button>
+          <button id="submit-button" class="btn btn-black rounded-0">
+            <span class="font-weight-bold">Complete Booking</span>
+            <span class="icon">
+              <i class="fas fa-lock"></i>
+            </span>
+          </button>
+          <p class="small text-danger my-0">
+            <span class="icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </span>
+            <span>Your card will be charged <strong>£{{ quote.quote|floatformat:2 }}</strong></span>
+          </p>
         </div>
       </form>
     </div>

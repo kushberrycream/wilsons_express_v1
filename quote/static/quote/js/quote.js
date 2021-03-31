@@ -60,30 +60,32 @@ $(document).ready(function () {
   }
 
 
-$('.input-group-append').children('span').addClass('stripe-style-input small').removeClass('input-group-text');
-// on() method to attatch the on click and on change event handlers.
-$('#services').on("click change", function (e) {
-  if (e.type === "click") {
-    if ($('#id_spec_service_3').prop("checked") == true) {
-      $("#id_service_3").removeAttr("disabled");
-    } else if ($('#id_spec_service_2').prop("checked") == true) {
-      $("#id_service_3").removeAttr("disabled");
-    } else if ($('#id_spec_service_1').prop("checked") == true) {
-      $("#id_service_3").removeAttr("disabled");
+  $('.input-group-append').children('span').addClass('stripe-style-input small').removeClass('input-group-text');
+  // on() method to attatch the on click and on change event handlers.
+  $('#services').on("click change", function (e) {
+    if (e.type === "click") {
+      if ($('#id_spec_service_3').prop("checked") == true) {
+        $("#id_service_3").removeAttr("disabled");
+      } else if ($('#id_spec_service_2').prop("checked") == true) {
+        $("#id_service_3").removeAttr("disabled");
+      } else if ($('#id_spec_service_1').prop("checked") == true) {
+        $("#id_service_3").removeAttr("disabled");
+      }
     }
 
-  }
-  if ($('#id_spec_service_4').prop("checked") == true) {
-    $("#id_service_3").attr("disabled", true);
-    if ($('#id_service_3').prop("checked", false)) {
-      $('#id_service_3').removeAttr('checked');
+    if ($('#id_spec_service_4').prop("checked") == true) {
+      $("#id_service_3").attr("disabled", true);
+      if ($('#id_service_3').prop("checked", false)) {
+        $('#id_service_3').removeAttr('checked');
+      }
+    } else {
+      $("#id_service_3").removeAttr("disabled");
     }
-  } else {
-    $("#id_service_3").removeAttr("disabled");
-  }
-}, {
-  passive: true
-});
+  }, {
+    passive: true
+  });
 
+  $('#id_c_county').prepend('<option value="" selected>County</option>').val('');
+  $('#id_d_county').prepend('<option value="" selected>County</option>').val('');
 });
 
