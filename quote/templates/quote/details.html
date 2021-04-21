@@ -36,7 +36,7 @@
   <div class="row">
     <div class="col-12">
 
-      <form method="POST" action="{% url 'add_to_bag' quote.quote_ref %}" id="quote-form" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+      <form method="POST"  id="quote-form" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">
           <div class="row ">
