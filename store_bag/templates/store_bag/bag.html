@@ -24,7 +24,6 @@
     
     <div class="row">
         <div id="bag-parent" class="col">
-            
             {% if bag_items %}
             
            
@@ -35,7 +34,6 @@
                             <th scope="col">Product Info</th>
                             <th scope="col"></th>
                             <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
@@ -56,7 +54,7 @@
                             {% include "store_bag/quantity-form.html" %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0">£{{ item.product.price }}</p>
                         </td>
                     </tr>
                     {% endfor %}

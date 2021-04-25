@@ -9,50 +9,54 @@
   </div>
   <div class="toast-body">
     <div class="row">
-            <div class="col">
-                {{ message }}
-                <hr class="mt-1 mb-3">
-            </div>
+      <div class="col">
+        {{ message }}
+        <hr class="mt-1 mb-3">
+      </div>
+    </div>
+    {% if grand_total and not on_profile_page and not faqs and not create_account %}
+    <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
+    <div class="bag-notification-wrapper">
+      {% for item in bag_items reversed %}
+      <div class="row ml-0">
+        <div class="col-3 my-1">
+          <img class="w-100" src="{{ MEDIA_URL }}route.png" alt="{{ item.product.name }}">
         </div>
-        {% if grand_total and not on_profile_page and not faqs and not create_account %}
-            <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
-            <div class="bag-notification-wrapper">
-                {% for item in bag_items %}
-                    <div class="row">
-                        <div class="col-3 my-1">
-                            {% if item.product.image1 %}
-                            <img class="w-100" src="{{ item.product.image1_url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
-                        </div>
-                        <div class="col-9">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size: {{item.product.size }}</p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="row">
-                <div class="col">
-                    <strong><p class="mt-3 mb-1 text-black">
-                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: 
-                        <span class="float-right">£{{ total|floatformat:2 }}</span>
-                    </p></strong>
-                    {% if free_delivery_delta > 0 %}
-                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                            Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day delivery!
-                        </p>
-                    {% endif %}
-                    <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
+        <div class="col-9">
+          <p class="my-0"><small>Reference:</small> <strong>{{ item.quote_ref }}</strong></p>
+          <p class="my-0"><small>Collection:</small> <strong>{{ item.quote.c_postcode }}</strong></p>
+          <p class="my-0"><small>Delivery: </small><strong>{{ item.quote.d_postcode }}</strong></p>
+          <p class="my-0">
+            <small>Chargable Weight:</small> 
+            {% if item.weight > item.volume_weight %}{{ item.weight }}{% else %}{{ item.volume_weight }}{% endif %}
+          </p>
+          <p class="my-0"><small>Total: </small><strong>£{{ item.subtotal }}</strong></p>
+        </div>
+        <hr class="w-75">
+      </div>
+      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col">
+        <strong>
+          <p class="mt-3 mb-1 text-black">
+            Total{% if ten_percent_delta == 0 %} <span class="text-success">(Exc. 10%)</span>{% endif %}: 
+            <span class="float-right">£{{ grand_total|floatformat:2 }}</span>
+          </p>
+        </strong>
+        {% if ten_percent_delta != 0 %}
+        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+          Send <strong>{{ ten_percent_delta }}</strong> more to get 10% off!
+        </p>
         {% endif %}
+        <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
+          <span class="text-uppercase">Go To Secure Checkout</span>
+          <span class="icon">
+            <i class="fas fa-lock"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>

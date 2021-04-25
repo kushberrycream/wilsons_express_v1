@@ -36,7 +36,8 @@
   <div class="row">
     <div class="col-12">
 
-      <form method="POST" id="quote-form" class="form mb-2 p-3 bg-white" enctype="multipart/form-data">
+      <form method="POST" action="{% url 'add_to_bag' quote.quote_ref %}" id="quote-form" class="form mb-2 p-3 bg-white"
+        enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">
           <div class="row ">
@@ -235,29 +236,10 @@
             </div>
           </div>
         </div>
-        <fieldset class="px-3">
-          <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-          <!-- A Stripe card element will go here -->
 
-          <div class="mb-3 payment" id="card-number-element"></div>
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3 payment" id="card-expiry-element"></div>
-            </div>
-            <div class="col-6">
-              <div class="mb-3 payment" id="card-cvc-element"></div>
-            </div>
-
-          </div>
-
-          <!-- Used to display form errors -->
-          <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-          <input type="hidden" value="" name="client_secret">
-
-        </fieldset>
         <div class="text-right">
           <button id="submit-button" class="btn btn-black rounded-0">
-            <span class="font-weight-bold">Complete Booking</span>
+            <span class="font-weight-bold">Add Booking to Bag</span>
             <span class="icon">
               <i class="fas fa-lock"></i>
             </span>
