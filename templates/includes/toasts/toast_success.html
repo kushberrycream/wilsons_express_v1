@@ -23,9 +23,9 @@
           <img class="w-100" src="{{ MEDIA_URL }}route.png" alt="{{ item.product.name }}">
         </div>
         <div class="col-9">
-          <p class="my-0"><small>Reference:</small> <strong>{{ item.quote_ref }}</strong></p>
-          <p class="my-0"><small>Collection:</small> <strong>{{ item.quote.c_postcode }}</strong></p>
-          <p class="my-0"><small>Delivery: </small><strong>{{ item.quote.d_postcode }}</strong></p>
+          <p class="my-0"><small>Reference:</small> <strong>{{ item.booking.booking_ref }}</strong></p>
+          <p class="my-0"><small>Collection:</small> <strong>{{ item.booking.c_postcode }}</strong></p>
+          <p class="my-0"><small>Delivery: </small><strong>{{ item.booking.d_postcode }}</strong></p>
           <p class="my-0">
             <small>Chargable Weight:</small> 
             {% if item.weight > item.volume_weight %}{{ item.weight }}{% else %}{{ item.volume_weight }}{% endif %}
@@ -45,7 +45,7 @@
           </p>
         </strong>
         {% if ten_percent_delta != 0 %}
-        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+        <p class="mb-0 p-2 bg-warning shadow text-black text-center">
           Send <strong>{{ ten_percent_delta }}</strong> more to get 10% off!
         </p>
         {% endif %}

@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
-from quote.models import Quote
+from quote.models import Quote, Bookings
 
 
 def bag_contents(request):
@@ -12,14 +12,15 @@ def bag_contents(request):
     product_count = 0
 
     for item_id, item_data in bag.items():
-        quote = get_object_or_404(Quote, quote_ref=item_id)
-        total += quote.quote
-        subtotal = quote.quote
+
+        booking = Bookings.objects.get(booking_ref=item_id)
+        total += booking.price
+        subtotal = booking.price
         bag_items.append({
-            'quote_ref': item_id,
-            'weight': quote.overall_weight,
-            'volume_weight': quote.overall_volume,
-            'quote': quote,
+            'booking_ref': item_id,
+            'weight': booking.overall_weight,
+            'volume_weight': booking.overall_volume,
+            'booking': booking,
             'subtotal': subtotal,
         })
 

@@ -1,28 +1,25 @@
-from decimal import Decimal
 from django.shortcuts import (
     render, redirect, reverse, HttpResponse, get_object_or_404
 )
 from django.contrib import messages
-from quote.models import Quote
-from products.models import Product
+from quote.models import Quote, Bookings
 
 
 def view_bag(request):
     """ A view that renders the bag contents page """
-
     return render(request, 'store_bag/bag.html')
 
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shoppingbag """
 
-    quote = get_object_or_404(Quote, quote_ref=item_id)
+    booking = get_object_or_404(Bookings, booking_ref=item_id)
     bag = request.session.get('bag', {})
 
     bag[item_id] = item_id
     messages.success(request,
                      f'Added collection from \
-    {quote.c_postcode} to your bag (ref: {item_id})')
+    {booking.c_postcode} to your bag (ref: {item_id})')
 
     request.session['bag'] = bag
 
@@ -33,11 +30,11 @@ def remove_from_bag(request, item_id):
     """ remove the item from the shopping bag """
 
     try:
-        quote = get_object_or_404(Quote, quote_ref=item_id)
+        booking = get_object_or_404(Bookings, booking_ref=item_id)
         bag = request.session.get('bag', {})
         bag.pop(item_id)
         messages.success(request, f'Removed collection from \
-    {quote.c_postcode} from your bag (ref: {item_id})')
+    {booking.c_postcode} from your bag (ref: {item_id})')
         request.session['bag'] = bag
         return HttpResponse(status=200)
     except Exception as e:

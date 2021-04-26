@@ -22,11 +22,11 @@
     <div class="container">
       <div class="col-12 mt-5">
 
-        <h4>Actual Weight: {{quote.overall_weight}}</h4>
-        <h4>Volume Weight: {{quote.overall_volume}}</h4>
-        <h4>Price: <span class="font-weight-bold display-4">£{{quote.quote|floatformat:2}}</span> </h4>
+        <h4>Actual Weight: {{quote.overall_weight}}{{booking.overall_weight}}</h4>
+        <h4>Volume Weight: {{quote.overall_volume}}{{booking.overall_volume}}</h4>
+        <h4>Price: <span class="font-weight-bold display-4">£{{quote.quote|floatformat:2}}{{booking.price|floatformat:2}}</span> </h4>
         <p>
-          Reference Number: <span class="font-weight-bold">{{quote.quote_ref}}</span>
+          Reference Number: <span class="font-weight-bold">{{quote.quote_ref}}{{booking.booking_ref}}</span>
           <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
             your quote</span>
         </p>
@@ -36,7 +36,7 @@
   <div class="row">
     <div class="col-12">
 
-      <form method="POST" action="{% url 'add_to_bag' quote.quote_ref %}" id="quote-form" class="form mb-2 p-3 bg-white"
+      <form method="POST" id="quote-form" class="form mb-2 p-3 bg-white"
         enctype="multipart/form-data">
         {% csrf_token %}
         <div class="container">

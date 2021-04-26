@@ -1,5 +1,5 @@
 from django import forms
-from .models import Quote, Booking
+from .models import Quote, Bookings
 from localflavor.gb.forms import GBPostcodeField, GBCountySelect
 from crispy_forms.bootstrap import InlineCheckboxes
 from crispy_forms.helper import FormHelper
@@ -94,7 +94,7 @@ class QuoteForm(forms.ModelForm):
 class BookingForm(QuoteForm):
 
     class Meta:
-        model = Booking
+        model = Bookings
         fields = {
           'c_postcode', 'd_postcode', 'height', 'weight',
           'length', 'width', 'service', 'spec_service', 'height1',

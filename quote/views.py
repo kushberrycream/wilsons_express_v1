@@ -3,7 +3,7 @@ from django.shortcuts import (
 )
 from measurement.measures import Weight
 from .forms import QuoteForm, BookingForm
-from .models import Quote
+from .models import Quote, Bookings
 from decimal import Decimal
 
 
@@ -416,17 +416,14 @@ def quote(request):
             quote.quote = total_price
             quote.volume_weight = v_weight
             quote.save()
-            request.session['test'] = 'test'
             if 'details' in request.POST:
-                
                 booking_form = BookingForm(form_data)
-              
+
                 context = {
                     'form_data': form_data,
                     'booking_form': booking_form,
                     'quote_form': quote_form,
                     'total_price': total_price,
-                    
                 }
                 if quote_form.is_valid():
                     quote_form.save()
@@ -873,9 +870,162 @@ def partial_quote(request, quote_ref):
 def delivery_details(request, quote_ref):
     """ A view to return a users delivery price and the
     rest of the form to book deliveries """
-    quote = get_object_or_404(Quote, quote_ref=quote_ref)
-    
-    booking_form = BookingForm(instance=quote)
+    if request.method == 'GET':
+        quote = get_object_or_404(Quote, quote_ref=quote_ref)
+        booking_form = BookingForm(instance=quote)
+    if request.method == 'POST':
+        if 'service' not in request.POST:
+            form_data = {
+                'd_contact_name': request.POST['d_contact_name'],
+                'd_company': request.POST['d_company'],
+                'd_email': request.POST['d_email'],
+                'd_phone_number': request.POST['d_phone_number'],
+                'd_street_address1': request.POST['d_street_address1'],
+                'd_street_address2': request.POST['d_street_address2'],
+                'd_town_or_city': request.POST['d_town_or_city'],
+                'd_county': request.POST['d_county'],
+                'd_postcode': request.POST['d_postcode'].upper(),
+                'c_contact_name': request.POST['c_contact_name'],
+                'c_company': request.POST['c_company'],
+                'c_email': request.POST['c_email'],
+                'c_phone_number': request.POST['c_phone_number'],
+                'c_street_address1': request.POST['c_street_address1'],
+                'c_street_address2': request.POST['c_street_address2'],
+                'c_town_or_city': request.POST['c_town_or_city'],
+                'c_county': request.POST['c_county'],
+                'c_postcode': request.POST['c_postcode'].upper(),
+                'height': request.POST['height'],
+                'length': request.POST['length'],
+                'width': request.POST['width'],
+                'weight': request.POST['weight'],
+                'height1': request.POST['height1'],
+                'length1': request.POST['length1'],
+                'width1': request.POST['width1'],
+                'weight1': request.POST['weight1'],
+                'height2': request.POST['height2'],
+                'length2': request.POST['length2'],
+                'width2': request.POST['width2'],
+                'weight2': request.POST['weight2'],
+                'height3': request.POST['height3'],
+                'length3': request.POST['length3'],
+                'width3': request.POST['width3'],
+                'weight3': request.POST['weight3'],
+                'height4': request.POST['height4'],
+                'length4': request.POST['length4'],
+                'width4': request.POST['width4'],
+                'weight4': request.POST['weight4'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
+            }
+        elif 'spec_service' not in request.POST:
+            form_data = {
+                'd_contact_name': request.POST['d_contact_name'],
+                'd_company': request.POST['d_company'],
+                'd_email': request.POST['d_email'],
+                'd_phone_number': request.POST['d_phone_number'],
+                'd_street_address1': request.POST['d_street_address1'],
+                'd_street_address2': request.POST['d_street_address2'],
+                'd_town_or_city': request.POST['d_town_or_city'],
+                'd_county': request.POST['d_county'],
+                'd_postcode': request.POST['d_postcode'].upper(),
+                'c_contact_name': request.POST['c_contact_name'],
+                'c_company': request.POST['c_company'],
+                'c_email': request.POST['c_email'],
+                'c_phone_number': request.POST['c_phone_number'],
+                'c_street_address1': request.POST['c_street_address1'],
+                'c_street_address2': request.POST['c_street_address2'],
+                'c_town_or_city': request.POST['c_town_or_city'],
+                'c_county': request.POST['c_county'],
+                'c_postcode': request.POST['c_postcode'].upper(),
+                'height': request.POST['height'],
+                'length': request.POST['length'],
+                'width': request.POST['width'],
+                'weight': request.POST['weight'],
+                'height1': request.POST['height1'],
+                'length1': request.POST['length1'],
+                'width1': request.POST['width1'],
+                'weight1': request.POST['weight1'],
+                'height2': request.POST['height2'],
+                'length2': request.POST['length2'],
+                'width2': request.POST['width2'],
+                'weight2': request.POST['weight2'],
+                'height3': request.POST['height3'],
+                'length3': request.POST['length3'],
+                'width3': request.POST['width3'],
+                'weight3': request.POST['weight3'],
+                'height4': request.POST['height4'],
+                'length4': request.POST['length4'],
+                'width4': request.POST['width4'],
+                'weight4': request.POST['weight4'],
+                'service': request.POST['service'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
+            }
+        else:
+            form_data = {
+                'd_contact_name': request.POST['d_contact_name'],
+                'd_company': request.POST['d_company'],
+                'd_email': request.POST['d_email'],
+                'd_phone_number': request.POST['d_phone_number'],
+                'd_street_address1': request.POST['d_street_address1'],
+                'd_street_address2': request.POST['d_street_address2'],
+                'd_town_or_city': request.POST['d_town_or_city'],
+                'd_county': request.POST['d_county'],
+                'd_postcode': request.POST['d_postcode'].upper(),
+                'c_contact_name': request.POST['c_contact_name'],
+                'c_company': request.POST['c_company'],
+                'c_email': request.POST['c_email'],
+                'c_phone_number': request.POST['c_phone_number'],
+                'c_street_address1': request.POST['c_street_address1'],
+                'c_street_address2': request.POST['c_street_address2'],
+                'c_town_or_city': request.POST['c_town_or_city'],
+                'c_county': request.POST['c_county'],
+                'c_postcode': request.POST['c_postcode'].upper(),
+                'height': request.POST['height'],
+                'length': request.POST['length'],
+                'width': request.POST['width'],
+                'weight': request.POST['weight'],
+                'service': request.POST['service'],
+                'spec_service': request.POST['spec_service'],
+                'height1': request.POST['height1'],
+                'length1': request.POST['length1'],
+                'width1': request.POST['width1'],
+                'weight1': request.POST['weight1'],
+                'height2': request.POST['height2'],
+                'length2': request.POST['length2'],
+                'width2': request.POST['width2'],
+                'weight2': request.POST['weight2'],
+                'height3': request.POST['height3'],
+                'length3': request.POST['length3'],
+                'width3': request.POST['width3'],
+                'weight3': request.POST['weight3'],
+                'height4': request.POST['height4'],
+                'length4': request.POST['length4'],
+                'width4': request.POST['width4'],
+                'weight4': request.POST['weight4'],
+                'bookers_email': request.POST['bookers_email'],
+                'bookers_phone_number': request.POST['bookers_phone_number'],
+            }
+        
+        quote = get_object_or_404(Quote, quote_ref=quote_ref)
+            
+        booking_form = BookingForm(form_data)
+        if booking_form.is_valid():
+            booking = Bookings()
+            booking = booking_form.save()
+            booking.booking_ref = quote_ref
+            booking.price = quote.quote
+            booking.overall_weight = quote.overall_weight
+            booking.overall_volume = quote.overall_volume
+            booking.save()
+
+        context = {
+            'booking_form': booking_form
+        }
+
+        return redirect(reverse(
+            'add_to_bag', args=[quote_ref]))
+
     context = {
         'quote': quote,
         'booking_form': booking_form
