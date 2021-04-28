@@ -31,14 +31,5 @@
 
       </ul>
     </li>
-    {% if url != categories or url != products %}
-    {% else %}
-    <li class="nav-item nav-width dropdown jsenabled">
-      <a class="logo-font font-weight-bold nav-link text-dark text-nowrap" href="{% url 'store_home' %}"
-        id="store-link">
-        Store
-      </a>
-    </li>
-    {% endif %}
   </ul>
 </div>

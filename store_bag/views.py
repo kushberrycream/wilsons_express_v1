@@ -13,13 +13,13 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shoppingbag """
 
-    booking = get_object_or_404(Bookings, booking_ref=item_id)
+    quote = get_object_or_404(Quote, quote_ref=item_id)
     bag = request.session.get('bag', {})
 
     bag[item_id] = item_id
     messages.success(request,
                      f'Added collection from \
-    {booking.c_postcode} to your bag (ref: {item_id})')
+    {quote.c_postcode} to your bag (ref: {item_id})')
 
     request.session['bag'] = bag
 

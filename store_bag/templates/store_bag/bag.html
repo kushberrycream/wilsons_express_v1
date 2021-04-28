@@ -2,12 +2,8 @@
 {% load static %}
 {% load bag_tools %}
 {% block extra_meta %}
-  <meta content="authenticity_token" name="csrf-param" />
-  <meta content="{{ csrf_token }}" name="csrf-token" />
-{% endblock %}
-
-{% block page_header %}
-{% include 'includes/store-nav.html' %}
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="{{ csrf_token }}" name="csrf-token" />
 {% endblock %}
 
 
@@ -21,37 +17,65 @@
             <hr>
         </div>
     </div>
-    
+
     <div class="row">
         <div id="bag-parent" class="col">
             {% if bag_items %}
-            
-           
-            <div id="desktop-bag" class="table-responsive rounded">
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+                        {% include "store_bag/bag-total.html" %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {% include "store_bag/checkout-buttons.html" %}
+                        <p class="text-muted mb-5">A summary of your bag contents is below</p>
+                    </div>
+                </div>
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
                             <th scope="col">Collection Info</th>
                             <th scope="col">Delivery Info</th>
-                            <th scope="col">Subtotal</th>
+                            <th scope="col">Total</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                   
+                    {% for item in bag_items %}
+                    <tr>
+                        <td class="py-3">
+                            {% include "store_bag/product-info.html" %}
+                        </td>
+                    </tr>
+                    
+                    {% endfor %}
+                </table>
+                <div class="d-flex justify-content-end">
+                    <div class="btt-button shadow-sm btn-dark">
+                        <a class="btt-link d-flex text-white h-100 text-decoration-none">
+                            <i class="fas fa-arrow-up mx-auto my-auto"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive rounded d-none d-md-block">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Collection Info</th>
+                            <th scope="col">Delivery Info</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+
                     {% for item in bag_items %}
 
                     <tr>
                         <td class="py-3">
                             {% include "store_bag/product-info.html" %}
-                        </td>
-                        <td class="py-3">
-                            
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">£{{ item.subtotal }}</p>
-                        </td>
-                        <td class="py-3 w-25">
-                            {% include "store_bag/quantity-form.html" %}
                         </td>
                     </tr>
                     {% endfor %}
@@ -67,9 +91,9 @@
                     </tr>
                 </table>
             </div>
-            
-     
-            
+
+
+
             {% else %}
             <p class="lead mb-5">Your bag is empty.</p>
             <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">

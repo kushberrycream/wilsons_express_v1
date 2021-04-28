@@ -1019,12 +1019,12 @@ def delivery_details(request, quote_ref):
             booking.overall_volume = quote.overall_volume
             booking.save()
 
-        context = {
-            'booking_form': booking_form
-        }
+            context = {
+                'booking_form': booking_form
+            }
 
-        return redirect(reverse(
-            'add_to_bag', args=[quote_ref]))
+            return redirect(reverse(
+                'add_to_bag', args=[quote_ref]))
 
     context = {
         'quote': quote,

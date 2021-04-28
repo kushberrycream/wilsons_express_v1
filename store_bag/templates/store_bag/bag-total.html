@@ -1,8 +1,12 @@
-<h6><strong>Bag Total: £{{ total|floatformat:2 }}</strong></h6>
-<h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-<h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
-{% if free_delivery_delta > 0 %}
-    <p class="mb-1 text-danger">
-        You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
-    </p>
+
+<h6><strong>Subtotal: £{{ subtotal|floatformat:2 }}</strong></h6>
+<h6><strong>VAT: £{{ vat|floatformat:2 }}</strong></h6>
+{% if ten_percent_delta == 0 %}
+<h6 class="text-success">10% Discount: £{{ ten_percent|floatformat:2 }}</h6>
+{% endif %}
+<h4 class="mt-4"><strong>Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+{% if ten_percent_delta != 0 %}
+<p class="mb-1 text-danger">
+    Send <strong>{{ ten_percent_delta }}</strong> more to get 10% off!
+</p>
 {% endif %}
