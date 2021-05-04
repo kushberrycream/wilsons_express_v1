@@ -94,7 +94,7 @@ class Bookings(models.Model):
       default=0, verbose_name="Length")
     volume_weight4 = models.CharField(
       max_length=7, blank=True, default=0, verbose_name="Volume Weight")
-
+    items = models.IntegerField(null=False, default=0)
     service = models.CharField(
       max_length=20, null=False, blank=False)
     spec_service = models.CharField(
@@ -104,7 +104,8 @@ class Bookings(models.Model):
                                 null=False, default=0)
     bookers_email = models.EmailField(max_length=254,
                                       null=False, blank=False)
-    bookers_phone_number = PhoneNumberField()
+    bookers_phone_number = PhoneNumberField(
+      verbose_name="Bookers Phone Number")
     d_contact_name = models.CharField(max_length=50, null=False, blank=False,
                                       verbose_name="Contact")
     d_company = models.CharField(max_length=100, blank=True,
@@ -234,7 +235,7 @@ class Quote(models.Model):
       default=0, verbose_name="Length")
     volume_weight4 = models.CharField(
       max_length=7, blank=True, default=0, verbose_name="Volume Weight")
-
+    items = models.IntegerField(null=False)
     service = models.CharField(
       max_length=20, null=False, blank=False)
     spec_service = models.CharField(
@@ -268,4 +269,3 @@ class Quote(models.Model):
 
     def __str__(self):
         return self.quote_ref
-

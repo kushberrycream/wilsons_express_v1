@@ -24,6 +24,7 @@
 
         <h4>Actual Weight: {{quote.overall_weight}}{{booking.overall_weight}}</h4>
         <h4>Volume Weight: {{quote.overall_volume}}{{booking.overall_volume}}</h4>
+        <h4>Items: {{quote.items}}{{booking.items}}</h4>
         <h4>Price: <span class="font-weight-bold display-4">£{{quote.quote|floatformat:2}}{{booking.price|floatformat:2}}</span> </h4>
         <p>
           Reference Number: <span class="font-weight-bold">{{quote.quote_ref}}{{booking.booking_ref}}</span>
@@ -52,7 +53,7 @@
                 {{ booking_form.c_street_address2 | as_crispy_field }}
                 {{ booking_form.c_town_or_city | as_crispy_field }}
                 {{ booking_form.c_county | as_crispy_field }}
-                {{ booking_form.c_postcode | as_crispy_field }}
+                <p class="font-weight-bold pl-3 lead">{{ quote.c_postcode }}</p>
 
               </fieldset>
             </div>
@@ -67,7 +68,7 @@
                 {{ booking_form.d_street_address2 | as_crispy_field }}
                 {{ booking_form.d_town_or_city | as_crispy_field }}
                 {{ booking_form.d_county | as_crispy_field }}
-                {{ booking_form.d_postcode | as_crispy_field }}
+                <p class="font-weight-bold pl-3 lead">{{ quote.d_postcode }}</p>
 
               </fieldset>
             </div>
@@ -257,6 +258,8 @@
     <span class="circle circle-4"></span>
   </h1>
 </div>
+
+
 {% endblock %}
 
 {% block postloadjs %}

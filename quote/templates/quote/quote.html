@@ -37,11 +37,13 @@
 
         <h4>Actual Weight: {{quote.overall_weight}}</h4>
         <h4>Volume Weight: {{quote.overall_volume}}</h4>
+        <h4>Items: {{quote.items}}</h4>
         <h4>Price: <span class="font-weight-bold display-4">£{{quote.quote|floatformat:2}}</span> </h4>
         <p>
           Reference Number: <span class="font-weight-bold">{{quote.quote_ref}}</span>
           <span class="small d-block font-weight-light font-italic">Use this reference if you need to contact us about
             your quote</span>
+           
         </p>
       </div>
     </div>
@@ -242,10 +244,13 @@
           </fieldset>
         </div>
         <div class="text-right">
-          <button name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
+          <button id="details" name="details" class="btn-dark btn btn-md rounded-0" type="submit">Enter
             Details</button>
           <button name="update" class="btn-dark btn btn-md rounded-0" type="submit">Update
             Quote!</button>
+            <p class="small my-1">
+              If you have changed any details you will need to update your quote!
+            </p>
         </div>
 
       </form>

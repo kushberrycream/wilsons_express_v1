@@ -26,6 +26,7 @@ def quote(request):
         quote_form = QuoteForm()
         form_data = None
     if request.method == 'POST':
+        items = 0
         if 'service' not in request.POST:
             form_data = {
                 'd_postcode': request.POST['d_postcode'].upper(),
@@ -126,6 +127,7 @@ def quote(request):
             v_weight = float(form_data['height']) * float(form_data[
                 'width']) * float(form_data['length']) / 5000
             a_weight = float(form_data['weight'])
+            items += 1
             quote.volume_weight = Weight(kg=v_weight)
 
             # Item 2
@@ -134,6 +136,8 @@ def quote(request):
                     'width1']) * float(form_data['length1']) / 5000
                 a_weight1 = float(form_data['weight1'])
                 quote.volume_weight1 = Weight(kg=v_weight1)
+                if v_weight1 != 0:
+                    items += 1
 
             # Item 3
             if 'weight2' in request.POST:
@@ -141,6 +145,8 @@ def quote(request):
                     'width2']) * float(form_data['length2']) / 5000
                 a_weight2 = float(form_data['weight2'])
                 quote.volume_weight2 = Weight(kg=v_weight2)
+                if v_weight2 != 0:
+                    items += 1
 
             # Item 4
             if 'weight3' in request.POST:
@@ -148,6 +154,8 @@ def quote(request):
                     'width3']) * float(form_data['length3']) / 5000
                 a_weight3 = float(form_data['weight3'])
                 quote.volume_weight3 = Weight(kg=v_weight3)
+                if v_weight3 != 0:
+                    items += 1
 
             # Item 5
             if 'weight4' in request.POST:
@@ -155,6 +163,8 @@ def quote(request):
                     'width4']) * float(form_data['length4']) / 5000
                 a_weight4 = float(form_data['weight4'])
                 quote.volume_weight4 = Weight(kg=v_weight4)
+                if v_weight4 != 0:
+                    items += 1
 
             overall_weight = (
               a_weight + a_weight1 + a_weight2 + a_weight3 + a_weight4
@@ -166,6 +176,7 @@ def quote(request):
 
             quote.overall_volume = Weight(kg=overall_volume)
             quote.overall_weight = Weight(kg=overall_weight)
+            quote.items = items
 
             total_price = Decimal(8)
             # Checks if postcode is a local one
@@ -458,6 +469,7 @@ def partial_quote(request, quote_ref):
         quote = get_object_or_404(Quote, quote_ref=quote_ref)
         quote_form = QuoteForm(instance=quote)
     if request.method == 'POST':
+        items = 0
         if 'service' not in request.POST:
             form_data = {
                 'd_postcode': request.POST['d_postcode'].upper(),
@@ -559,6 +571,7 @@ def partial_quote(request, quote_ref):
             v_weight = float(form_data['height']) * float(form_data[
                 'width']) * float(form_data['length']) / 5000
             a_weight = float(form_data['weight'])
+            items += 1
             quote.volume_weight = Weight(kg=v_weight)
 
             # Item 2
@@ -567,6 +580,8 @@ def partial_quote(request, quote_ref):
                     'width1']) * float(form_data['length1']) / 5000
                 a_weight1 = float(form_data['weight1'])
                 quote.volume_weight1 = Weight(kg=v_weight1)
+                if v_weight1 != 0:
+                    items += 1
 
             # Item 3
             if 'weight2' in request.POST:
@@ -574,6 +589,8 @@ def partial_quote(request, quote_ref):
                     'width2']) * float(form_data['length2']) / 5000
                 a_weight2 = float(form_data['weight2'])
                 quote.volume_weight2 = Weight(kg=v_weight2)
+                if v_weight2 != 0:
+                    items += 1
 
             # Item 4
             if 'weight3' in request.POST:
@@ -581,6 +598,8 @@ def partial_quote(request, quote_ref):
                     'width3']) * float(form_data['length3']) / 5000
                 a_weight3 = float(form_data['weight3'])
                 quote.volume_weight3 = Weight(kg=v_weight3)
+                if v_weight3 != 0:
+                    items += 1
 
             # Item 5
             if 'weight4' in request.POST:
@@ -588,6 +607,8 @@ def partial_quote(request, quote_ref):
                     'width4']) * float(form_data['length4']) / 5000
                 a_weight4 = float(form_data['weight4'])
                 quote.volume_weight4 = Weight(kg=v_weight4)
+                if v_weight4 != 0:
+                    items += 1
 
             overall_weight = (
               a_weight + a_weight1 + a_weight2 + a_weight3 + a_weight4
@@ -599,6 +620,7 @@ def partial_quote(request, quote_ref):
 
             quote.overall_volume = Weight(kg=overall_volume)
             quote.overall_weight = Weight(kg=overall_weight)
+            quote.items = items
 
             total_price = Decimal(8)
             for local in LOCAL:
@@ -874,6 +896,7 @@ def delivery_details(request, quote_ref):
         quote = get_object_or_404(Quote, quote_ref=quote_ref)
         booking_form = BookingForm(instance=quote)
     if request.method == 'POST':
+        quote = get_object_or_404(Quote, quote_ref=quote_ref)
         if 'service' not in request.POST:
             form_data = {
                 'd_contact_name': request.POST['d_contact_name'],
@@ -884,7 +907,7 @@ def delivery_details(request, quote_ref):
                 'd_street_address2': request.POST['d_street_address2'],
                 'd_town_or_city': request.POST['d_town_or_city'],
                 'd_county': request.POST['d_county'],
-                'd_postcode': request.POST['d_postcode'].upper(),
+                'd_postcode': quote.d_postcode,
                 'c_contact_name': request.POST['c_contact_name'],
                 'c_company': request.POST['c_company'],
                 'c_email': request.POST['c_email'],
@@ -893,7 +916,7 @@ def delivery_details(request, quote_ref):
                 'c_street_address2': request.POST['c_street_address2'],
                 'c_town_or_city': request.POST['c_town_or_city'],
                 'c_county': request.POST['c_county'],
-                'c_postcode': request.POST['c_postcode'].upper(),
+                'c_postcode': quote.c_postcode,
                 'height': request.POST['height'],
                 'length': request.POST['length'],
                 'width': request.POST['width'],
@@ -927,7 +950,7 @@ def delivery_details(request, quote_ref):
                 'd_street_address2': request.POST['d_street_address2'],
                 'd_town_or_city': request.POST['d_town_or_city'],
                 'd_county': request.POST['d_county'],
-                'd_postcode': request.POST['d_postcode'].upper(),
+                'd_postcode': quote.d_postcode,
                 'c_contact_name': request.POST['c_contact_name'],
                 'c_company': request.POST['c_company'],
                 'c_email': request.POST['c_email'],
@@ -936,7 +959,7 @@ def delivery_details(request, quote_ref):
                 'c_street_address2': request.POST['c_street_address2'],
                 'c_town_or_city': request.POST['c_town_or_city'],
                 'c_county': request.POST['c_county'],
-                'c_postcode': request.POST['c_postcode'].upper(),
+                'c_postcode': quote.c_postcode,
                 'height': request.POST['height'],
                 'length': request.POST['length'],
                 'width': request.POST['width'],
@@ -971,7 +994,7 @@ def delivery_details(request, quote_ref):
                 'd_street_address2': request.POST['d_street_address2'],
                 'd_town_or_city': request.POST['d_town_or_city'],
                 'd_county': request.POST['d_county'],
-                'd_postcode': request.POST['d_postcode'].upper(),
+                'd_postcode': quote.d_postcode,
                 'c_contact_name': request.POST['c_contact_name'],
                 'c_company': request.POST['c_company'],
                 'c_email': request.POST['c_email'],
@@ -980,7 +1003,7 @@ def delivery_details(request, quote_ref):
                 'c_street_address2': request.POST['c_street_address2'],
                 'c_town_or_city': request.POST['c_town_or_city'],
                 'c_county': request.POST['c_county'],
-                'c_postcode': request.POST['c_postcode'].upper(),
+                'c_postcode': quote.c_postcode,
                 'height': request.POST['height'],
                 'length': request.POST['length'],
                 'width': request.POST['width'],
@@ -1006,15 +1029,14 @@ def delivery_details(request, quote_ref):
                 'bookers_email': request.POST['bookers_email'],
                 'bookers_phone_number': request.POST['bookers_phone_number'],
             }
-        
         quote = get_object_or_404(Quote, quote_ref=quote_ref)
-            
         booking_form = BookingForm(form_data)
         if booking_form.is_valid():
             booking = Bookings()
             booking = booking_form.save()
             booking.booking_ref = quote_ref
             booking.price = quote.quote
+            booking.items = quote.items
             booking.overall_weight = quote.overall_weight
             booking.overall_volume = quote.overall_volume
             booking.save()

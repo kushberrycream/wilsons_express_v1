@@ -21,6 +21,7 @@ def index(request):
     if request.method == 'GET':
         quote_form = QuoteForm()
     if request.method == 'POST':
+        items = 0
         if 'service' not in request.POST:
             form_data = {
                 'd_postcode': request.POST['d_postcode'].upper(),
@@ -123,6 +124,7 @@ def index(request):
             v_weight = float(form_data['height']) * float(form_data[
                 'width']) * float(form_data['length']) / 5000
             a_weight = float(form_data['weight'])
+            items += 1
             quote.volume_weight = Weight(kg=v_weight)
 
             # Item 2
@@ -131,6 +133,8 @@ def index(request):
                     'width1']) * float(form_data['length1']) / 5000
                 a_weight1 = float(form_data['weight1'])
                 quote.volume_weight1 = Weight(kg=v_weight1)
+                if v_weight1 != 0:
+                    items += 1
 
             # Item 3
             if 'weight2' in request.POST:
@@ -138,6 +142,8 @@ def index(request):
                     'width2']) * float(form_data['length2']) / 5000
                 a_weight2 = float(form_data['weight2'])
                 quote.volume_weight2 = Weight(kg=v_weight2)
+                if v_weight2 != 0:
+                    items += 1
 
             # Item 4
             if 'weight3' in request.POST:
@@ -145,6 +151,8 @@ def index(request):
                     'width3']) * float(form_data['length3']) / 5000
                 a_weight3 = float(form_data['weight3'])
                 quote.volume_weight3 = Weight(kg=v_weight3)
+                if v_weight3 != 0:
+                    items += 1
 
             # Item 5
             if 'weight4' in request.POST:
@@ -152,6 +160,8 @@ def index(request):
                     'width4']) * float(form_data['length4']) / 5000
                 a_weight4 = float(form_data['weight4'])
                 quote.volume_weight4 = Weight(kg=v_weight4)
+                if v_weight4 != 0:
+                    items += 1
 
             overall_weight = (
               a_weight + a_weight1 + a_weight2 + a_weight3 + a_weight4
@@ -163,6 +173,7 @@ def index(request):
 
             quote.overall_volume = Weight(kg=overall_volume)
             quote.overall_weight = Weight(kg=overall_weight)
+            quote.items = items
 
             total_price = Decimal(8)
             # Checks if postcode is a local one

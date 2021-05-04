@@ -1,5 +1,10 @@
-
 $(document).ready(function () {
+
+  // disables enter details button if any input is changed incase the price is going to be different!
+  $("input[type='text']").change( function() {
+    $('#details').prop('disabled', true);
+  });
+
   // toggle loading overlay
   $("#quote-form").submit(function (e) {
     $('#loading-overlay').fadeToggle(100);
@@ -26,7 +31,6 @@ $(document).ready(function () {
       $('#id_service_3').removeAttr('checked');
     }
   }
-
 
   // remove less items button if only 1 item visible onload.
   if ($("#item_2").hasClass("d-none")) {
@@ -59,8 +63,8 @@ $(document).ready(function () {
 
   }
 
-
   $('.input-group-append').children('span').addClass('stripe-style-input small').removeClass('input-group-text');
+
   // on() method to attatch the on click and on change event handlers.
   $('#services').on("click change", function (e) {
     if (e.type === "click") {
@@ -81,9 +85,7 @@ $(document).ready(function () {
     } else {
       $("#id_service_3").removeAttr("disabled");
     }
-  }, {
-    passive: true
-  });
+  },);
 
   $('#id_c_county').prepend('<option value="" selected>County</option>').val('');
   $('#id_d_county').prepend('<option value="" selected>County</option>').val('');

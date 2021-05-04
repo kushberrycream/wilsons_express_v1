@@ -20,7 +20,7 @@ class QuoteAdmin(admin.ModelAdmin):
         'volume_weight1', 'height2', 'width2', 'length2', 'weight2',
         'volume_weight2', 'height3', 'width3', 'length3', 'weight3',
         'volume_weight3', 'height4', 'width4', 'length4', 'weight4',
-        'volume_weight4', 'service', 'spec_service',
+        'volume_weight4', 'service', 'spec_service', 'items',
     )
 
     list_display = (
@@ -32,7 +32,7 @@ class QuoteAdmin(admin.ModelAdmin):
         (None, {
             'fields': (
                 'quote_ref', 'date', 'bookers_phone_number', 'bookers_email',
-                'c_postcode', 'd_postcode', 'service', 'spec_service',
+                'c_postcode', 'd_postcode', 'items', 'service', 'spec_service',
                 'quoted_price', 'overall_weight', 'overall_volume',
             )
         }),
@@ -87,7 +87,7 @@ class BookingAdmin(admin.ModelAdmin):
         'c_street_address1', 'c_street_address2', 'c_town_or_city', 'c_county',
         'd_contact_name', 'd_company', 'd_phone_number',
         'd_street_address1', 'd_street_address2', 'd_town_or_city',
-        'd_county',
+        'd_county', 'items'
     )
 
     list_display = (
@@ -99,7 +99,7 @@ class BookingAdmin(admin.ModelAdmin):
         (None, {
             'fields': (
                 'booking_ref', 'date', 'payment_complete',
-                'bookers_phone_number', 'bookers_email',
+                'bookers_phone_number', 'bookers_email', 'items',
                 'service', 'spec_service', 'price_gbp',
                 'overall_weight', 'overall_volume',),
             'classes': ('required', 'col-12'),

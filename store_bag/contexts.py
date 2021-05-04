@@ -1,6 +1,5 @@
 from decimal import Decimal
 from django.conf import settings
-from django.shortcuts import get_object_or_404
 from quote.models import Quote, Bookings
 
 
@@ -13,7 +12,7 @@ def bag_contents(request):
 
     for item_id, item_data in bag.items():
         try:
-            booking = Bookings.objects.get(booking_ref=item_id)
+            booking = Bookings.objects.filter(booking_ref=item_id)
             total += booking.price
             subtotal = booking.price
             bag_items.append({
@@ -43,7 +42,7 @@ def bag_contents(request):
     else:
         ten_percent = 0
         ten_percent_delta = settings.TEN_PERCENT_THRESHOLD - product_count
-    
+
     grand_total = total - ten_percent
     vat = total * Decimal(0.2)
     subtotal = total - vat

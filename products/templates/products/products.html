@@ -168,8 +168,7 @@
                     {% if request.user.is_superuser %}
                     <small class="d-flex align-items-end">
                       <a href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i></a> |
-                      <a class="text-danger" href="{% url 'delete_product' product.id %}"><i
-                          class="far fa-trash-alt"></i></a>
+                      <a class="text-danger" href="{% url 'delete_product' product.id %}"></a>
                     </small>
                     {% endif %}
                   </div>
