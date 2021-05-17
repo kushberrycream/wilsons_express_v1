@@ -13,9 +13,6 @@
     <div class="col">
       <hr>
       <h2 class="logo-font mb-4">Checkout</h2>
-      {{bag_items}}
-
-      {{item_data}}
       <hr>
     </div>
   </div>
@@ -24,38 +21,60 @@
     <div class="col-12 col-lg-6 order-lg-last mb-5">
       <p class="text-muted">Order Summary ({{ product_count }})</p>
       <div class="row">
-        <div class="col-7 offset-2">
-          <p class="mb-1 mt-0 small text-muted">Item</p>
+        <div class="col-8 offset-2">
+          <p class="mb-1 mt-0 small text-muted">Details</p>
         </div>
-        <div class="col-3 text-right">
+        <div class="col-2 text-right">
           <p class="mb-1 mt-0 small text-muted">Subtotal</p>
         </div>
       </div>
-        
+
       {% for item in bag_items %}
       <div class="row">
-        <div class="col-2 mb-1">
+        <div class="col-4 offset-1">
+          <p class="my-0 small">Collection:</p>
+          <p class="my-0 small"><strong>{{ item.booking.c_contact_name }}, {{ item.booking.c_company }}</strong></p>
+          <p class="my-0 small"><strong>{{ item.booking.c_street_address1 }}{% if item.booking.c_street_address2 %}, {{ item.booking.c_street_address2 }}{% endif %}</strong></p>
+          <p class="my-0 small"><strong>{{ item.booking.c_town_or_city }}, {{ item.booking.c_county }}</strong></p>
+          <p class="my-0 small"><strong> {{ item.booking.c_postcode }}</strong></p>
+          <p class="my-0 small">Items: {{ item.booking.items }}</p>
+          <p class="my-0 small">Weight: {% if item.weight > item.volume_weight %}{{ item.weight }}{% else %}{{item.volume_weight }}{% endif %}</p>
+
         </div>
-        <div class="col-7">
-          <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-          <p class="my-0 small">Size: {{ item.product.size }}</p>
-          <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+        <div class="col-4">
+          <p class="my-0 small">Delivery</p>
+          <p class="my-0 small"><strong>{{ item.booking.d_contact_name }}, {{ item.booking.d_company }}</strong></p>
+          <p class="my-0 small"><strong>{{ item.booking.d_street_address1 }}{% if item.booking.d_street_address2 %}, {{ item.booking.d_street_address2 }}{% endif %}</strong></p>
+          <p class="my-0 small"><strong>{{ item.booking.d_town_or_city }}, {{ item.booking.d_county }}</strong></p>
+          <p class="my-0 small"><strong> {{ item.booking.d_postcode }}</strong></p>
+          <p class="my-0 small">Services: {{ item.booking.service }}</p>
+          {% if item.booking.spec_service %}
+          <p class="my-0 small">Specialist Service: {{ item.booking.spec_service }}</p>
+          {% endif %}
         </div>
         <div class="col-3 text-right">
-          <p class="my-0 small text-muted">£{{ item.product.price }}</p>
+          <p class="my-0 small text-muted">£{{ item.booking.price }}</p>
         </div>
       </div>
+      <hr class="w-75 {% if forloop.counter == product_count %} d-none {% endif %}">
       {% endfor %}
-      <hr class="my-0">
+      <hr class="my-0 mt-3">
       <div class="row text-black text-right">
-        <div class="col-7 offset-2">
-          <p class="my-0">Order Total:</p>
-          <p class="my-0">Delivery:</p>
-          <p class="my-0">Grand Total:</p>
+        <div class="col-8 offset-2">
+          <p class="my-0">Subtotal: </p>
+          <p class="my-0">VAT: </p>
+          {% if ten_percent_delta == 0 %}
+          <p class="my-0">Discount: </p>
+          {% endif %}
+          <p class="my-0">Total:</p>
         </div>
-        <div class="col-3">
-          <p class="my-0">£{{ total | floatformat:2 }}</p>
-          <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+        <div class="col-2">
+          <p class="my-0">£{{ subtotal | floatformat:2 }}</p>
+          <p class="my-0">£{{ vat | floatformat:2 }}</p>
+          {% if ten_percent_delta == 0 %}
+          <p class="my-0">£{{ ten_percent | floatformat:2 }}</p>
+          
+          {% endif %}
           <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
         </div>
       </div>
@@ -91,7 +110,7 @@
             {% endif %}
           </div>
         </fieldset>
-        
+
         <fieldset class="px-3">
           <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
           <!-- A Stripe card element will go here -->
@@ -138,10 +157,10 @@
 </div>
 <div id="loading-overlay">
   <h1 class="text-light logo-font loading-spinner wrapper">
-      <span class="circle circle-1"></span>
-      <span class="circle circle-2"></span>
-      <span class="circle circle-3"></span>
-      <span class="circle circle-4"></span>
+    <span class="circle circle-1"></span>
+    <span class="circle circle-2"></span>
+    <span class="circle circle-3"></span>
+    <span class="circle circle-4"></span>
   </h1>
 </div>
 {% endblock %}

@@ -66,6 +66,9 @@ class QuoteAdmin(admin.ModelAdmin):
     def has_add_permission(self, request, obj=None):
         return False
 
+    def has_change_permission(self, request, obj=None):
+        return False
+
 
 class BookingAdmin(admin.ModelAdmin):
 
@@ -146,6 +149,9 @@ class BookingAdmin(admin.ModelAdmin):
     )
 
     def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
         return False
 
 

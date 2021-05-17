@@ -13,12 +13,25 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+table tbody,
+table thead {
+  display: table;
+  width: 100%;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+}
+
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
+
 .map-container {
   height: 300px;
 }
+
 #map {
   height: 100%;
 }

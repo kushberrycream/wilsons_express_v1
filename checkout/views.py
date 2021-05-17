@@ -7,7 +7,6 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
-from products.models import Product
 from quote.models import Bookings
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
@@ -54,7 +53,7 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save(commit=False)
+            order = order_form.save()
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
@@ -62,11 +61,19 @@ def checkout(request):
             for item_id, item_data in bag.items():
                 try:
                     booking = Bookings.objects.get(booking_ref=item_id)
-
+                    booking.payment_complete = True
+                    booking.save()
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        booking=booking,
+                        collection_postcode=booking.c_postcode,
+                        delivery_postcode=booking.d_postcode,
+                        items=booking.items,
+                    )
+                    order_line_item.save()
                 except Bookings.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our \
-database. "
+                        "Sorry there was a problem with one of your bookings. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -84,7 +91,7 @@ database. "
         if not bag:
             messages.error(
                 request, "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('home'))
 
         current_bag = bag_contents(request)
         total = current_bag['grand_total']

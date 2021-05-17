@@ -12,7 +12,7 @@ def bag_contents(request):
 
     for item_id, item_data in bag.items():
         try:
-            booking = Bookings.objects.filter(booking_ref=item_id)
+            booking = Bookings.objects.get(booking_ref=item_id)
             total += booking.price
             subtotal = booking.price
             bag_items.append({

@@ -27,5 +27,8 @@ class Create_accountAdmin(admin.ModelAdmin):
     def has_add_permission(self, request, obj=None):
         return False
 
+    def has_change_permission(self, request, obj=None):
+        return False
+
 
 admin.site.register(Create_account, Create_accountAdmin)

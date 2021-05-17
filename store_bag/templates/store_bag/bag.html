@@ -43,14 +43,14 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    {% for item in bag_items %}
-                    <tr>
-                        <td class="py-3">
-                            {% include "store_bag/product-info.html" %}
-                        </td>
-                    </tr>
-                    
-                    {% endfor %}
+                    <tbody>
+                        {% for item in bag_items %}
+
+
+                        {% include "store_bag/product-info.html" %}
+
+                        {% endfor %}
+                    </tbody>
                 </table>
                 <div class="d-flex justify-content-end">
                     <div class="btt-button shadow-sm btn-dark">
@@ -72,26 +72,25 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {% for item in bag_items %}
 
-                    {% for item in bag_items %}
 
-                    <tr>
-                        <td class="py-3">
-                            {% include "store_bag/product-info.html" %}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td colspan="5" class="pt-5 text-right">
-                            {% include "store_bag/bag-total.html" %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" class="text-right">
-                            {% include "store_bag/checkout-buttons.html" %}
-                        </td>
-                    </tr>
+                        {% include "store_bag/product-info.html" %}
+
+                        {% endfor %}
+                    </tbody>
                 </table>
+            </div>
+            <div class="row text-right">
+                <div class="col">
+                    {% include "store_bag/bag-total.html" %}
+                </div>
+            </div>
+            <div class="row text-right">
+                <div class="col">
+                    {% include "store_bag/checkout-buttons.html" %}
+                </div>
             </div>
 
 
