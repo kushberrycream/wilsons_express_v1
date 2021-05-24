@@ -4,6 +4,7 @@ from django.db import models
 from django_countries.fields import CountryField
 from django.db.models import Sum
 from django.conf import settings
+from decimal import Decimal
 
 from quote.models import Bookings
 from profiles.models import UserProfile
@@ -26,6 +27,8 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       null=False, default=0)
+    vat = models.DecimalField(max_digits=10, decimal_places=2,
+                              null=False, default=0)
     ten_percent_discount = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0,
         verbose_name="10% Discount")
@@ -65,15 +68,18 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(
+        self.grand_total = self.lineitems.aggregate(
             Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.vat = self.grand_total / Decimal(1.2)
+        self.vat = self.grand_total - self.vat
+        self.order_total = self.grand_total - self.vat
         if self.lineitems.count() >= settings.TEN_PERCENT_THRESHOLD:
             self.ten_percent_discount = (
-                self.order_total / 10
+                self.grand_total / 10
             )
         else:
-            self.delivery_cost = 0
-        self.grand_total = self.order_total - self.ten_percent_discount
+            self.ten_percent_discount = 0
+        self.grand_total = self.grand_total - self.ten_percent_discount
         self.save()
 
     def save(self, *args, **kwargs):

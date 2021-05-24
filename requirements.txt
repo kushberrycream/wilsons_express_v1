@@ -1,5 +1,6 @@
 asgiref==3.3.1
 cryptography==3.3.2
+dj-database-url==0.5.0
 Django==3.1.8
 django-allauth==0.44.0
 django-appconf==1.0.4
@@ -14,6 +15,7 @@ mpmath==1.2.1
 oauthlib==3.1.0
 phonenumbers==8.12.20
 Pillow==8.1.2
+psycopg2-binary==2.8.6
 PyJWT==2.0.0
 python-stdnum==1.16
 python3-openid==3.2.0

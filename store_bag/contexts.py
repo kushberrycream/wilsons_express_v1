@@ -44,7 +44,8 @@ def bag_contents(request):
         ten_percent_delta = settings.TEN_PERCENT_THRESHOLD - product_count
 
     grand_total = total - ten_percent
-    vat = total * Decimal(0.2)
+    vat = total / Decimal(1.2)
+    vat = total - vat
     subtotal = total - vat
 
     context = {

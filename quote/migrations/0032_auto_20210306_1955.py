@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='quote',
             name='quote_ref',
-            field=models.CharField(default=django.utils.timezone.now, editable=False, max_length=10),
+            field=models.CharField(default=django.utils.timezone.now, editable=False, max_length=100),
             preserve_default=False,
         ),
         migrations.AddField(

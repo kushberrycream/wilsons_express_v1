@@ -17,7 +17,7 @@ class OrderAdmin(admin.ModelAdmin):
                        'street_address1', 'street_address2',
                        'town_or_city', 'county', 'postcode',
                        'country', 'email', 'phone_number',
-                       'order_total_format', 'ten_percent_format',
+                       'order_total_format', 'vat', 'ten_percent_format',
                        'grand_total_format',
                        'stripe_pid')
     fieldsets = (
@@ -27,7 +27,7 @@ class OrderAdmin(admin.ModelAdmin):
                 'street_address1', 'street_address2',
                 'town_or_city', 'county', 'postcode',
                 'country', 'email', 'phone_number',
-                'order_total_format', 'ten_percent_format',
+                'order_total_format', 'vat', 'ten_percent_format',
                 'grand_total_format', 'stripe_pid',),
             'classes': ('required', 'col-12'),
         }),)

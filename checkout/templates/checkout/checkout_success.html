@@ -15,7 +15,8 @@
       <h2 class="logo-font mb-4">Thank You</h2>
       <hr>
       <p class="text-black">Your order information is below. A confirmation email will be sent to
-        <strong>{{ order.email }}</strong>.</p>
+        <strong>{{ order.email }}</strong>.
+      </p>
     </div>
   </div>
 
@@ -49,26 +50,50 @@
 
         <div class="row">
           <div class="col">
-            <small class="text-muted">Order Details:</small>
+            <small class="text-muted">Booking Details:</small>
           </div>
         </div>
 
         {% for item in order.lineitems.all %}
         <div class="row">
-          <div class="col-12 col-md-4">
-            <p class="small mb-0 text-black font-weight-bold">
-              
-            </p>
+          <div class="col-12 col-md-8">
+            <div class="row">
+              <div class="col-6">
+                <p class="small mb-0 text-black">Delivery:</p>
+                <p class="small mb-0 text-black font-weight-bold"><strong>{{ item.booking.d_contact_name }}, {{ item.booking.d_company }}</strong>
+                </p>
+                <p class="small mb-0 text-black font-weight-bold"><strong>{{ item.booking.d_street_address1 }}{% if item.booking.d_street_address2 %}, {{ item.booking.d_street_address2 }}{% endif %}</strong></p>
+                <p class="small mb-0 text-black font-weight-bold"><strong>{{ item.booking.d_town_or_city }}, {{ item.booking.d_county }}</strong>
+                </p>
+                <p class="small mb-0 text-black font-weight-bold"><strong> {{ item.booking.d_postcode }}</strong></p>
+              </div>
+              <div class="col-6">
+                <p class="small mb-0 text-black">Collection:</p>
+                <p class="small mb-0 text-black font-weight-bold"><strong>{{ item.booking.c_contact_name }}, {{ item.booking.c_company }}</strong>
+                </p>
+                <p class="small mb-0 text-black font-weight-bold"><strong>{{ item.booking.c_street_address1 }}{% if item.booking.c_street_address2 %}, {{ item.booking.c_street_address2 }}{% endif %}</strong></p>
+                <p class="small mb-0 text-black font-weight-bold"><strong>{{ item.booking.c_town_or_city }}, {{ item.booking.c_county }}</strong>
+                </p>
+                <p class="small mb-0 text-black font-weight-bold"><strong> {{ item.booking.c_postcode }}</strong></p>
+              </div>
+            </div>
           </div>
-          <div class="col-12 col-md-8 text-md-right">
-            <p class="small mb-0">{{ item.quantity }} @ £ each</p>
+          <div class="col-12 col-md-4 text-md-right">
+            <p class="small mb-0">Service: {{ item.booking.service }}</p>
+            {% if item.booking.spec_service %}
+            <p class="small mb-0">Speciality: {{ item.booking.spec_service }}</p>
+            {% endif %}
+            <p class="small mb-0">Items: {{ item.booking.items }}</p>
+            <p class="small mb-0">Weight: {% if item.booking.overall_weight > item.booking.overall_volume %}{{ item.booking.overall_weight }}{% else %}{{item.booking.overall_volume }}{% endif %}</p>
+            <p class="small mb-0">@ £{{ item.booking.price }}</p>
           </div>
         </div>
+        <hr>
         {% endfor %}
 
         <div class="row">
           <div class="col">
-            <small class="text-muted">Delivering To:</small>
+            <small class="text-muted">Billing Details:</small>
           </div>
         </div>
 
@@ -169,9 +194,11 @@
           <div class="col-12 col-md-4">
             <p class="mb-0 text-black font-weight-bold">Delivery</p>
           </div>
+          {% if order.ten_percent_discount %}
           <div class="col-12 col-md-8 text-md-right">
-            <p class="mb-0">£{{ order.delivery_cost }}</p>
+            <p class="mb-0">£{{ order.ten_percent_discount }}</p>
           </div>
+          {% endif %}
         </div>
 
         <div class="row">
