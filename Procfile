@@ -1,0 +1,1 @@
+web gunicorn wilsons_express.wsgi:application

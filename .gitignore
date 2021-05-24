@@ -9,3 +9,4 @@ env.py
 *.pyc
 __pycache__
 *.pylintrc
+*.netrc
