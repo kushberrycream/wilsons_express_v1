@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['wilsons-express-django.herokuapp.com/', 'localhost', ]
+ALLOWED_HOSTS = ['wilsons-express-django.herokuapp.com', 'localhost', ]
 
 # Application definition
 
@@ -136,7 +136,6 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-
 SITE_ID = 1
 
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
@@ -169,7 +168,6 @@ else:
         }
     }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -191,7 +189,6 @@ yValidator',
 ',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
