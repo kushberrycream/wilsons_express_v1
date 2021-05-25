@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['localhost', '.gitpod.io',
-                 'wilsons-express-django.herokuapp.com']
+                 'wilsons-express-django.herokuapp.com',]
 
 # Application definition
 
