@@ -7,9 +7,6 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from map.views import my_customized_server_error
-handler500 = my_customized_server_error
-
 
 urlpatterns = [
     path('accounts/', include("allauth.urls")),
