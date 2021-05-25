@@ -4,7 +4,7 @@
 
 <head>
   <!-- Favicon -->
-  <link rel="icon" href="/media/favicon.png" />
+  <link rel="icon" href="{{ MEDIA_URL }}favicon.png" />
   {% block meta %}
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta charset="utf-8" />
@@ -158,11 +158,11 @@
       </div>
       <div class="col-4 py-1 py-lg-0 d-flex justify-content-end">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
-          <img width="300" class="logo-font text-dark my-0 d-none d-lg-block" src="/media/wilsons-logo-trans.png"
+          <img width="300" class="logo-font text-dark my-0 d-none d-lg-block" src="{{ MEDIA_URL }}wilsons-logo-trans.png"
             alt="Wilson's Express">
           <img width="200" class="logo-font text-dark my-0 d-none d-sm-block d-lg-none"
             src="/media/wilsons-logo-trans.png" alt="Wilson's Express">
-          <img width="150" class="logo-font text-dark my-0 d-sm-none d-lg-none" src="/media/wilsons-logo-trans.png"
+          <img width="150" class="logo-font text-dark my-0 d-sm-none d-lg-none" src="{{ MEDIA_URL }}wilsons-logo-trans.png"
             alt="Wilson's Express">
         </a>
       </div>
