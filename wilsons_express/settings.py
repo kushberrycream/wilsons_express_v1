@@ -1,6 +1,7 @@
 import os
 import dj_database_url
-
+if os.path.exists("env.py"):
+    import env  # noqa: F401
 """
 Django settings for wilsons_express project.
 
@@ -12,9 +13,6 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-if os.path.exists("env.py"):
-    import env  # noqa: F401
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,8 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['localhost', '.gitpod.io',
-                 'wilsons-express-django.herokuapp.com', ]
+ALLOWED_HOSTS = ['wilsons-express-django.herokuapp.com/', 'localhost', ]
 
 # Application definition
 
@@ -159,6 +156,21 @@ WSGI_APPLICATION = 'wilsons_express.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
