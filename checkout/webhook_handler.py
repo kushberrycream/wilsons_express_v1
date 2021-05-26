@@ -2,8 +2,6 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
-
-from django.db.models import F
 from .models import Order, OrderLineItem
 from quote.models import Bookings
 from profiles.models import UserProfile

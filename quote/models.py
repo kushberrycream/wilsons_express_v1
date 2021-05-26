@@ -3,6 +3,7 @@ import shortuuid
 from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import ugettext_lazy as _
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -25,7 +26,8 @@ class Bookings(models.Model):
     # item 1
     weight = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=False, blank=False)
+      null=False, blank=False,
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height = models.DecimalField(max_digits=7, decimal_places=2,
                                  null=False, blank=False)
     width = models.DecimalField(max_digits=7, decimal_places=2,
@@ -37,7 +39,8 @@ class Bookings(models.Model):
     # item 2
     weight1 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height1 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -52,7 +55,8 @@ class Bookings(models.Model):
     # item 3
     weight2 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height2 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -67,7 +71,8 @@ class Bookings(models.Model):
     # item 4
     weight3 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height3 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -82,7 +87,8 @@ class Bookings(models.Model):
     # item 5
     weight4 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height4 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -166,7 +172,8 @@ class Quote(models.Model):
     # item 1
     weight = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=False, blank=False)
+      null=False, blank=False,
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height = models.DecimalField(max_digits=7, decimal_places=2,
                                  null=False, blank=False)
     width = models.DecimalField(max_digits=7, decimal_places=2,
@@ -178,7 +185,8 @@ class Quote(models.Model):
     # item 2
     weight1 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height1 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -193,7 +201,8 @@ class Quote(models.Model):
     # item 3
     weight2 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height2 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -208,7 +217,8 @@ class Quote(models.Model):
     # item 4
     weight3 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height3 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
@@ -223,7 +233,8 @@ class Quote(models.Model):
     # item 5
     weight4 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
-      null=True, blank=True, default=0, verbose_name="Weight")
+      null=True, blank=True, default=0, verbose_name="Weight",
+      validators=[MinValueValidator(0), MaxValueValidator(30)])
     height4 = models.DecimalField(
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")

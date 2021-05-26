@@ -1,9 +1,7 @@
 from django import forms
 from .models import Quote, Bookings
 from localflavor.gb.forms import GBPostcodeField, GBCountySelect
-from crispy_forms.bootstrap import InlineCheckboxes
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout
 
 
 class QuoteForm(forms.ModelForm):
@@ -120,7 +118,7 @@ class BookingForm(QuoteForm):
       ('Liquid', 'Liquid'),
       ('Live Fish', 'Live Fish'),
     )
-    
+
     d_postcode = GBPostcodeField(max_length=8)
     c_postcode = GBPostcodeField(max_length=8)
     c_county = forms.CharField(widget=GBCountySelect())

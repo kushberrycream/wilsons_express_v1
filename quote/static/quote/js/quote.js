@@ -59,9 +59,19 @@ $(document).ready(function () {
     }
   });
 
-  if ($('').val() != 0) {
-
+  if ($('#id_weight1').val() != 0) {
+    $("#item_2").addClass("d-flex")
   }
+  if ($('#id_weight2').val() != 0) {
+    $("#item_3").addClass("d-flex")
+  }
+  if ($('#id_weight3').val() != 0) {
+    $("#item_4").addClass("d-flex")
+  }
+  if ($('#id_weight4').val() != 0) {
+    $("#item_5").addClass("d-flex")
+  }
+
 
   $('.input-group-append').children('span').addClass('stripe-style-input small').removeClass('input-group-text');
 
