@@ -20,9 +20,9 @@ class Bookings(models.Model):
       max_length=8, verbose_name='Postcode',
       blank=False)
     overall_weight = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Actual Weight")
+      max_length=10, blank=True, default=0, verbose_name="Actual Weight")
     overall_volume = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 1
     weight = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -35,7 +35,7 @@ class Bookings(models.Model):
     length = models.DecimalField(max_digits=7, decimal_places=2,
                                  null=False, blank=False)
     volume_weight = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 2
     weight1 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -51,7 +51,7 @@ class Bookings(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight1 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 3
     weight2 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -67,7 +67,7 @@ class Bookings(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight2 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 4
     weight3 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -83,7 +83,7 @@ class Bookings(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight3 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 5
     weight4 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -99,7 +99,7 @@ class Bookings(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight4 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     items = models.IntegerField(null=False, default=0)
     service = models.CharField(
       max_length=20, null=False, blank=False)
@@ -166,9 +166,9 @@ class Quote(models.Model):
       max_length=8, verbose_name='Collection Postcode',
       blank=False)
     overall_weight = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Actual Weight")
+      max_length=10, blank=True, default=0, verbose_name="Actual Weight")
     overall_volume = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 1
     weight = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -181,7 +181,7 @@ class Quote(models.Model):
     length = models.DecimalField(max_digits=7, decimal_places=2,
                                  null=False, blank=False)
     volume_weight = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 2
     weight1 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -197,7 +197,7 @@ class Quote(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight1 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 3
     weight2 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -213,7 +213,7 @@ class Quote(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight2 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 4
     weight3 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -229,7 +229,7 @@ class Quote(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight3 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     # item 5
     weight4 = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
@@ -245,7 +245,7 @@ class Quote(models.Model):
       max_digits=7, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight4 = models.CharField(
-      max_length=7, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=10, blank=True, default=0, verbose_name="Volume Weight")
     items = models.IntegerField(null=False)
     service = models.CharField(
       max_length=20, null=False, blank=False)
