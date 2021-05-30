@@ -50,14 +50,9 @@ I wanted the users
 
 ### Structure
 This is a multiple page website, each page will display the main navigation bar with links to pages such as the quote page. Some of the links on the main navigation take you away from my site for things such as Tracking a parcel or rescheduling a delivery. I did not need to build custom versions of these as APC overnight provide us with this functionality.
-The homepage displays a large CTA pointing users to use the quote form. If the user chooses to use the form they are taken to the quotes page with all the quote information. On the Quotes page two links are available one to obtain the quote and the other to proceed with the quote and enter delivery/collection information. The Enter details button only works if the form has been filled in and a quote has been obtained, if any fields are changed then the enter details button is disabled. I have two forms which just send emails 
+The homepage displays a large CTA pointing users to use the quote form. If the user chooses to use the form they are taken to the quotes page with all the quote information. On the Quotes page two links are available one to obtain the quote and the other to proceed with the quote and enter delivery/collection information. The Enter details button only works if the form has been filled in and a quote has been obtained, if any fields are changed then the enter details button is disabled. 
+I have two forms, one if for requesting a credit account, once completed this will add an entry into the create account section on the admin dashboard, once reviewed a member of the salesteam will be in contact to arrange the account. The Second form is a standard contact form for which sends an email to a member of staff, this can be used for general parcel enquires or site recommendations and even possible bugs.
 
-
-When a user uses the Quote form brings you to the send a parcel page with the form pre-filled and the quote at the very top, the user can then proceed with the quote or they can just navigate to somewhere else on the site. If they proceed they will be able to fill in the booking form and use the stripe payment form to pay for the booking. This then moves the Quote into the booking section on the admin promting an employee to book the collection and delivery.
-
-The Store is very basic and has a selection of categories which each have a number of products, they can choose a product to bring up details and then also use the quantity selector to choose an amount. A shopping bag is provided to give a clear view on the items selected and the total price of all the items. The user can then checkout by filling out a delivery details form and the stripe payment form. 
-
-For any other queries a user may have a contact form is supplied as a user may want to book a sameday delivery or send something we cannot send via an overnight service. They may even have other questions that they need answering regarding current bookings etc.
 
 ### Skeleton
 
