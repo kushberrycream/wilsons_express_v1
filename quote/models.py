@@ -106,7 +106,7 @@ class Bookings(models.Model):
     spec_service = models.CharField(
       max_length=20, blank=False, verbose_name="Premium Service")
     date = models.DateTimeField(auto_now_add=True)
-    price = models.DecimalField(max_digits=7, decimal_places=2,
+    price = models.DecimalField(max_digits=100, decimal_places=2,
                                 null=False, default=0)
     bookers_email = models.EmailField(max_length=254,
                                       null=False, blank=False)
