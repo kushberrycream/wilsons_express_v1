@@ -28,11 +28,11 @@ class Bookings(models.Model):
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
       null=False, blank=False,
       validators=[MinValueValidator(0), MaxValueValidator(30)])
-    height = models.DecimalField(max_digits=7, decimal_places=2,
+    height = models.DecimalField(max_digits=10, decimal_places=2,
                                  null=False, blank=False)
-    width = models.DecimalField(max_digits=7, decimal_places=2,
+    width = models.DecimalField(max_digits=10, decimal_places=2,
                                 null=False, blank=False)
-    length = models.DecimalField(max_digits=7, decimal_places=2,
+    length = models.DecimalField(max_digits=10, decimal_places=2,
                                  null=False, blank=False)
     volume_weight = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -42,13 +42,13 @@ class Bookings(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight1 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -58,13 +58,13 @@ class Bookings(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight2 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -74,13 +74,13 @@ class Bookings(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight3 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -90,13 +90,13 @@ class Bookings(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight4 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -174,11 +174,11 @@ class Quote(models.Model):
       help_text="Max 30kg's", max_digits=5, decimal_places=2,
       null=False, blank=False,
       validators=[MinValueValidator(0), MaxValueValidator(30)])
-    height = models.DecimalField(max_digits=7, decimal_places=2,
+    height = models.DecimalField(max_digits=10, decimal_places=2,
                                  null=False, blank=False)
-    width = models.DecimalField(max_digits=7, decimal_places=2,
+    width = models.DecimalField(max_digits=10, decimal_places=2,
                                 null=False, blank=False)
-    length = models.DecimalField(max_digits=7, decimal_places=2,
+    length = models.DecimalField(max_digits=10, decimal_places=2,
                                  null=False, blank=False)
     volume_weight = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -188,13 +188,13 @@ class Quote(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length1 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight1 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -204,13 +204,13 @@ class Quote(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length2 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight2 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -220,13 +220,13 @@ class Quote(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length3 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight3 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -236,13 +236,13 @@ class Quote(models.Model):
       null=True, blank=True, default=0, verbose_name="Weight",
       validators=[MinValueValidator(0), MaxValueValidator(30)])
     height4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Height")
     width4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Width")
     length4 = models.DecimalField(
-      max_digits=7, decimal_places=2, null=True, blank=True,
+      max_digits=10, decimal_places=2, null=True, blank=True,
       default=0, verbose_name="Length")
     volume_weight4 = models.CharField(
       max_length=10, blank=True, default=0, verbose_name="Volume Weight")
@@ -252,7 +252,7 @@ class Quote(models.Model):
     spec_service = models.CharField(
       max_length=20, blank=False, verbose_name="Premium Service")
     date = models.DateTimeField(auto_now_add=True)
-    quote = models.DecimalField(max_digits=7, decimal_places=2,
+    quote = models.DecimalField(max_digits=10, decimal_places=2,
                                 null=False, default=0)
     bookers_email = models.EmailField(max_length=254,
                                       null=False, blank=False)
