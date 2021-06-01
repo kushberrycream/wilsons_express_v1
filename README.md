@@ -45,13 +45,17 @@ I created my site to allow users to be able to quickly and easily obtain quotes 
 | Delivery Sender | As a sender I want to be able to get quotes easily and then be able to book a delivery if the quote is acceptable to me. I may also want to open a credit account so I can have access to the booking portal and send more parcels.
 | Admin / Employee | As the admin of the site I want to be able to see all the new quotes generated if a quote is not turned into a booking I want to see contact details so that I can send an email to try and turn it into a booking. I want to see any Bookings that are made as these need to be input to the booking portal. I also want to be able to see any orders that are made on the store so I can get these packed and sent out. I also want to see groups of bookings, each individual booking from a user will have a seperate line item in the admin.
 
-I wanted the users 
+The main Purpose of the site is to have users interact with the website to either book one off deliveries or to get in contact to open accounts 
 
 
 ### Structure
 This is a multiple page website, each page will display the main navigation bar with links to pages such as the quote page. Some of the links on the main navigation take you away from my site for things such as Tracking a parcel or rescheduling a delivery. I did not need to build custom versions of these as APC overnight provide us with this functionality.
 The homepage displays a large CTA pointing users to use the quote form. If the user chooses to use the form they are taken to the quotes page with all the quote information. On the Quotes page two links are available one to obtain the quote and the other to proceed with the quote and enter delivery/collection information. The Enter details button only works if the form has been filled in and a quote has been obtained, if any fields are changed then the enter details button is disabled. 
 I have two forms, one if for requesting a credit account, once completed this will add an entry into the create account section on the admin dashboard, once reviewed a member of the salesteam will be in contact to arrange the account. The Second form is a standard contact form for which sends an email to a member of staff, this can be used for general parcel enquires or site recommendations and even possible bugs.
+A FAQ's page is supplied to give users more information. Employees are able to update this from the main site by either going to the FAQs page and editing existing FAQs or thye can go to the add FAQ page and enter a new qauestion and answer.
+The bookings bag gives the user a clear overview of all the bookings they have made, it also give the ability to delete bookings as they may not be needed no more.
+From the bag the user can proceed to the checkout page where a Billing form is provided and another breakdown of the bookings. Once the Checkout is completed the user is presented with a confirmation of purchase. 
+A basic profile page is provided so users can keep on record any billing information or they can even view previous bookings.
 
 
 ### Skeleton
@@ -100,10 +104,21 @@ Here is a list of all the technologies used throughout the project!
 ## Features
 
 ### Existing Features
+- [x] My site uses the bootstrap framework for the grid system and to help with the responsive mobile-first desgin with preset classes etc.
+- [x] The home page has minimal text, but incorporates a quote form which a user can fill in to obtain quotes, this is also accesable from the navbar. 
+- [x] An Authentification system is in place to let users create online accounts.
+- [x] A Form is available to request accounts.
+- [x] A plain contact form which 
+- [x] History is split into smaller cards to allow more data to be viewed on the screen but still allow for responiveness. 
+- [x] The Launches page has functioning prev and next buttons allowing for the user to select through a set of data and not create a long page thats difficult to read.
+- [x] I have given the user information on the company, their API and also myself. I have also given the user links to the company and myself incase the user wishes to research more or contact myself.
+- [x] A Contact form has been supplied to also allow the user to quickly contact me about any bugs or suggestions.
 
 ### Features Left to Implement
 - [ ] I want to provide a online shop which provides users with packaging equipment.
 - [ ] In the future I wish to have the majority of the website to be automatic using the various APC Overnight API's. As once a user has booked a delivery or collection then someone has to manually book this onto the booking portal.
+- [ ] I plan to update the profile page so that it has a little more information and the user can view previous bookings and create new bookings from these. I may even provide a credit system so users can have more discounts and incetives if they purchase in advanced.
+-[ ] My boss wishes to have a page or area of the site in which advertisements can be placed with offers or products from current customers. Details would need to be worked out between participating customers and the us before this is possible.
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 
@@ -120,7 +135,6 @@ Here is a list of all the technologies used throughout the project!
 ### Commiting to Github
 1. Using my terminal window I firstly use `git pull ` to pull the most upto date version of my repository.
 2. Once upto date I edit everything I need to and use `git add .` to stage all the edited files for commiting.
-
 3. Using `git status` I usually view to see I have staged all the files I want to and I have no unwanted files being commited.
 4. Next using `git commit` I commit to the local Repository and then `git push` to finally push the changes to the master branch.
 
