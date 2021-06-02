@@ -275,9 +275,9 @@ button#main-nav-btn.navbar-toggler {
 
 .stripe-style-input,
 .allauth-form-inner-content input {
-    border-color: #000;
-    border-radius: 0;
-    box-sizing: border-box;
+  border-color: #000;
+  border-radius: 0;
+  box-sizing: border-box;
   height: 40px;
   padding: 10px 12px;
   border: none;
@@ -305,20 +305,18 @@ button#main-nav-btn.navbar-toggler {
 .allauth-form-inner-content input[type='submit'] {
 	/* btn */
 	display: inline-block;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 0;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
     
 
     /* standard bootstrap btn transitions */

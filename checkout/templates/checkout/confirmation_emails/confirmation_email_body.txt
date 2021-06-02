@@ -6,12 +6,17 @@ Order Reference: {{ order.order_ref }}
 Order Date: {{ order.date }}
 
 Order Total: £{{ order.order_total }}
-Delivery: £{{ order.delivery_cost }}
+Discount: {% if order.ten_percent_discount %} £{{ order.ten_percent_discount }} {% else %} £0.00 {% endif %}
+VAT: £{{ order.vat }}
 Grand Total: £{{ order.grand_total }}
 
-Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+You have booked {{ order.items }} Jobs.
+Booking References: 
+{% for item in order.lineitems.all %}
+{{ order.booking_ref}} - {{ order.items }} @ {{ order.chargable_weight }}
+{% endfor %}
 
-We've got your phone number on file as {{ order.phone_number }}.
+We've got your phone number on file as {{ order.bookers_phone_number }} and an Email of {{ order.bookers_email}}.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 

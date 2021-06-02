@@ -11,17 +11,16 @@
 <div class="overlay container"></div>
 <div class="container header-container">
 	<div class="row">
-		<div class="col">
-			<hr>
-			<h2 class="logo-font mb-4">Bookings</h2>
-			<hr>
+		<div class="col text-center mt-3">
+		  <h2 class="logo-font">Bookings</h2>
+		  <hr class="w-50 mb-1">
 		</div>
-	</div>
+	  </div>
 
 	<div class="row">
 		<div id="bag-parent" class="col">
 			{% if bag_items %}
-			<div class="d-block d-md-none">
+			<div class="d-block d-md-none mt-5">
 				<div class="row">
 					<div class="col">
 						{% include "store_bag/bag-total.html" %}
@@ -53,7 +52,7 @@
 				</div>
 			</div>
 
-			<div class="table-responsive rounded d-none d-md-block">
+			<div class="table-responsive rounded d-none d-md-block mt-5">
 				<table class="table table-sm table-borderless">
 					<tr>
 						<th class="pl-3 w-25">Collection Info</th>

@@ -1,51 +1,55 @@
 <tr>
-	<td class="pt-3 pl-3">
-		<p class="my-0 font-italic">{{ item.booking.c_contact_name }}, {{ item.booking.c_company}}</p>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_contact_name|title }}, {{ item.booking.c_company|title}}</p>
 	</td>
-	<td class="pt-3 pl-3">
-		<p class="my-0 font-italic">{{ item.booking.d_contact_name }}, {{ item.booking.d_company}}</p>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_contact_name|title }}, {{ item.booking.d_company|title}}</p>
+	</td>
+	<td class="">
+		<p class="my-0 font-italic"><span class="font-weight-bold text-left">Actual Weight:</span> {{ item.booking.overall_weight }}</p>
+	</td>
+	<td class="font-weight-bold">
+		<p class="my-0 h4">£{{ item.subtotal|floatformat:2 }}</p>
+	</td>
+</tr>
+<tr>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_street_address1|title }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_street_address1|title }}</p>
+	</td>
+	<td class="">
+		<p class="my-0 font-italic"><span class="font-weight-bold">Volume Weight:</span> {{ item.booking.overall_volume }}</p>
+	</td>
+	<td class="">
+	</td>
+</tr>
+{% if item.booking.c_street_address2 %}
+<tr>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_street_address2|title }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_street_address2|title }}</p>
 	</td>
 	<td class="">
 	</td>
 	<td class="">
 	</td>
 </tr>
+{% endif %}
 <tr>
 	<td class="pl-3">
-		<p class="my-0 font-italic">{{ item.booking.c_street_address1 }}</p>
+		<p class="my-0 font-italic">{{ item.booking.c_town_or_city|title }}, {{ item.booking.c_county|title}}</p>
 	</td>
 	<td class="pl-3">
-		<p class="my-0 font-italic">{{ item.booking.d_street_address1 }}</p>
+		<p class="my-0 font-italic">{{ item.booking.d_town_or_city|title }}, {{ item.booking.d_county|title}}</p>
 	</td>
 	<td class="">
+		<p class="my-0 font-italic"><span class="font-weight-bold">Service:</span> {% if item.booking.spec_service %}{{ item.booking.spec_service|title }}, {% endif %} {{ item.booking.service|title }}</p>
 	</td>
 	<td class="">
-	</td>
-</tr>
-<tr>
-	<td class="pl-3">
-		<p class="my-0 font-italic">{{ item.booking.c_street_address2 }}</p>
-	</td>
-	<td class="pl-3">
-		<p class="my-0 font-italic">{{ item.booking.d_street_address2 }}</p>
-	</td>
-	<td class="">
-	</td>
-	<td class="">
-	</td>
-</tr>
-<tr>
-	<td class="pl-3">
-		<p class="my-0 font-italic">{{ item.booking.c_town_or_city }}, {{ item.booking.c_county}}</p>
-	</td>
-	<td class="pl-3">
-		<p class="my-0 font-italic">{{ item.booking.d_town_or_city }}, {{ item.booking.d_county}}</p>
-	</td>
-	<td class="">
-		<p class="my-0 font-italic">Actual Weight: {{ item.booking.overall_weight }}</p>
-	</td>
-	<td class="">
-		<p class="my-0">£{{ item.subtotal|floatformat:2 }}</p>
 	</td>
 </tr>
 <tr>
@@ -56,7 +60,7 @@
 		<p class="my-0 font-italic">{{ item.booking.d_postcode }}</p>
 	</td>
 	<td class="">
-		<p class="my-0 font-italic">Volume Weight: {{ item.booking.overall_volume }}</p>
+		<p class="my-0 font-italic"><span class="font-weight-bold">Items:</span> {{ item.booking.items }}</p>
 	</td>
 	<td class="">
 	</td>
@@ -69,7 +73,6 @@
 		<p class="my-0 font-italic">{{ item.booking.d_phone_number }}</p>
 	</td>
 	<td class="">
-		<p class="my-0 font-italic">Items: {{ item.booking.items }}</p>
 	</td>
 	<td class="">
 	</td>
