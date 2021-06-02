@@ -14,7 +14,7 @@ def contact(request):
             subject = render_to_string(
                 'contact_form/emails/subject.txt',
                 {'sender_email': form.cleaned_data['from_email'],  'subject': form.cleaned_data['subject']})
-            body = render(request, 'contact_form/emails/body.html',
+            body = render_to_string('contact_form/emails/body.html',
                 {'sender_email': form.cleaned_data['from_email'], 'message': form.cleaned_data['message']})
             from_email = form.cleaned_data['from_email']
             try:
