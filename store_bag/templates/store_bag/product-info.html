@@ -1,79 +1,92 @@
 <tr>
-    <td class="pt-3">
-        <p class="my-0 font-italic">{{ item.booking.c_contact_name }}, {{ item.booking.c_company }}</p>
-    </td>
-    <td class="pt-3">
-        <p class="my-0 font-italic">{{ item.booking.d_contact_name }}, {{ item.booking.d_company }}</p>
-    </td>
-    
-</tr>
-
-<tr>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.c_street_address1 }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.d_street_address1 }}</p>
-    </td>
-    
+	<td class="pt-3 pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_contact_name }}, {{ item.booking.c_company}}</p>
+	</td>
+	<td class="pt-3 pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_contact_name }}, {{ item.booking.d_company}}</p>
+	</td>
+	<td class="">
+	</td>
+	<td class="">
+	</td>
 </tr>
 <tr>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.c_street_address2 }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.d_street_address2 }}</p>
-    </td>
-    
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_street_address1 }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_street_address1 }}</p>
+	</td>
+	<td class="">
+	</td>
+	<td class="">
+	</td>
 </tr>
 <tr>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.c_town_or_city }}, {{ item.booking.c_county }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.d_town_or_city }}, {{ item.booking.d_county }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">Actual Weight: {{ item.booking.overall_weight }}</p>
-    </td>
-    <td class="">
-        <p class="my-0">£{{ item.subtotal|floatformat:2 }}</p>
-    </td>
-    
-    <td class="">
-        <a class="remove-item text-danger" id="remove_{{ item.booking_ref }}"><i
-            class="far fa-trash-alt fa-2x"></i></a>
-    </td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_street_address2 }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_street_address2 }}</p>
+	</td>
+	<td class="">
+	</td>
+	<td class="">
+	</td>
 </tr>
 <tr>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.c_postcode }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.d_postcode }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">Volume Weight: {{ item.booking.overall_volume }}</p>
-    </td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_town_or_city }}, {{ item.booking.c_county}}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_town_or_city }}, {{ item.booking.d_county}}</p>
+	</td>
+	<td class="">
+		<p class="my-0 font-italic">Actual Weight: {{ item.booking.overall_weight }}</p>
+	</td>
+	<td class="">
+		<p class="my-0">£{{ item.subtotal|floatformat:2 }}</p>
+	</td>
 </tr>
 <tr>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.c_phone_number }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">{{ item.booking.d_phone_number }}</p>
-    </td>
-    <td class="">
-        <p class="my-0 font-italic">Items: {{ item.booking.items }}</p>
-    </td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_postcode }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_postcode }}</p>
+	</td>
+	<td class="">
+		<p class="my-0 font-italic">Volume Weight: {{ item.booking.overall_volume }}</p>
+	</td>
+	<td class="">
+	</td>
 </tr>
 <tr>
-    <td>
-        <p class="my-0 font-italic">{{ item.booking.c_email }}</p>
-    </td>
-    <td class="" colspan="5">
-        <p class="my-0 font-italic">{{ item.booking.d_email }}</p>
-    </td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_phone_number }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_phone_number }}</p>
+	</td>
+	<td class="">
+		<p class="my-0 font-italic">Items: {{ item.booking.items }}</p>
+	</td>
+	<td class="">
+	</td>
 </tr>
-
-<th colspan="5"><hr>
+<tr>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.c_email }}</p>
+	</td>
+	<td class="pl-3">
+		<p class="my-0 font-italic">{{ item.booking.d_email }}</p>
+	</td>
+	<td class="">
+	</td>
+	<td class="">
+		<a class="remove-item text-danger" id="remove_{{ item.booking_ref }}">Remove Booking <i class="far fa-trash-alt pl-2"></i></a>
+	</td>
+</tr>
+<tr>
+	<th colspan="5"></th>
+</tr>

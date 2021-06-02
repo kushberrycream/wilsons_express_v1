@@ -10,102 +10,86 @@
 {% block content %}
 <div class="overlay container"></div>
 <div class="container header-container">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">Bookings</h2>
-            <hr>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col">
+			<hr>
+			<h2 class="logo-font mb-4">Bookings</h2>
+			<hr>
+		</div>
+	</div>
 
-    <div class="row">
-        <div id="bag-parent" class="col">
-            {% if bag_items %}
-            <div class="d-block d-md-none">
-                <div class="row">
-                    <div class="col">
-                        {% include "store_bag/bag-total.html" %}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        {% include "store_bag/checkout-buttons.html" %}
-                        <p class="text-muted mb-5">A summary of your bag contents is below</p>
-                    </div>
-                </div>
-                <table class="table table-sm table-borderless">
-                    <thead class="text-black">
-                        <tr>
-                            <th scope="col">Collection Info</th>
-                            <th scope="col">Delivery Info</th>
-                            <th scope="col">Shipment Info</th>
-                            <th scope="col">Total</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in bag_items %}
+	<div class="row">
+		<div id="bag-parent" class="col">
+			{% if bag_items %}
+			<div class="d-block d-md-none">
+				<div class="row">
+					<div class="col">
+						{% include "store_bag/bag-total.html" %}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						{% include "store_bag/checkout-buttons.html" %}
+						<p class="text-muted mb-5">A summary of your bag contents is below</p>
+					</div>
+				</div>
+				<table class="table table-sm table-borderless">
+						<tr>
+							<th class="pl-3 w-25">Collection Info</th>
+							<th class="pl-3 w-25">Delivery Info</th>
+							<th class="w-25">Shipment Info</th>
+							<th>Total</th>
+						</tr>
+						{% for item in bag_items %}
+						{% include "store_bag/product-info.html" %}
+						{% endfor %}
+				</table>
+				<div class="d-flex justify-content-end">
+					<div class="btt-button shadow-sm btn-dark">
+						<a class="btt-link d-flex text-white h-100 text-decoration-none">
+							<i class="fas fa-arrow-up mx-auto my-auto"></i>
+						</a>
+					</div>
+				</div>
+			</div>
 
-
-                        {% include "store_bag/product-info.html" %}
-
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="d-flex justify-content-end">
-                    <div class="btt-button shadow-sm btn-dark">
-                        <a class="btt-link d-flex text-white h-100 text-decoration-none">
-                            <i class="fas fa-arrow-up mx-auto my-auto"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="table-responsive rounded d-none d-md-block">
-                <table class="table table-sm table-borderless">
-                    <thead class="text-black">
-                        <tr>
-                            <th scope="col">Collection Info</th>
-                            <th scope="col">Delivery Info</th>
-                            <th scope="col">Shipment Info</th>
-                            <th scope="col">Total</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in bag_items %}
-
-
-                        {% include "store_bag/product-info.html" %}
-
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            <div class="row text-right">
-                <div class="col">
-                    {% include "store_bag/bag-total.html" %}
-                </div>
-            </div>
-            <div class="row text-right">
-                <div class="col">
-                    {% include "store_bag/checkout-buttons.html" %}
-                </div>
-            </div>
+			<div class="table-responsive rounded d-none d-md-block">
+				<table class="table table-sm table-borderless">
+					<tr>
+						<th class="pl-3 w-25">Collection Info</th>
+						<th class="pl-3 w-25">Delivery Info</th>
+						<th class="w-25">Shipment Info</th>
+						<th>Total</th>
+					</tr>
+					{% for item in bag_items %}
+					{% include "store_bag/product-info.html" %}
+					{% endfor %}
+				</table>
+			</div>
+			<div class="row text-right d-none d-md-block">
+				<div class="col">
+					{% include "store_bag/bag-total.html" %}
+				</div>
+			</div>
+			<div class="row text-right d-none d-md-block">
+				<div class="col">
+					{% include "store_bag/checkout-buttons.html" %}
+				</div>
+			</div>
 
 
 
-            {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="text-uppercase">Book a Delivery</span>
-            </a>
-            {% endif %}
-        </div>
-    </div>
+			{% else %}
+			<p class="lead mb-5">Your bag is empty.</p>
+			<a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
+				<span class="icon">
+					<i class="fas fa-chevron-left"></i>
+				</span>
+				<span class="text-uppercase">Book a Delivery</span>
+			</a>
+			{% endif %}
+		</div>
+	</div>
 
 </div>
 {% endblock %}

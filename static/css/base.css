@@ -13,10 +13,66 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-table tbody,
-table thead {
-  display: table;
+
+/* Standard Tables */
+
+table {
+  border-collapse: collapse;
+  border: 0.1em solid #d6d6d6;
   width: 100%;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 0.25em 0.5em 0.25em 1em;
+  vertical-align: text-top;
+  text-align: left;
+  text-indent: -0.5em;
+  width: 100vw;
+}
+
+th {
+  vertical-align: bottom;
+  background-color: #666;
+  color: #fff;
+}
+
+tr:nth-child(even) th[scope=row] {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) th[scope=row] {
+  background-color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+td:nth-of-type(2) {
+  font-style: italic;
+}
+
+th:nth-of-type(3),
+td:nth-of-type(3),
+th:nth-of-type(4),
+td:nth-of-type(4) {
+  text-align: right;
+}
+
+/* Strictly for making the scrolling happen. */
+
+th[scope=row] + td {
+  min-width: 24em;
+}
+
+th[scope=row] {
+  min-width: 20em;
 }
 
 table {
@@ -188,9 +244,9 @@ button#main-nav-btn.navbar-toggler {
     position: fixed;
     bottom: 10px;
     border-radius:3px;
-    
-    
+    z-index: 40000;  
 }
+
 .update-link,
 .remove-item {
     cursor:pointer;

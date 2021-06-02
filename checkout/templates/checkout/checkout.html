@@ -23,7 +23,7 @@
         <div class="col-8 offset-2">
           <p class="mb-1 mt-0 small text-muted">Details</p>
         </div>
-        <div class="col-2 text-right">
+        <div class="col-2 p-0 pr-1 text-right">
           <p class="mb-1 mt-0 small text-muted">Subtotal</p>
         </div>
       </div>
@@ -67,7 +67,7 @@
           {% endif %}
           <p class="my-0">Total:</p>
         </div>
-        <div class="col-2">
+        <div class="col-2 p-0 pr-3">
           <p class="my-0">£{{ subtotal | floatformat:2 }}</p>
           <p class="my-0">£{{ vat | floatformat:2 }}</p>
           {% if ten_percent_delta == 0 %}

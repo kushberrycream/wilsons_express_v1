@@ -138,7 +138,7 @@ class BookingForm(QuoteForm):
         Add placeholders and classes, remove auto-generated
         labels and set autofocus on first field
         """
-        super().__init__(*args, **kwargs)
+        super(BookingForm, self).__init__(*args, **kwargs)
         placeholders = {
             'c_postcode': 'Collection Postcode',
             'd_postcode': 'Delivery Postcode',
@@ -172,7 +172,26 @@ class BookingForm(QuoteForm):
             'd_town_or_city': 'Town or City',
             'd_county': 'County',
         }
-
+        self.fields['height'].widget.attrs['readonly'] = True
+        self.fields['height1'].widget.attrs['readonly'] = True
+        self.fields['height2'].widget.attrs['readonly'] = True
+        self.fields['height3'].widget.attrs['readonly'] = True
+        self.fields['height4'].widget.attrs['readonly'] = True
+        self.fields['width'].widget.attrs['readonly'] = True
+        self.fields['width1'].widget.attrs['readonly'] = True
+        self.fields['width2'].widget.attrs['readonly'] = True
+        self.fields['width3'].widget.attrs['readonly'] = True
+        self.fields['width4'].widget.attrs['readonly'] = True
+        self.fields['weight'].widget.attrs['readonly'] = True
+        self.fields['weight1'].widget.attrs['readonly'] = True
+        self.fields['weight2'].widget.attrs['readonly'] = True
+        self.fields['weight3'].widget.attrs['readonly'] = True
+        self.fields['weight4'].widget.attrs['readonly'] = True
+        self.fields['length'].widget.attrs['readonly'] = True
+        self.fields['length1'].widget.attrs['readonly'] = True
+        self.fields['length2'].widget.attrs['readonly'] = True
+        self.fields['length3'].widget.attrs['readonly'] = True
+        self.fields['length4'].widget.attrs['readonly'] = True
         self.fields['c_contact_name'].widget.attrs['autofocus'] = True
         self.helper = FormHelper(self)
         for field in self.fields:
