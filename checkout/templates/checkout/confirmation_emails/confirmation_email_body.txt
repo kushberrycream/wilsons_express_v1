@@ -10,10 +10,10 @@ Discount: {% if order.ten_percent_discount %} £{{ order.ten_percent_discount }}
 VAT: £{{ order.vat }}
 Grand Total: £{{ order.grand_total }}
 
-You have booked {{ product.count }} Jobs.
+You have booked {{ len(order.lineitems) }} Jobs.
 Booking References: 
 {% for item in order.lineitems.all %}
-{{ item.booking_ref}} - {{ item.booking.items }} @ {{ item.chargable_weight }}
+{{ item.booking.booking_ref}} - {{ item.booking.items }} @ {{ item.chargable_weight }}
 {% endfor %}
 
 We've got your phone number on file as {{ order.bookers_phone_number }} and an Email of {{ order.bookers_email}}.
