@@ -108,17 +108,16 @@ Here is a list of all the technologies used throughout the project!
 - [x] The home page has minimal text, but incorporates a quote form which a user can fill in to obtain quotes, this is also accesable from the navbar. 
 - [x] An Authentification system is in place to let users create online accounts.
 - [x] A Form is available to request accounts.
-- [x] A plain contact form which 
-- [x] History is split into smaller cards to allow more data to be viewed on the screen but still allow for responiveness. 
-- [x] The Launches page has functioning prev and next buttons allowing for the user to select through a set of data and not create a long page thats difficult to read.
-- [x] I have given the user information on the company, their API and also myself. I have also given the user links to the company and myself incase the user wishes to research more or contact myself.
-- [x] A Contact form has been supplied to also allow the user to quickly contact me about any bugs or suggestions.
+- [x] A plain contact form is supplied to allow users to send general messages or to ask for services that are bespoke.
+- [x] A Faq page is available for users. This may avoid unwanted questions as the information is already supplied.
+- [x] I have made a small covid section to give the public information on what we as a company are doing about the situation.
+- [x] We have linked up a bag and checkout to allow users to purchase the bookings they have created.
 
 ### Features Left to Implement
 - [ ] I want to provide a online shop which provides users with packaging equipment.
 - [ ] In the future I wish to have the majority of the website to be automatic using the various APC Overnight API's. As once a user has booked a delivery or collection then someone has to manually book this onto the booking portal.
 - [ ] I plan to update the profile page so that it has a little more information and the user can view previous bookings and create new bookings from these. I may even provide a credit system so users can have more discounts and incetives if they purchase in advanced.
--[ ] My boss wishes to have a page or area of the site in which advertisements can be placed with offers or products from current customers. Details would need to be worked out between participating customers and the us before this is possible.
+- [ ] My boss wishes to have a page or area of the site in which advertisements can be placed with offers or products from current customers. Details would need to be worked out between participating customers and the us before this is possible.
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 

@@ -166,11 +166,11 @@ def quote(request):
                 if v_weight4 != 0:
                     items += 1
 
-            overall_weight = (
+            overall_weight = Decimal(
               a_weight + a_weight1 + a_weight2 + a_weight3 + a_weight4
             )
 
-            overall_volume = (
+            overall_volume =  Decimal(
               v_weight + v_weight1 + v_weight2 + v_weight3 + v_weight4
             )
 
