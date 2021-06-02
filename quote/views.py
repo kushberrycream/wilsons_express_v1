@@ -174,8 +174,8 @@ def quote(request):
               v_weight + v_weight1 + v_weight2 + v_weight3 + v_weight4
             )
 
-            quote.overall_volume = overall_volume
-            quote.overall_weight = overall_weight
+            quote.overall_volume = Weight(kg=overall_volume)
+            quote.overall_weight = Weight(kg=overall_weight)
             quote.items = items
 
             total_price = Decimal(8)
