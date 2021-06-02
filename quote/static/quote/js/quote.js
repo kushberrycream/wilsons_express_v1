@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // disables enter details button if any input is changed incase the price is going to be different!
-  $("input[type='text']").change( function() {
+  $(":input").change( function() {
     $('#details').prop('disabled', true);
   });
 
