@@ -1,6 +1,7 @@
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from .forms import ContactForm
 
 
@@ -13,8 +14,7 @@ def contact(request):
             subject = render_to_string(
                 'contact_form/emails/subject.txt',
                 {'sender_email': form.cleaned_data['from_email'],  'subject': form.cleaned_data['subject']})
-            body = render_to_string(
-                'contact_form/emails/body.html',
+            body = render(request, 'contact_form/emails/body.html',
                 {'sender_email': form.cleaned_data['from_email'], 'message': form.cleaned_data['message']})
             from_email = form.cleaned_data['from_email']
             try:
