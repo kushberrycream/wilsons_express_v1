@@ -13,21 +13,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='volume_weight1',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7, null=True),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight2',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7, null=True),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight3',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7, null=True),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight4',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7, null=True),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10, null=True),
         ),
     ]

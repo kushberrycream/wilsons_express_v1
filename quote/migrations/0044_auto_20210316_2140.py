@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='volume_weight1',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
     ]

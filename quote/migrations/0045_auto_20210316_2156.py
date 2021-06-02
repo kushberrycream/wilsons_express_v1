@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='overall_volume',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
             name='overall_weight',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
@@ -28,21 +28,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='volume_weight',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight2',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight3',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight4',
-            field=models.CharField(blank=True, default=0, max_length=7, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
         ),
     ]

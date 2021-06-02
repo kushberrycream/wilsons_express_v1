@@ -22,12 +22,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='quote',
             name='actual_weight',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=7),
+            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
         migrations.AddField(
             model_name='quote',
             name='quote',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=7),
+            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
         migrations.AddField(
             model_name='quote',
@@ -38,6 +38,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='quote',
             name='volume_weight',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=7),
+            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
     ]

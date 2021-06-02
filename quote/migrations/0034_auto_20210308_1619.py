@@ -17,17 +17,17 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='height',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=7),
+            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='length',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=7),
+            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='width',
-            field=models.DecimalField(decimal_places=2, default=0, max_digits=7),
+            field=models.DecimalField(decimal_places=2, default=0, max_digits=10),
         ),
         migrations.DeleteModel(
             name='QuoteLineItem',

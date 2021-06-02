@@ -13,62 +13,62 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='height1',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='height2',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='height3',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='height4',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='length1',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='length2',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='length3',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='length4',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight1',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight2',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight3',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='volume_weight4',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
@@ -93,21 +93,21 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='width1',
-            field=models.DecimalField(blank=True, decimal_places=2, max_digits=7),
+            field=models.DecimalField(blank=True, decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='width2',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='width3',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
         migrations.AlterField(
             model_name='quote',
             name='width4',
-            field=models.DecimalField(decimal_places=2, max_digits=7),
+            field=models.DecimalField(decimal_places=2, max_digits=10),
         ),
     ]
