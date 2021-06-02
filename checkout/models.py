@@ -106,6 +106,8 @@ class OrderLineItem(models.Model):
     delivery_postcode = models.CharField(
         max_length=10, blank=False, null=False)
     items = models.CharField(max_length=1, blank=False, null=False)
+    chargable_weight = models.CharField(
+        max_length=20, blank=False, null=False)
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2,
         null=False, blank=False, editable=False)
@@ -115,6 +117,10 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
+        if self.booking.overall_volume > self.booking.overall_weight:
+            self.chargable_weight = self.booking.overall_volume
+        else:
+            self.chargable_weight = self.booking.overall_weight
         self.lineitem_total = self.booking.price
         super().save(*args, **kwargs)
 

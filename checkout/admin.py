@@ -5,7 +5,7 @@ from .models import Order, OrderLineItem
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
     readonly_fields = ('booking', 'collection_postcode',
-                       'delivery_postcode', 'items', 'lineitem_total',)
+                       'delivery_postcode', 'items', 'chargable_weight', 'lineitem_total',)
     can_delete = False
     extra = 0
 

@@ -20,30 +20,30 @@
     <div class="col-12 col-lg-6 order-lg-last mb-5">
       <p class="text-muted">Order Summary ({{ product_count }})</p>
       <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-8 offset-1">
           <p class="mb-1 mt-0 small text-muted">Details</p>
         </div>
-        <div class="col-2 p-0 pr-1 text-right">
-          <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+        <div class="col-3 p-0 pr-1 text-right">
+          <p class="mb-1 mt-0 small text-muted mr-2">Subtotal</p>
         </div>
       </div>
 
       {% for item in bag_items %}
       <div class="row">
-        <div class="col-4 offset-1">
+        <div class="col-5">
           <p class="my-0 small">Collection:</p>
           <p class="my-0 small"><strong>{{ item.booking.c_contact_name }}, {{ item.booking.c_company }}</strong></p>
-          <p class="my-0 small"><strong>{{ item.booking.c_street_address1 }}{% if item.booking.c_street_address2 %}, {{ item.booking.c_street_address2 }}{% endif %}</strong></p>
+          <p class="my-0 small"><strong>{{ item.booking.c_street_address1 }}{% if item.booking.c_street_address2 %}, {{item.booking.c_street_address2 }}{% endif %}</strong></p>
           <p class="my-0 small"><strong>{{ item.booking.c_town_or_city }}, {{ item.booking.c_county }}</strong></p>
           <p class="my-0 small"><strong> {{ item.booking.c_postcode }}</strong></p>
           <p class="my-0 small">Items: {{ item.booking.items }}</p>
           <p class="my-0 small">Weight: {% if item.weight > item.volume_weight %}{{ item.weight }}{% else %}{{item.volume_weight }}{% endif %}</p>
 
         </div>
-        <div class="col-4">
+        <div class="col-5">
           <p class="my-0 small">Delivery</p>
           <p class="my-0 small"><strong>{{ item.booking.d_contact_name }}, {{ item.booking.d_company }}</strong></p>
-          <p class="my-0 small"><strong>{{ item.booking.d_street_address1 }}{% if item.booking.d_street_address2 %}, {{ item.booking.d_street_address2 }}{% endif %}</strong></p>
+          <p class="my-0 small"><strong>{{ item.booking.d_street_address1 }}{% if item.booking.d_street_address2 %}, {{item.booking.d_street_address2 }}{% endif %}</strong></p>
           <p class="my-0 small"><strong>{{ item.booking.d_town_or_city }}, {{ item.booking.d_county }}</strong></p>
           <p class="my-0 small"><strong> {{ item.booking.d_postcode }}</strong></p>
           <p class="my-0 small">Services: {{ item.booking.service }}</p>
@@ -51,7 +51,7 @@
           <p class="my-0 small">Specialist Service: {{ item.booking.spec_service }}</p>
           {% endif %}
         </div>
-        <div class="col-3 text-right">
+        <div class="col-2 text-right">
           <p class="my-0 small text-muted">£{{ item.booking.price }}</p>
         </div>
       </div>
@@ -72,7 +72,7 @@
           <p class="my-0">£{{ vat | floatformat:2 }}</p>
           {% if ten_percent_delta == 0 %}
           <p class="my-0">£{{ ten_percent | floatformat:2 }}</p>
-          
+
           {% endif %}
           <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
         </div>
@@ -134,8 +134,8 @@
             </span>
             <span class="font-weight-bold">Adjust Bag</span>
           </a>
-          <button id="submit-button" class="btn btn-black rounded-0">
-            <span class="font-weight-bold">Complete Order</span>
+          <button id="submit-button" class="btn-dark btn btn-md rounded-0">
+            Complete Order
             <span class="icon">
               <i class="fas fa-lock"></i>
             </span>
