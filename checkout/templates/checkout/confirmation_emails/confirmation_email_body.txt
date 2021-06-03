@@ -16,7 +16,7 @@ Booking References:
 {{ item.booking.booking_ref}} - {{ item.booking.items }} @ {{ item.chargable_weight }}
 {% endfor %}
 
-We've got your phone number on file as {{ order.bookers_phone_number }} and an Email of {{ order.bookers_email}}.
+We've got your phone number on file as {{ order.phone_number }} and an Email of {{ order.email}}.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 
