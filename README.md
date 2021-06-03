@@ -59,21 +59,21 @@ A basic profile page is provided so users can keep on record any billing informa
 All Auth has been implemented to help with Authentification as this gives me all the functionality I need i just had to change the styling
 
 ### Skeleton
-[Homepage](https://github.com/kushberrycream/) 
+[Homepage](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/homepage.png?raw=true) 
 
-[Quote Page](https://github.com/kushberrycream/)
+[Quote Page](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/quote_page.png?raw=true)
 
-[Booking Page](https://github.com/kushberrycream/)
+[Booking Page](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/booking_page.png?raw=true)
 
-[Booking Bag](https://github.com/kushberrycream/)
+[Booking Bag](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/booking_bag.png?raw=true)
 
-[Checkout](https://github.com/kushberrycream/)
+[Checkout](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/checkout_page.png?raw=true)
 
-[Profile](https://github.com/kushberrycream/)
+[Profile](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/profile_page.png?raw=true)
 
-[FAQS](https://github.com/kushberrycream/)
+[FAQS](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/faqs_page.png?raw=true)
 
-[Contact Pafe](https://github.com/kushberrycream/)
+[Contact Page](https://github.com/kushberrycream/wilsons_express_v1/blob/master/media/wireframes/contact_page.png?raw=true)
 
 ### Surface
 The Homepage / Landing Page displays a full page background with a quote form. A Navbar is visible at the top throughout the site giving users access to almost anywhere from anywhere in the site. The rest of the site is a white container giving the site a clean and ledgable design and keeps it easy to read. Multiple forms are available to users, all with a uniform style and again helping keep the site clean and ledgable. I have used the font Montserrat as i believe it looks very modern and fits nicely with my website. Not many Images are needed for the site as the majority of it is forms for users to fill in.
