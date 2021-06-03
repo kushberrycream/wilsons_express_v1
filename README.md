@@ -144,7 +144,79 @@ All the testing throughout the site has been done manually. Such as the Quote fo
 
 All the python code is linted and debugged by gitpod so I have not had to worry about syntax or format as this has let me know throughout when I have not been using the correct syntax or I have input my code incorrectly. I have also been using django which helps as the debug mode gives a full indepth view of the issues. All the HTML and CSS pass validation with [W3 Validators](https://validator.w3.org) but HTML does throw up errors due to the fact I am using djangos templating but there are no major errors.
 
+My site is responsive on multiple media devices and viewports. I used googles DevTools to test all the different viewport resolutions, I also did this on Opera and firefox.
+I generally had no issues with this as I mainly used Bootstraps preset classes to help create a flexbox layout. All the pages respond correctly and every link acts in the expected way. I've had no console errors within my code and again act as expected.
 
+To avoid any issues with javascript I have stopped users being able to interact with the quote and booking form if they have javascript disabled, this will stop any bugs later on because users will be able to do things with the forms that I do not wish.
+
+My main issue throughout the development was the quote form as there didnt seem to be anything online to help me create this. Sometimes I would think it was working perfect and i would try it once more and I would get a database error or something similar. After quite sometime it does finally seem to be working as expected.
+
+Here are a few of the manual processes i've done to test my code:
+
+1. NavBar:
+    1. Throughout development I checked all links would respond correctly. By clicking links I was able to confirm this.
+    2. Next I went into Devtools and turned on mobile emulation to confirm the Toggler button appears, I would click to confirm the button worked correctly.
+    3. Once the links were displayed I clicked each to confirm the navbar opened the page and closed the navbar as intended.
+    4. I also checked all available viewports within devtools to makes sure it displayed correctly.
+    5. I next disabled javascript and can confirm the navbar still works as expected
+    6. All tests were a success and the only issues where trying to get the navbar dropdowns to work without javascript.
+
+2. Responsivness:
+    1. I went to Devtools on chrome and chose various viewports, checked to see any display issues.
+    2. If issues were discovered I would use Unicorn Revealer to see any hard to find padding / margin issues.
+    3. If data did not display properly I added relevant media queries or edited javascript or content until it was correct.
+    4. I then chose the responsive option on the viewports and checked as many resolutions as possible.
+    5. I repeated the processes for any errors in what was displayed.
+    6. I also checked the responsiveness on my personal iPhone and work Android as Devtools I find is not always 100% correct.
+    7. If any errors did occur I corrected them accordingly.
+
+3. Authentification:
+    1. First I navigated to the register page and signed up.
+    2. A confirmation message is displayed and confirmation email is sent asking to verify email.
+    3. I check my emails and can see a email with a link.
+    4. Once clicked I am taken back to my site's confirmation page.
+    5. Once confirmed a Success message displayes and now I can login.
+    6. When logged in as a superuser I am given complete access including the admin dashboard, when a user logs in they have access to a profile page.
+    7. I tested the social accounts by clicking each link and going through the process of linking the social accounts, both worked perfectly.
+  
+4. Booking Bag:
+    1. The booking bag was tested by booking multiple deliveries. Once booked I navigated to the bag.
+    2. In the bag I checked the table displayed correctly and also responded well when on different viewports.
+    3. This took a little while to get correct but after a few css tweeks it was looking good.
+
+5. Checkout:
+    1. Once the bag was full I can then proceed to the checkout.
+    2. A form is displayed with a small breakdown of the deliverys booked.
+    3. if the form is filled in incorrectly the correct validation errors are displayed.
+    4. I filled in the form and card details and confirmed they worked.
+    5. I was then shown a success page with a further breakown of the deliveries and cost.
+    6. I also selected the save details checkbox and it saved my details to my profile.
+
+6. Contact Form:
+    1. I filled in the form then a success message is displayed once submitted.
+    2. I checked my emails and it had arrived with the correct info.
+    3. I did this multiple times and improved the email each time.
+
+7. FAQS form:
+    1. If i am signed in as a superuser I have access to a form for adding FAQs.
+    2. The link displays correctly and opens up the form.
+    3. Once filled in and submitted the new FAQ is already available to see on the FAQ page.
+    4. This also works on the admin page too.
+
+8. Create Account Form:
+    1. I fill out the form and it submits correctly.
+    2. I then navigate to the admin and can see a new entry is in the create account section.
+    3. When selected it gives all the information just provided so a sales person can get in contact.
+
+9. Quote and Booking Forms:
+    1. Hundreds of times I filled in the forms and got different results many times.
+    2. First the services would not work correctly but that was how the form data was being read.
+    3. Next I realised a user can change the postcodes and get a cheaper price, this was avoided by making a user Request an updated quote if any inputs are changed.
+    4. Next I realised if the user goes to the booking page again they can change the postcodes so i displayed them as a variable not an input.
+    5. I then disabled the item inputs as they could also change these once a booking was partially done.
+    6. Many times when doing a dummy booking my data would be too long for the postgres table.
+    7. This only happened sometimes and had to change the values on the model and make migrations.
+    8. after many attempts this now seems to be working perfectly.
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 
