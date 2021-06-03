@@ -53,6 +53,7 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            order_form.jobs = len(bag.keys())
             order = order_form.save()
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid

@@ -10,7 +10,7 @@ Discount: {% if order.ten_percent_discount %} £{{ order.ten_percent_discount }}
 VAT: £{{ order.vat }}
 Grand Total: £{{ order.grand_total }}
 
-You have booked {{ len(order.lineitems.all) }} Jobs.
+You have booked {{ order.jobs }} Jobs.
 Booking References: 
 {% for item in order.lineitems.all %}
 {{ item.booking.booking_ref}} - {{ item.booking.items }} @ {{ item.chargable_weight }}

@@ -37,6 +37,7 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
+    jobs = models.IntegerField(null=True)
 
     @property
     def grand_total_format(self):
@@ -80,6 +81,7 @@ class Order(models.Model):
         else:
             self.ten_percent_discount = 0
         self.grand_total = self.grand_total - self.ten_percent_discount
+        self.jobs = self.lineitems.count()
         self.save()
 
     def save(self, *args, **kwargs):

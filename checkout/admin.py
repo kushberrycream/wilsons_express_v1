@@ -16,7 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
     readonly_fields = ('order_ref', 'user_profile', 'date', 'full_name',
                        'street_address1', 'street_address2',
                        'town_or_city', 'county', 'postcode',
-                       'country', 'email', 'phone_number',
+                       'country', 'email', 'phone_number', 'jobs',
                        'order_total_format', 'vat', 'ten_percent_format',
                        'grand_total_format',
                        'stripe_pid')
@@ -26,7 +26,7 @@ class OrderAdmin(admin.ModelAdmin):
                 'order_ref', 'user_profile', 'date', 'full_name',
                 'street_address1', 'street_address2',
                 'town_or_city', 'county', 'postcode',
-                'country', 'email', 'phone_number',
+                'country', 'email', 'phone_number', 'jobs',
                 'order_total_format', 'vat', 'ten_percent_format',
                 'grand_total_format', 'stripe_pid',),
             'classes': ('required', 'col-12'),
