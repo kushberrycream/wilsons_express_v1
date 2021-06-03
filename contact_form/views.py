@@ -13,16 +13,21 @@ def contact(request):
         if form.is_valid():
             subject = render_to_string(
                 'contact_form/emails/subject.txt',
-                {'sender_email': form.cleaned_data['from_email'],  'subject': form.cleaned_data['subject']})
-            body_text = render_to_string('contact_form/emails/body.txt',
-                {'sender_email': form.cleaned_data['from_email'], 'subject': form.cleaned_data['subject'],
-                'message': form.cleaned_data['message']})
-            body = render_to_string('contact_form/emails/body.html',
-                {'sender_email': form.cleaned_data['from_email'], 'subject': form.cleaned_data['subject'],
-                'message': form.cleaned_data['message']})
+                {'sender_email': form.cleaned_data['from_email'],
+                 'subject': form.cleaned_data['subject']})
+            body_text = render_to_string(
+              'contact_form/emails/body.txt',
+              {'sender_email': form.cleaned_data['from_email'],
+               'subject': form.cleaned_data['subject'],
+               'message': form.cleaned_data['message']})
+            body = render_to_string(
+              'contact_form/emails/body.html',
+              {'sender_email': form.cleaned_data['from_email'],
+               'subject': form.cleaned_data['subject'],
+               'message': form.cleaned_data['message']})
             from_email = form.cleaned_data['from_email']
             try:
-                send_mail(subject, body, from_email,
+                send_mail(subject, body_text, from_email,
                           ['tom@wilson-express.co.uk'], html_message=body)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')

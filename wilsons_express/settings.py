@@ -1,5 +1,7 @@
 import os
 import dj_database_url
+from django.views.decorators.clickjacking import xframe_options_exempt
+
 if os.path.exists("env.py"):
     import env  # noqa: F401
 """
@@ -67,6 +69,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_user_agents.middleware.UserAgentMiddleware',
 ]
+
+@xframe_options_exempt
+def ok_to_load_in_a_frame(request):
+    return HttpResponse("This page is safe to load in a frame on any site.")
 
 ROOT_URLCONF = 'wilsons_express.urls'
 

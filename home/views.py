@@ -126,7 +126,7 @@ def index(request):
             a_weight = float(form_data['weight'])
             items += 1
             quote.volume_weight = Weight(kg=v_weight)
-            
+
             # Item 2
             if 'weight1' in request.POST:
                 v_weight1 = float(form_data['height1']) * float(form_data[
