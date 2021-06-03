@@ -455,6 +455,10 @@ def quote(request):
 
 
 def partial_quote(request, quote_ref):
+    """
+    a view to obtain a quote from the homepage when the homepage 
+    quote form is used
+    """
     SCOT_SURCHARGE = (
         'AB', 'PA', 'PH', 'FK', 'KA', 'HS', 'IV', 'KW', 'ZE',
         'DD', 'DG', 'EH', 'KY', 'ML', 'TD', 'G1', 'G2', 'G3',

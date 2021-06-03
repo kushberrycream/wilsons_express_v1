@@ -11,7 +11,7 @@ def view_bag(request):
 
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shoppingbag """
+    """ Add a booking to the bag """
 
     quote = get_object_or_404(Quote, quote_ref=item_id)
     bag = request.session.get('bag', {})
@@ -27,7 +27,7 @@ def add_to_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """ remove the item from the shopping bag """
+    """ remove the booking from the bag """
 
     try:
         booking = get_object_or_404(Bookings, booking_ref=item_id)

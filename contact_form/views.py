@@ -6,6 +6,10 @@ from .forms import ContactForm
 
 
 def contact(request):
+    """ 
+    a view to display a email form and to send the email
+    also to show a google map and contact info.
+    """
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -36,6 +40,9 @@ def contact(request):
 
 
 def success(request):
+    """ 
+    the same as the contact view except it displays a success message 
+    """
     if request.method == 'GET':
         form = ContactForm()
     else:

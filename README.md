@@ -140,6 +140,11 @@ Here is a list of all the technologies used throughout the project!
 </p>
 
 ## Testing
+All the testing throughout the site has been done manually. Such as the Quote form, this was tested manually by completing the form and seeing the results. This was very tedious as it meant filling out the same form possible hundreds of times. There may be a way in which I could do this Automatically. 
+
+All the python code is linted and debugged by gitpod so I have not had to worry about syntax or format as this has let me know throughout when I have not been using the correct syntax or I have input my code incorrectly. I have also been using django which helps as the debug mode gives a full indepth view of the issues. All the HTML and CSS pass validation with [W3 Validators](https://validator.w3.org) but HTML does throw up errors due to the fact I am using djangos templating but there are no major errors.
+
+
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 
