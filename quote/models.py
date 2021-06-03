@@ -166,9 +166,9 @@ class Quote(models.Model):
       max_length=8, verbose_name='Collection Postcode',
       blank=False)
     overall_weight = models.CharField(
-      max_length=100, blank=True, default=0, verbose_name="Actual Weight")
+      max_length=120, blank=True, default=0, verbose_name="Actual Weight")
     overall_volume = models.CharField(
-      max_length=100, blank=True, default=0, verbose_name="Volume Weight")
+      max_length=120, blank=True, default=0, verbose_name="Volume Weight")
     # item 1
     weight = models.DecimalField(
       help_text="Max 30kg's", max_digits=5, decimal_places=2,

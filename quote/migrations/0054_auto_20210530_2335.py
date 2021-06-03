@@ -14,12 +14,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='bookings',
             name='overall_volume',
-            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=100, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='bookings',
             name='overall_weight',
-            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Actual Weight'),
+            field=models.CharField(blank=True, default=0, max_length=100, verbose_name='Actual Weight'),
         ),
         migrations.AlterField(
             model_name='bookings',
@@ -74,12 +74,12 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='quote',
             name='overall_volume',
-            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Volume Weight'),
+            field=models.CharField(blank=True, default=0, max_length=100, verbose_name='Volume Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
             name='overall_weight',
-            field=models.CharField(blank=True, default=0, max_length=10, verbose_name='Actual Weight'),
+            field=models.CharField(blank=True, default=0, max_length=100, verbose_name='Actual Weight'),
         ),
         migrations.AlterField(
             model_name='quote',
