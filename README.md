@@ -52,17 +52,16 @@ The main Purpose of the site is to have users interact with the website to eithe
 This is a multiple page website, each page will display the main navigation bar with links to pages such as the quote page. Some of the links on the main navigation take you away from my site for things such as Tracking a parcel or rescheduling a delivery. I did not need to build custom versions of these as APC overnight provide us with this functionality.
 The homepage displays a large CTA pointing users to use the quote form. If the user chooses to use the form they are taken to the quotes page with all the quote information. On the Quotes page two links are available one to obtain the quote and the other to proceed with the quote and enter delivery/collection information. The Enter details button only works if the form has been filled in and a quote has been obtained, if any fields are changed then the enter details button is disabled. 
 I have two forms, one if for requesting a credit account, once completed this will add an entry into the create account section on the admin dashboard, once reviewed a member of the salesteam will be in contact to arrange the account. The Second form is a standard contact form for which sends an email to a member of staff, this can be used for general parcel enquires or site recommendations and even possible bugs.
-A FAQ's page is supplied to give users more information. Employees are able to update this from the main site by either going to the FAQs page and editing existing FAQs or thye can go to the add FAQ page and enter a new qauestion and answer.
+A FAQ's page is supplied to give users more information. Employees are able to update this from the main site by either going to the FAQs page and editing existing FAQs or they can go to the add FAQ page and enter a new qauestion and answer.
 The bookings bag gives the user a clear overview of all the bookings they have made, it also give the ability to delete bookings as they may not be needed no more.
 From the bag the user can proceed to the checkout page where a Billing form is provided and another breakdown of the bookings. Once the Checkout is completed the user is presented with a confirmation of purchase. 
 A basic profile page is provided so users can keep on record any billing information or they can even view previous bookings.
-
+All Auth has been implemented to help with Authentification as this gives me all the functionality I need i just had to change the styling
 
 ### Skeleton
 
 ### Surface
-The Homepage / Landing Page displays a full page background with the quote form with a white background and a small introduction, When a user navigates through the page a white container sits on top allowing on most screen for the APC overnight logo to be visible. Giving the main content a white background helps to keep the contents clear and legable to the end user. The font used is Montserrat as I think it is very clean, minimal and practical. All the forms and buttons all follow the same styling and keeping in with all the companies colors.
-The store follows the same design as the rest of the site but displays a list of products in a gallery style layout.
+The Homepage / Landing Page displays a full page background with a quote form. A Navbar is visible at the top throughout the site giving users access to almost anywhere from anywhere in the site. The rest of the site is a white container giving the site a clean and ledgable design and keeps it easy to read. Multiple forms are available to users, all with a uniform style and again helping keep the site clean and ledgable. I have used the font Montserrat as i believe it looks very modern and fits nicely with my website. Not many Images are needed for the site as the majority of it is forms for users to fill in.
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 
@@ -95,7 +94,9 @@ Here is a list of all the technologies used throughout the project!
 - [Amazon S3](https://aws.amazon.com/s3/)
     - Amazon S3 is used for online storage of all my images and static files.
 - [Font Awesome](https://fontawesome.com/)
-    - Font Awesome was used for all of my icons.
+  - Font Awesome was used for all of my icons.
+- [Google Maps Api](https://developers.google.com/maps/gmp-get-started) 
+  - The contact page displays a map allowing users to find our location.
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 
@@ -148,7 +149,24 @@ It will then Deploy Automatically as I have automatic deploys turned on.
 7. The site is almost deployed but I then needed to go to the settings section and let Heroku know of any enviroment variables such as the ip, Port, Secret key, database URI, etc.
 
 ### Using Amazon S3 Data storage
-1.
+1. Sign up for AWS and navigate to S3.
+2. Create a new bucket and name it a sensible name.
+3. Unblock all Public Access and acknowledge you understand it is going to be public.
+4. In the properties tab turn on static website hosting and enter some default error and index values.
+5. Next create a coors configuration, a security policy and set the objects permissions for everyone under the public access section.
+6. Using AWS IAM we create an access policy giving the group access to the s3 bucket.
+7. Using amazons s3 full access policy I then link this up to the bucket i ish to allow access to.
+8. Once a policy is created it can be attatched to the group by crreating a user.
+9. Download the csv with the users access key and secret access key
+
+### Connecting Django to S3
+1. Install boto3 and django-storages.
+2. Add storages to settings in django and also all the AWS variables and settings.
+3. Don't add the user access key or the secret key otherwise this will be a security issue.
+4. Add the enviroment variables to the heroku config variables.
+5. In production I also want to tell django that s3 will be used to collect static data.
+6. create a new file called custom storages and create a few custom classes.
+7. In settings let django know we want to use the custom storage classes.
 
 ### Cloning the repository
 To run this repository locally:
@@ -157,6 +175,7 @@ To run this repository locally:
 3. Open up Terminal and select the location in which you wish to clone this directory.
 4. Then type `git clone` and copy `https.` 
 5. Press enter and you will have succesfully cloned this Repository. 
+
 ### Installing dependencies
 Installing Dependencies is very simple and I have supplied a requirements.txt to help with this process. Once the repository has been cloned before it can be ran the user will need to open the terminal on their IDE and type `pip3 install -r requirements.txt`. All the dependencies should now download and you are ready to go.
 
@@ -166,13 +185,16 @@ Installing Dependencies is very simple and I have supplied a requirements.txt to
 
 ## Credits
 ### Content
-- 
+- All External Links are owned and operated by APC Overnight.
+- FAQ's have been found on [APC Overnights](https://apc-overnight.com/) Website and also a few other APC Depots websites. 
 ### Media
 - [APC Overnight Background](https://www.apc-overnight.com) This is the picture used throughout the site as the background as an employee I have access to these images.
 - [Favicon](https://www.apc-overnight.com) The APC logo was obtained through my currect employment.
-
 ### Acknowledgments
 - [Django Documentation](https://docs.djangoproject.com/en/3.1/) This helped me with the syntax and any queries I had with the Django Framework as alot of the Examples, and other questions online dealt with different versions of Django.
+- [StackOverflow](https://stackoverflow.com/questions/50346326/programmingerror-relation-django-session-does-not-exist/) StackOverflow really helps! 9/10 someone has already asked my questions and have got the answers. It saves alot of time when it comes to working out problems.
+- [Google](www.google.co.uk) Google is my biggest resource again someone has usually asked my questions.
+- [Boutique Ado](www.code-institute.net) The site was originally built around the boutique ado project and was then updated and turned into a quote / booking platform instead of a store.
 
 <p align="right">
   <a href="#contents">Back to Contents :arrow_heading_up:</a> 

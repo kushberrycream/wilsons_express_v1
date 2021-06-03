@@ -5,6 +5,8 @@ from django.shortcuts import (
 from measurement.measures import Weight
 from quote.forms import QuoteForm
 from quote.models import Quote
+from django.views.decorators.clickjacking import xframe_options_exempt
+from django.http import HttpResponse
 
 
 def index(request):
@@ -424,6 +426,11 @@ def index(request):
             quote.save()
 
             return redirect(reverse('partial_quote', args=[quote.quote_ref]))
+
+    @xframe_options_exempt
+    def ok_to_load_in_a_frame(request):
+        return HttpResponse(
+          "This page is safe to load in a frame on any site.")
 
     context = {'quote_form': quote_form, }
 
