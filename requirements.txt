@@ -19,7 +19,7 @@ measurement==3.2.0
 mpmath==1.2.1
 oauthlib==3.1.0
 phonenumbers==8.12.20
-Pillow==8.1.2
+Pillow==9.0.0
 psycopg2-binary==2.8.6
 PyJWT==2.0.0
 python-stdnum==1.16
